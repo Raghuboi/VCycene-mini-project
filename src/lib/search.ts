@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { requireSourceTickets } from "./source";
 
 export const QUEUE_VIEWS = ["all", "active", "resolved"] as const;
 export type QueueView = (typeof QUEUE_VIEWS)[number];
@@ -8,7 +9,9 @@ export type QueueView = (typeof QUEUE_VIEWS)[number];
  * Strict, so a stray parameter is a clear error instead of silently ignored state.
  */
 export const queueSearchSchema = z.strictObject({
-  ticket: z.string().regex(/^T-\d{3}$/, "Ticket selections look like T-101.").optional(),
+  ticket: z.string().regex(/^T-\d{3}$/, "Ticket selections look like T-101.")
+    .refine((id) => requireSourceTickets().some((ticket) => ticket.TICKET_ID === id), "That ticket is not in the supplied queue.")
+    .optional(),
   view: z.enum(QUEUE_VIEWS).optional(),
 });
 

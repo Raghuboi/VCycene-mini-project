@@ -1,5 +1,4 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Link } from "@tanstack/react-router";
 
 import { asQueueProblem } from "../lib/edits";
 import { QUEUE_QUERY_KEY, resetStoredEdits } from "../lib/queue";
@@ -33,8 +32,8 @@ export function QueueLoadError({ error, onRetry }: { error: unknown; onRetry: ()
     mutationFn: async () => resetStoredEdits(),
     networkMode: "always",
     retry: false,
-    onSuccess: () => {
-      void queryClient.resetQueries({ queryKey: QUEUE_QUERY_KEY });
+    onSuccess: (snapshot) => {
+      queryClient.setQueryData(QUEUE_QUERY_KEY, snapshot);
     },
   });
 
@@ -73,9 +72,6 @@ export function QueueLoadError({ error, onRetry }: { error: unknown; onRetry: ()
             Download a backup of the stored value
           </Button>
         ) : null}
-        <Link to="/" search={{ view: "all" }} className="text-sm text-primary underline underline-offset-4">
-          Return to queue
-        </Link>
       </div>
 
       {canReset ? (
@@ -92,7 +88,7 @@ export function QueueLoadError({ error, onRetry }: { error: unknown; onRetry: ()
           </Button>
           {reset.isError ? (
             <p role="alert" className="text-sm text-destructive">
-              Reset failed: {asQueueProblem(reset.error).message} Nothing was removed.
+              Reset failed: {asQueueProblem(reset.error).message} The saved value was not replaced.
             </p>
           ) : null}
         </form>

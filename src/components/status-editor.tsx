@@ -93,7 +93,12 @@ export function StatusEditor({ ticket }: { ticket: CommittedTicket }) {
 
   const pending = save.isPending;
   const problem = save.isError ? asQueueProblem(save.error) : null;
-  const canReload = problem !== null && (problem.kind === "conflict" || problem.kind === "corrupt");
+  const canReload = problem?.kind === "conflict";
+
+  function openStorageRecovery() {
+    if (!window.confirm("Saved queue data became unreadable. Copy your unsaved note elsewhere first. Opening backup and reset will discard this draft. Continue?")) return;
+    void queryClient.resetQueries({ queryKey: QUEUE_QUERY_KEY });
+  }
 
   return (
     <div className="space-y-3">
@@ -104,6 +109,7 @@ export function StatusEditor({ ticket }: { ticket: CommittedTicket }) {
         className="space-y-4"
       >
         <fieldset disabled={pending} className="space-y-4">
+          <legend className="sr-only">Record a ticket update</legend>
           <div className="space-y-1.5">
             <Label htmlFor="status">Status</Label>
             <NativeSelect
@@ -172,6 +178,13 @@ export function StatusEditor({ ticket }: { ticket: CommittedTicket }) {
             <div className="mt-2">
               <Button variant="outline" size="sm" onClick={handleReload} disabled={reload.isPending}>
                 {reload.isPending ? "Reloading…" : "Reload saved version"}
+              </Button>
+            </div>
+          ) : null}
+          {problem.kind === "corrupt" || problem.kind === "unsupported" ? (
+            <div className="mt-2">
+              <Button variant="outline" size="sm" onClick={openStorageRecovery}>
+                Open backup and reset options
               </Button>
             </div>
           ) : null}

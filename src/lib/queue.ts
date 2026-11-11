@@ -176,8 +176,10 @@ export function submitTicketUpdate(input: SaveInput): SaveResult {
 
 /** Recovery path for unreadable saved data: remove only this application's key, then reload. */
 export function resetStoredEdits(): QueueSnapshot {
+  // Validate the source and construct the replacement before deleting the only saved copy.
+  const replacement = mergeSnapshot(requireSourceTickets(), createEmptyEdits());
   clearEdits();
-  return loadSnapshot();
+  return replacement;
 }
 
 /**

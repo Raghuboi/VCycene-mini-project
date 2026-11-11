@@ -24,9 +24,9 @@ export function QueueTable({
   view: QueueView;
 }) {
   return (
-    <Table className="queue-table">
-      <TableHeader>
-        <TableRow className="hover:bg-transparent">
+    <Table className="queue-table" role="table" aria-label="Prioritized tickets">
+      <TableHeader role="rowgroup">
+        <TableRow role="row" className="hover:bg-transparent">
           <TableHead className="w-[16rem]">Ticket</TableHead>
           <TableHead className="min-w-[16rem]">Issue</TableHead>
           <TableHead className="min-w-[18rem]">Why it comes first</TableHead>
@@ -34,15 +34,15 @@ export function QueueTable({
           <TableHead className="w-[10rem]">Status</TableHead>
         </TableRow>
       </TableHeader>
-      <TableBody>
+      <TableBody role="rowgroup">
         {rows.map(({ ticket, assessment }) => {
           const ticketId = ticket.source.TICKET_ID;
           const selected = ticketId === selectedId;
           const timing = replyTimingLabel(ticket.source);
 
           return (
-            <TableRow key={ticketId} data-state={selected ? "selected" : undefined}>
-              <TableCell>
+            <TableRow role="row" key={ticketId} data-state={selected ? "selected" : undefined}>
+              <TableCell role="cell">
                 <Link
                   to="/"
                   search={{ ticket: ticketId, view }}
@@ -57,19 +57,26 @@ export function QueueTable({
                   {ticket.revision > 0 ? " · saved update" : ""}
                 </div>
               </TableCell>
-              <TableCell>
+              <TableCell role="cell">
+                <span className="text-[0.7rem] font-semibold uppercase text-muted-foreground sm:hidden">Issue</span>
                 <p className="line-clamp-2 text-foreground">{ticket.source.ISSUE}</p>
               </TableCell>
-              <TableCell>
+              <TableCell role="cell">
+                <span className="text-[0.7rem] font-semibold uppercase text-muted-foreground sm:hidden">Why it comes first</span>
                 <div className="mb-1 flex items-center gap-2">
                   <BandBadge band={assessment.band} />
                 </div>
                 <p className="line-clamp-2 text-xs text-muted-foreground">{assessment.headline}</p>
+                {assessment.facts.claimWindowClosesDay !== null ? (
+                  <p className="mt-1 text-xs font-medium text-destructive">{assessment.timing[0]}</p>
+                ) : null}
               </TableCell>
-              <TableCell>
+              <TableCell role="cell">
+                <span className="text-[0.7rem] font-semibold uppercase text-muted-foreground sm:hidden">Reply timing</span>
                 <span className={`text-xs ${TIMING_TONE[timing.tone]}`}>{timing.label}</span>
               </TableCell>
-              <TableCell className="whitespace-nowrap">
+              <TableCell role="cell" className="whitespace-nowrap">
+                <span className="mr-2 text-[0.7rem] font-semibold uppercase text-muted-foreground sm:hidden">Status</span>
                 <StatusBadge status={ticket.status} />
               </TableCell>
             </TableRow>
