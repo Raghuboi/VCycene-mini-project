@@ -1,15 +1,18 @@
 # Project instructions
 
 Read [rubric.md](rubric.md), [tickets.csv](tickets.csv), and the current decisions in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1).
-The initial specification is [docs/plan.md](docs/plan.md); execution instructions are [docs/codex-handoff.md](docs/codex-handoff.md).
+The specification is [docs/plan.md](docs/plan.md), the state and evidence contract is [docs/state-and-verification.md](docs/state-and-verification.md), and execution instructions are [docs/codex-handoff.md](docs/codex-handoff.md).
 Until the owner settles the draft plan, continue planning only.
 
 ## Delivery rules
 
 - Build the ordinary support workflow defined by the rubric. The fictional operating date is 5 October 2026.
-- Target three hours total and stop at four, counting planning. Preserve a reviewable checkpoint at the deadline.
+- The rubric targets three hours and says to stop at four. Our conservative budget includes planning; record prior work and the actual stop time before execution. Preserve a reviewable checkpoint at the deadline.
 - Create no unit tests, mocks, fake successful actions, or redundant CI. Verify the real browser flow and saved state; retain relevant type/build checks.
-- Use explicit status ownership and native library patterns. Keep the smallest complete implementation.
+- Use React, Vite, TypeScript, shadcn layout/components, TanStack Router, TanStack Query, and Zod. Borrow only needed block fragments; remove sample charts, accounts, navigation, and fake copy.
+- Router owns selection and view; Query owns the loaded snapshot and save lifecycle; native form controls own drafts; CSS owns layout; pure functions own derived policy. One versioned localStorage edits document is the proposed durable authority.
+- Do not author useState/useEffect for those responsibilities. No shadow store, derived-state effects, or state disguised in refs. Any genuinely necessary hook exception needs a concrete reason and observed behavior; third-party internals are not a reason to rewrite libraries.
+- Keep one status enum and one save owner. Use native library APIs, boundary validation, and the smallest complete implementation.
 - Preserve original ticket facts. Notes/status edits never imply a sent reply, warehouse receipt, carrier filing, shipment, or refund.
 - Keep current task state and evidence in GitHub. Every completed issue names the observed result and its limits.
 - Use one implementation owner and one bounded review of a fixed candidate. No recursive delegation or automatic merge.

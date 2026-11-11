@@ -6,6 +6,7 @@ This packet currently authorizes planning and draft issues. It does not claim th
 ## Task
 
 Build the VCycene Monday queue exercise in this repository using the accepted [build plan](plan.md).
+Use the owner's requested extra-high reasoning setting where the execution host supports it; record the actual setting. This does not enlarge scope or the time budget.
 The evaluator opens a normal browser application. The input is the supplied twelve-ticket CSV.
 Complete the mandatory tool behaviours and one chosen extra, then prepare the required submission document.
 
@@ -20,7 +21,7 @@ The fictional operating date is 5 October 2026. Do not substitute the real curre
 4. Identify one implementation branch, one preview owner, existing browser tools, and the delivery route.
 5. Check applicable project instructions and dependency versions. Skills guide the implementation; owner constraints prevail.
 
-No four-hour clock reset is implied. The full assignment has a four-hour cap, including planning.
+No four-hour clock reset is implied. The rubric says to stop at four hours; our conservative budget includes planning because the source defines no exclusion.
 If the remaining allowance cannot be determined, report that specific blocker for a time-compliance claim. Independent review of the plan may continue.
 Do not claim an overlong run complied with the cap.
 
@@ -36,7 +37,10 @@ Final build notes must use an actual observed AI error and actual tool results.
 
 ## Implementation contract
 
-Use the accepted static React/Vite/TypeScript approach and local browser persistence unless D1 explicitly changes it.
+Use React/Vite/TypeScript, shadcn layout fragments, TanStack Router/Query, and Zod. Local browser persistence depends on D1. Read [the state and verification contract](state-and-verification.md) before implementing.
+Router owns ticket/view parameters; Query owns one loaded snapshot and save lifecycle; native form controls own draft status/note. Derive policy values directly and use CSS for layout. No first-party useState/useEffect for those responsibilities, no shadow state, and no generic store/repository framework.
+Use one code-based route, one storage module, one policy owner, and a native two-field form. Validate the actual CSV, URL input, saved document, and save command at their boundaries. Do not add TanStack Form/Table merely because they exist.
+Save only explicit commands. Capture the ticket ID/revision; successful storage write is the commit point; publish the canonical snapshot through hook-level mutation success. Use local Query operations offline, prevent duplicate submissions, retain failed drafts, and confirm dirty navigation. Never silently seed over or reset saved edits.
 Use the actual CSV and a supported parser. Keep original facts/notes separate from saved operator edits.
 Put priority rules and reasons under one owner. Use an explicit status model and save operation.
 Do not add a backend, runtime model, credentials, external support integrations, broad import system, or dashboard unless the accepted scope changes.
@@ -58,15 +62,17 @@ One implementation owner and one bounded review are enough for this scope.
 Read missing skill dependencies before applying them; if a host feature is unavailable, use available instructions and state the limitation.
 Do not spend the task installing a skill ecosystem.
 
+Follow the compact PR sequence in that contract: keep planning PR #6, then one working-queue PR with independently verified milestones. Add a separate submission/delivery PR only when it represents separate changes. User review/merge is not a polling loop: finish independent work and leave an exact handoff if blocked.
+
 ## Evidence
 
 Verify the running interface and persisted result. Source inspection or a successful build alone is not completion.
-Use the plan's acceptance sequence and capture only evidence that establishes a requirement.
+Use the state contract's core acceptance matrix and bounded failure checks. Capture only evidence that establishes a requirement. Do not mark a write-failure path observed unless a real failure was induced; no mocked browser APIs.
 Record the candidate SHA, URL or command, actual action, observed result, and material limit.
 A read-only reviewer returns separate Spec and Standards reports, each under 400 words.
 Repair concrete failures and repeat only the affected verification.
 
-Record a real AI error when it occurs. Do not manufacture one for build notes.
+Record a real AI error when it occurs. Do not manufacture one for build notes. Start the required customer/team writing from [the reviewed drafts](submission-drafts.md), then keep claims and word counts current.
 Keep current state in the owning issue. Use comments for meaningful decisions, blockers, observations, and handoffs.
 Do not duplicate every status report across all issues and documents.
 

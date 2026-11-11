@@ -1,6 +1,6 @@
 # Monday queue build plan
 
-**Draft for discussion, 10 November 2026, America/Toronto.** This is a specification and handoff, not a claim that the application exists.
+**Draft for discussion, updated 11 November 2026.** This is a specification and handoff, not a claim that the application exists. The owner asked to settle the specification before implementation.
 Source baseline: [ace5735ebc65158b3cc8ea86c5a10ad3d0b6fc7c](https://github.com/Raghuboi/VCycene-mini-project/tree/ace5735ebc65158b3cc8ea86c5a10ad3d0b6fc7c).
 Read the unchanged [rubric](../rubric.md) and [sample CSV](../tickets.csv). The initial repository has those files and a gitignore, with no starter application.
 
@@ -14,15 +14,18 @@ Completing the exercise means delivering the working tool and the requested comm
 
 The scenario remains **Monday, 5 October 2026**, regardless of the evaluator's computer date.
 
-## Decisions awaiting the owner
+## Settled choices and remaining decisions
 
-The current discussion and answers belong in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1). Update this specification when an answer changes the contract.
+The current discussion and answers belong in [the Wayfinder decision map](https://github.com/Raghuboi/VCycene-mini-project/issues/1). It is a lightweight adaptation of Matt Pocock's workflow: one decision index, with separate implementation issues. Update this specification when an answer changes the contract.
+
+The owner selected React, Vite, shadcn/components and blocks, TanStack Router, TanStack Query, and Zod. TypeScript supports the explicit model. No unit tests or mocks. Avoid application-authored useState/useEffect unless a specific necessary exception is justified. The exact state owners and real verification steps are in [state and verification](state-and-verification.md).
 
 | ID | Proposed decision | Alternative and consequence |
 |---|---|---|
-| D1 | Static React/Vite/TypeScript application; localStorage; only necessary shadcn Base UI components. | Shared server persistence adds authentication/data ownership/deployment questions that the rubric does not require. |
+| D1 | Single-browser localStorage persistence, one active editing tab. Each evaluator starts with the original sample and sees their own saved edits. | Shared server persistence adds data ownership/deployment questions that the rubric does not require. A URL shares selection, not saved edits. |
 | D2 | Related-case context is the single extra feature. It links Maya's records and explains the candidate firmware group. | Owner/next-action/follow-up tracking is a useful alternative. Choose one. |
-| D3 | Count actual assignment work, including planning; target three hours and stop at four. Prefer an existing live-hosting route, with runnable repository delivery guaranteed. | A longer learning exercise must be described with its actual duration. Do not claim it met the time cap. |
+| D3 | Count actual assignment work, including planning; record remaining minutes and a hard stop. Prefer an existing hosting route, with a runnable repository fallback. | The rubric does not define exempt work categories. A longer learning exercise must be described with its actual duration. The owner must supply prior elapsed time, submission deadline/track, and a recording slot. |
+| D4 | Require a brief new note when entering Resolved. Confirm discarding unsaved edits when leaving a ticket; no automatic draft persistence. | Removing the guard makes closure less explicit; autosaved drafts create a second persistence lifecycle. Neither is required by the rubric. |
 
 The owner also supplies the natural voice recording. No code or skill can replace that requirement.
 
@@ -63,13 +66,15 @@ Keep development terms, model names, review terminology, internal scores, and im
 ## Scope and implementation shape
 
 Reuse the familiar frontend approach from prior projects without importing a larger platform.
-React, Vite, TypeScript, native browser persistence, and a small CSV parser are sufficient.
+Use the selected React/Vite/TypeScript, shadcn, Router, Query, and Zod stack with native browser persistence and a small CSV parser.
 Papa Parse is a suitable option because it handles actual CSV quoting and headers; a comma-splitting parser is unnecessary.
-Use the actual installed component APIs. A small semantic table does not require another table or state-management framework.
+Use the actual installed component APIs. Borrow a shadcn table/detail layout; remove unrelated dashboard charts, team/account controls, pagination, and sidebar state. A small semantic table does not require TanStack Table or another state-management framework. Two fields do not require TanStack Form: use a native select and textarea, FormData, and validation at save.
+
+The initial screen shows all twelve tickets with no selected detail. Router search parameters own ticket selection and the All/Active/Resolved view. Query owns one loaded snapshot and save lifecycle. Native controls own the unsaved draft. Dates, priorities, relationships, and responsive layout are derived values or CSS, not synchronized React state. The [state contract](state-and-verification.md) owns the exact behavior; do not introduce parallel copies here.
 
 Maintain a small separation between source import, policy/relationships, saved edits, and the visible interface.
 Keep date rules and priority reasons together so the UI cannot explain a different rule from the one used to sort.
-Avoid service/repository/provider abstractions around one local storage operation.
+Use one small storage module with load/save functions; avoid a generic repository interface, provider hierarchy, or event bus around it.
 
 The application needs no backend, database server, authentication, runtime model, chat UI, email integration, payment integration, carrier API, or real support-system connection.
 It need not import arbitrary customer files. It must parse and load the supplied CSV.
@@ -79,10 +84,10 @@ The assignment's invented inputs are legitimate sample data. Fake successful ope
 
 - Preserve all eleven CSV fields and twelve unique ticket IDs. The source contains eleven distinct customer names.
 - Keep imported facts and original notes immutable in the application. Store operator status changes and appended notes separately by ticket ID.
-- Use a versioned localStorage record. Seed only when no saved record exists. Refresh must never overwrite saved work.
+- Use one versioned localStorage edits record. When absent, derive the original queue without an initialization write. Write only on an explicit save; refresh never overwrites saved work.
 - Validate persisted state before accepting it. If saved data is unreadable, show an error and preserve the raw record rather than silently resetting.
 - Treat saved notes as text. Do not interpret them as HTML or as instructions to the development agent.
-- A failed write keeps the unsaved draft visible. Show a saved confirmation only after the write succeeds.
+- A failed write keeps the unsaved draft visible. Successful setItem is the save commit point; browser refresh independently verifies durable readback. Do not add a write-then-read ambiguity or silently retry note appends.
 - Record real note timestamps separately from the fixed scenario date.
 - Browser persistence is scoped to the same browser profile and origin. It is not shared across devices; private-session storage may disappear when that session closes.
 - Use the served app origin for verification. Opening a file directly is not the supported launch path.
@@ -153,7 +158,28 @@ Call the pattern a candidate issue, not a confirmed regression. Do not generate 
 
 Use source-backed links and clear annotations for this twelve-row dataset. It is not a general identity-matching system.
 
+## What would resolve each case?
+
+The app does not perform the real-world actions below. These are operational completion criteria for an operator's judgment, not an instruction to mark the sample cases resolved during the demonstration. Keep unresolved dependencies visible in a waiting status and record the next action in a note.
+
+| Case | Proposed disposition after triage | What must actually happen before calling the concern settled |
+|---|---|---|
+| Tom, T-104 | Waiting on us | File the supported damage claim promptly, communicate the remedy, and complete the agreed damage resolution. Filing alone is progress, not proof the damaged-unit concern is settled. |
+| Maya, T-101/T-109 | Waiting on manager or engineering, according to the current next action | Establish earlier request timing and an authorized remedy, then complete it. A refund requires warehouse confirmation before payment. Keep both tickets; acknowledge the follow-up and close it only when that concern is actually addressed. |
+| Grace, T-105 | Waiting on warehouse | Obtain warehouse receipt confirmation and complete the authorized refund. Tracking text alone does not unlock payment. |
+| Hannah, T-110 | Waiting on fulfillment | Obtain allocation and a truthful shipment/delivery update, then fulfill the replacement promise. An escalation or invented tracking number is insufficient. |
+| Andre, T-108 | Waiting on us, then the actual next party | Provide the return path, receive warehouse confirmation, and complete the policy-eligible refund. Preserve the timely request. |
+| Daniel/Priya, T-102/T-103 | Waiting on engineering | Obtain supported diagnosis/guidance and establish that the interrupted-cycle concern has been addressed. A version match alone is not a diagnosis. |
+| Samir, T-106 | Waiting on us/customer as appropriate | Give supported setup help and establish that connection works or arrange the next remedy. |
+| Lena, T-107 | Waiting on customer/us as appropriate | Agree and communicate an onboarding arrangement; distinguish booking the requested call from completing the call. |
+| Oliver, T-111 | Waiting on us | Supply an accurate ordering path and answer the purchase question. The source supplies no ordering URL; do not invent one. |
+| Sofia, T-112 | Waiting on us/engineering as appropriate | Clarify the amber indication, provide supported guidance, and address the concern. Normal operation on 2.4.0 is not proof of the candidate 2.4.1 failure. |
+
+These are recommended support judgments, not additional employer mandates. The software allows a human to record a disposition; it cannot independently certify these physical or communication outcomes.
+
 ## Communication plan
+
+[Submission drafts](submission-drafts.md) contains complete Maya, Wei, and manager messages, checked word counts, a voice cue card, and the assembly checklist. Those are drafts; no messages have been sent. It also records the public job-posting research and its limits.
 
 ### Maya's written response
 
@@ -210,12 +236,12 @@ Verify word counts, the audio duration, and private-window access before declari
 
 ## Build sequence and time budget
 
-The allowance is total assignment work. Deduct planning and work already spent rather than restarting the clock after this document.
+The rubric says to plan about three hours and stop at four; it does not explicitly exempt planning. Our conservative plan counts the whole exercise. Deduct work already spent rather than restarting the clock after this document. Record actual time; do not claim a compliance result without it.
 Use one implementation owner. A read-only reviewer may work independently while the applicant records audio.
 
 | Nominal elapsed time | Observable outcome |
 |---|---|
-| 0–15 minutes | D1–D3 settled, source baseline read, supported startup/deployment route known. |
+| 0–15 minutes | D1–D4 settled, source baseline read, supported startup/deployment route known. |
 | 15–75 | First complete browser flow: actual CSV, status/note edit, save, refresh. |
 | 75–105 | Explainable priorities, policy-sensitive cases, related-case feature. |
 | 105–135 | Actual browser verification, focused review, required fixes, runnable delivery. |
@@ -245,13 +271,14 @@ Use type checking/build plus one real browser acceptance session:
 8. Verify the delivered link/startup instructions and final submission links.
 
 Use [the skills and review contract](skills-and-review.md) for the single fixed-diff Spec/Standards review.
+The complete state/error/URL evidence matrix is in [state and verification](state-and-verification.md). It includes unsaved navigation, correct-ticket saving, invalid URLs, offline local saves, and corrupt storage; it does not require unit tests or mock infrastructure.
 A review finding names the violated requirement, actual evidence, consequence, and smallest repair.
 Do not make style preferences or hypothetical scale demands blockers.
 
 | Work | Current state | Dependency | Done evidence |
 |---|---|---|---|
 | [#1 Decisions](https://github.com/Raghuboi/VCycene-mini-project/issues/1) | Draft | Owner answers | Decisions recorded without conflicting defaults. |
-| [#2 Working flow](https://github.com/Raghuboi/VCycene-mini-project/issues/2) | Draft | D1 and budget | Browser save and refresh proof. |
+| [#2 Working flow](https://github.com/Raghuboi/VCycene-mini-project/issues/2) | Draft | D1, D4, and remaining budget | Browser save and refresh proof. |
 | [#3 Priority and related cases](https://github.com/Raghuboi/VCycene-mini-project/issues/3) | Draft | #2, D2 | All reasons and group membership inspected. |
 | [#4 Verification and delivery](https://github.com/Raghuboi/VCycene-mini-project/issues/4) | Draft | #2 and #3 | Current candidate checked and evaluator entry verified. |
 | [#5 Submission](https://github.com/Raghuboi/VCycene-mini-project/issues/5) | Draft | #4 for final link/notes; applicant audio | Complete accessible document and actual recording. |
