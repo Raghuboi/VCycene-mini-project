@@ -41,3 +41,29 @@
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 }
+
+/* On narrow screens each ticket is a complete card, not a clipped table. */
+@media (max-width: 639px) {
+  .queue-table,
+  .queue-table tbody,
+  .queue-table tr,
+  .queue-table td {
+    display: block;
+    width: 100%;
+  }
+  .queue-table thead {
+    display: none;
+  }
+  .queue-table tr {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5rem 0;
+  }
+  .queue-table td {
+    padding: 0.25rem 1rem;
+    white-space: normal;
+  }
+  .queue-table td:nth-child(3) p {
+    display: block;
+    overflow: visible;
+  }
+}

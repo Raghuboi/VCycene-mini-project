@@ -24,7 +24,7 @@ export function QueueTable({
   view: QueueView;
 }) {
   return (
-    <Table>
+    <Table className="queue-table">
       <TableHeader>
         <TableRow className="hover:bg-transparent">
           <TableHead className="w-[16rem]">Ticket</TableHead>

@@ -78,18 +78,16 @@ Query, Zod 4, and Papa Parse for the CSV.
 
 ## Verification status
 
-Run and observed by the implementer:
-
-- `npm run typecheck` — no errors.
-- `npm run build` — production build succeeded.
-- `npm run preview` with `curl` — `/` returned 200 with the built HTML, and the hashed JS asset returned
-  200.
-- A one-off Node probe in an untracked scratch directory exercised the domain modules (CSV parse, status
-  mapping, priority order, deadline arithmetic, related groups and exclusions, save/no-op/resolve/conflict
-  behaviour, corrupt and unsupported storage, a stubbed write failure, key-scoped reset, URL schema):
-  24 of 24 checks passed. It is not committed and is not a test suite.
-
-Not done by the implementer: real-browser acceptance (clicking through save and refresh, URL errors, the
-discard prompt, narrow viewport, storage failure inside the browser) and any deployment. No unit tests,
-mocks, or CI exist by project instruction. Browser verification is left to the reviewer against this
-commit.
+- `npm run build` passed (TypeScript check and Vite production bundle). The built HTML and JS returned HTTP
+  200 through Vite preview.
+- A fresh headless Chrome session opened the app at `http://127.0.0.1:5173/`. All twelve unique IDs loaded
+  without an initialization write. Tom's claim deadline, Maya's links, Grace's warehouse hold, and Oliver's
+  purchase-only context were inspected. Status and note saving survived refresh with source fields unchanged.
+- Browser checks also exercised no-op and resolution-note validation, selected-ticket URL history, dirty
+  navigation cancellation/acceptance, active/resolved views and reopening, conflict reload, an offline local
+  save, corrupt-data backup and scoped reset, and a real quota-exceeded write failure. In that failure the
+  draft remained and no saved claim appeared. A 390px viewport had no document overflow and renders each
+  ticket as a complete card.
+- These checks used isolated browser contexts and example internal notes only. They do not imply that any
+  support action happened. There are no unit suites or remote CI jobs. Browser-controlled unload prompts,
+  actual applicant recording, public hosting, and the complete submission link remain separate checks.
