@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Monday Queue | LILA Support</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#17222b;background:#f5f7f8;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,select,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #83d8c6;outline-offset:2px}h1,h2,h3,p{margin-top:0}a{color:#0c7669}.hidden{display:none!important}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.eyebrow{font-size:10px;letter-spacing:.14em;font-weight:800;color:#4b837d}.app-shell{min-height:100vh}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;background:#122c34;color:#f7fffe;padding:18px clamp(20px,5vw,72px)}.brand{display:flex;gap:10px;align-items:center}.brand-symbol{display:grid;place-items:center;width:38px;height:38px;background:#62d8bd;color:#0b3433;border-radius:10px;font-size:22px;font-weight:900}.brand strong{display:block;font-size:17px;letter-spacing:.09em}.brand small{display:block;color:#bbd2d0;font-size:11px;margin-top:1px}.top-meta{display:flex;gap:13px;align-items:center;font-size:12px}.top-meta .eyebrow{color:#87afa9}.top-meta strong{font-size:12px;font-weight:600}.scenario-pill{border:1px solid #48726d;color:#d7efeb;border-radius:16px;padding:5px 9px;font-size:10px}.page{max-width:1500px;padding:38px clamp(20px,5vw,72px) 24px;margin:0 auto}.page-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:25px}.page-intro .eyebrow{margin:0 0 9px}.page-intro h1{font-size:clamp(28px,3vw,39px);letter-spacing:-.045em;margin:0 0 8px;font-weight:750}.page-intro p:last-child{font-size:13px;color:#66777f;line-height:1.55;margin:0;max-width:660px}.source-label{padding-bottom:5px;white-space:nowrap;font-size:11px;color:#819096}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:19px}.stat{background:#fff;border:1px solid #e2e8e8;border-radius:10px;padding:16px 18px;min-height:95px}.stat span{display:block;font-size:11px;font-weight:600;color:#67777d;margin-bottom:11px}.stat strong{font-size:31px;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.04em}.stat:nth-child(2) strong{color:#b05d32}.stat:nth-child(3) strong{color:#9e6a29}.signal-strip{background:#ebf5f2;border:1px solid #cbe6dd;padding:14px 16px;border-radius:10px;margin-bottom:20px}.signal-strip>div{display:flex;align-items:flex-start;gap:11px}.signal-icon{display:grid;place-items:center;width:23px;height:23px;flex:0 0 23px;background:#176d62;border-radius:50%;color:#fff;font-weight:bold}.signal-strip strong{display:block;font-size:12px;margin:0 0 4px}.signal-strip p{font-size:11.5px;line-height:1.55;color:#426662;margin:0}.workspace{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(340px,.85fr);gap:18px;align-items:start}.queue-pane,.detail-pane{background:#fff;border:1px solid #dde6e8;border-radius:12px;box-shadow:0 4px 12px #17394505;overflow:hidden;min-height:560px}.pane-heading{display:flex;align-items:center;justify-content:space-between;padding:19px 20px 14px;border-bottom:1px solid #edf1f1}.pane-heading h2{font-size:16px;margin:0 0 2px}.pane-heading p{font-size:11px;color:#7a8b90;margin:0}.subtle{color:#758891;font-size:11px}.toolbar{display:flex;gap:10px;padding:13px 18px;border-bottom:1px solid #edf1f1}.search-wrap{border:1px solid #dbe4e6;border-radius:7px;display:flex;align-items:center;gap:8px;flex:1;padding:0 10px;background:#fff}.search-wrap svg{width:15px;height:15px;stroke:#789099;fill:none;stroke-width:2}.search-wrap input{min-width:0;width:100%;border:0;padding:11px 0;font-size:11px;background:transparent;outline:0}.filter-wrap select{border:1px solid #dbe4e6;background:#fff;padding:10px 8px;color:#344f58;border-radius:7px;font-size:11px;max-width:155px}.queue-list{max-height:840px;overflow-y:auto}.ticket{display:grid;grid-template-columns:86px minmax(0,1fr);gap:11px;width:100%;padding:17px 19px;text-align:left;background:#fff;border:0;border-bottom:1px solid #ecf0f1;color:inherit;transition:background .12s}.ticket:hover{background:#f6faf9}.ticket[aria-current="true"]{background:#effaf7;box-shadow:inset 3px 0 #159982}.ticket-left{display:flex;flex-direction:column;align-items:flex-start;gap:9px}.ticket-id{font-size:12px;font-weight:750;letter-spacing:.01em}.priority{display:inline-flex;border-radius:5px;padding:4px 6px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.025em}.priority.critical{color:#9b421a;background:#fff0e5}.priority.high{color:#955d1f;background:#fdf3de}.priority.normal{color:#2c7168;background:#e4f4ef}.priority.resolved{color:#546a75;background:#e8eef1}.ticket-center{min-width:0}.ticket-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px}.ticket-name{font-size:12px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ticket-status{font-size:10px;color:#71848a;white-space:nowrap}.ticket-issue{font-size:11.5px;color:#52666f;line-height:1.55;margin:6px 0 7px}.ticket-reason{font-size:10px;color:#936024;font-weight:600;line-height:1.4}.ticket-reason.neutral{color:#3f8578}.pane-footnote{font-size:10px;line-height:1.6;color:#7b8d92;padding:13px 20px 17px;margin:0}.detail-head{padding:19px 21px;border-bottom:1px solid #e7eeed}.detail-kicker{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}.detail-id{font-weight:800;font-size:11px;letter-spacing:.08em;color:#5a7f7d}.detail-head h2{font-size:21px;letter-spacing:-.03em;margin:0 0 8px}.detail-head p{font-size:12px;line-height:1.6;color:#536a72;margin:0}.detail-body{padding:18px 21px 22px}.section-title{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#64777e;font-weight:800;margin:0 0 10px}.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 12px;margin:0 0 22px}.facts dt{font-size:9.5px;color:#8a9ca1;font-weight:650;margin-bottom:5px}.facts dd{margin:0;font-size:11.5px;font-weight:600;color:#203940;word-break:break-word}.detail-callout{background:#fbf5ec;border-left:3px solid #d69b4f;padding:12px;margin:0 0 22px;border-radius:0 6px 6px 0}.detail-callout strong{display:block;font-size:11px;margin-bottom:6px;color:#704c25}.detail-callout p{font-size:11px;line-height:1.55;margin:0;color:#785c3e}.source-note{font-size:11px;color:#526971;background:#f5f8f8;padding:12px;border-radius:7px;line-height:1.55;margin-bottom:20px}.source-note b{display:block;color:#476670;margin-bottom:3px}.related{margin-bottom:20px}.related-item{border:1px solid #dae7e4;background:#f7fbfa;padding:10px 11px;border-radius:7px;margin-bottom:7px;font-size:11px;line-height:1.55}.related-item strong{color:#165f56}.related-item button{font-size:11px;border:0;background:transparent;padding:0;color:#187665;font-weight:800;text-decoration:underline}.edit-box{border-top:1px solid #e8efef;padding-top:20px}.edit-box label{display:block;font-size:11px;color:#465b62;font-weight:750;margin-bottom:7px}.edit-box select,.edit-box textarea{width:100%;border:1px solid #d9e3e5;border-radius:7px;background:#fff;color:#29434c;padding:10px 11px;font-size:12px}.edit-box select{margin-bottom:15px}.edit-box textarea{min-height:80px;resize:vertical}.edit-description{font-size:10px;line-height:1.55;color:#829297;margin:5px 0 11px}.saved-notes{margin:0 0 14px}.saved-note{border-left:2px solid #aacfc4;padding:7px 10px;background:#f7faf9;margin-bottom:8px;font-size:11px;line-height:1.6;overflow-wrap:anywhere}.saved-note time{font-size:9px;display:block;color:#7b9493;margin-top:3px}.button-row{display:flex;justify-content:space-between;align-items:center;gap:10px}.primary-btn{padding:11px 16px;background:#166c60;color:#fff;border:0;border-radius:7px;font-weight:750;font-size:11px}.primary-btn:hover{background:#0f594f}.primary-btn:disabled{opacity:.45;cursor:not-allowed}.save-indicator{font-size:10px;color:#23866c}.save-error{font-size:11px;color:#a4433b}.empty-detail{min-height:560px;display:flex;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:35px;color:#809398}.empty-mark{font-size:34px;margin-bottom:13px;color:#72a99d}.empty-detail h3{color:#344d55;font-size:14px;margin:0 0 8px}.empty-detail p{font-size:12px;max-width:240px;line-height:1.7}.loading{padding:20px;color:#70858d;font-size:12px}.footer{display:flex;justify-content:space-between;gap:15px;color:#91a0a3;font-size:10px;padding:20px 2px}.system-alert{background:#fff0e9;border:1px solid #e2bca7;border-radius:9px;padding:14px 17px;margin:0 0 17px;font-size:12px;color:#7a4337}@media(max-width:1030px){.workspace{grid-template-columns:minmax(0,1fr) minmax(310px,.9fr)}.page{padding:28px 22px}.topbar{padding:16px 22px}}@media(max-width:750px){.top-meta .eyebrow{display:none}.workspace{grid-template-columns:1fr}.queue-list{max-height:520px}.detail-pane{min-height:320px}.stats{grid-template-columns:repeat(2,1fr)}.source-label{display:none}.footer{flex-direction:column}.detail-pane{order:2}.ticket{grid-template-columns:78px minmax(0,1fr)}}@media(max-width:450px){.top-meta{display:block;text-align:right}.top-meta strong{display:block}.top-meta .scenario-pill{display:none}.toolbar{flex-direction:column}.filter-wrap select{max-width:none;width:100%}.stats{gap:8px}.stat{padding:13px;min-height:81px}.stat strong{font-size:25px}.ticket{padding:14px 13px}.detail-body,.detail-head{padding-left:16px;padding-right:16px}}
+
+</style>
+<script type="module">
+// This exercise runs against Monday, October 5, 2026. Never substitute the browser's current date.
+const SCENARIO = '2026-10-05';
+const STORAGE_KEY = 'lila-monday-queue-v1';
+const STATUS_LABELS = {
+  'open': 'Open',
+  'waiting on us': 'Waiting on us',
+  'waiting on customer': 'Waiting on customer',
+  'waiting on engineering': 'Waiting on engineering',
+  'waiting on warehouse': 'Waiting on warehouse',
+  'waiting on fulfillment': 'Waiting on fulfillment',
+  'waiting on manager': 'Waiting on manager',
+  'resolved': 'Resolved'
+};
+
+// These case-specific exceptions are drawn from the supplied twelve-ticket queue.
+// Source policy facts, including due dates, are calculated separately below.
+const CASE_NOTES = {
+  'T-104': { rank: 0, severity: 'critical', reason: 'Carrier claim must be filed by Oct 6; no claim is recorded.', next: 'Flag for immediate claim filing, verify supporting photos, and reply to Tom. The supplied CSV mentions photos but contains no image attachments.' },
+  'T-109': { rank: 1, severity: 'critical', reason: 'Unanswered Sep 30 refund follow-up; related to T-101.', next: 'Acknowledge the missed response, link the two Maya tickets, review earlier request dates, and ask the manager about any exception.' },
+  'T-101': { rank: 2, severity: 'critical', reason: 'Third contact; two earlier restart-only closures; refund request.', next: 'Contact Maya, check the earliest refund request, request Wei’s diagnostics, and seek a manager decision if the standard window has ended.' },
+  'T-110': { rank: 3, severity: 'critical', reason: 'Replacement was promised Sep 26 but is still unallocated.', next: 'Ask fulfillment for a real allocation and tracking update; do not imply the replacement shipped.' },
+  'T-105': { rank: 4, severity: 'high', reason: 'Refund is blocked: warehouse has not confirmed receipt.', next: 'Request warehouse confirmation. Tracking alone is not enough to pay the refund; the return was initiated within 30 days.' },
+  'T-108': { rank: 5, severity: 'high', reason: 'Return-label request is overdue; requested within refund window.', next: 'Arrange the return label promptly. Delivery on Sep 10 means the modeled 30-day boundary is Oct 10.' },
+  'T-102': { rank: 6, severity: 'high', reason: 'Customer reply overdue; similar interrupted cycle on firmware 2.4.1.', next: 'Acknowledge the pause and amber indicator; collect safe diagnostics with Wei’s guidance. Cause is unconfirmed.' },
+  'T-112': { rank: 7, severity: 'high', reason: 'Customer reply overdue; amber light but unit runs normally.', next: 'Ask clarifying questions about the indicator; do not group this 2.4.0 case with the stopped-cycle reports.' },
+  'T-103': { rank: 8, severity: 'normal', reason: 'Reply due today; stopped-cycle symptom began after update.', next: 'Acknowledge the symptom and request guidance from Wei. This is a candidate cohort, not a confirmed firmware defect.' },
+  'T-106': { rank: 9, severity: 'normal', reason: 'Reply due today; Wi-Fi setup problem.', next: 'Send available setup guidance. Firmware 2.4.1 alone does not establish the interrupted-cycle pattern.' },
+  'T-107': { rank: 10, severity: 'normal', reason: 'Reply due today; onboarding requested this week.', next: 'Offer available onboarding slots and confirm the arrangement; no appointment is recorded yet.' },
+  'T-111': { rank: 11, severity: 'normal', reason: 'Reply due today; another-unit purchase question.', next: 'Provide ordering guidance. The 30-day refund boundary is unrelated to this request.' }
+};
+
+const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const dateUTC = s => new Date(`${s}T00:00:00Z`);
+const formatDate = s => new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }).format(dateUTC(s));
+function plusDays(s, count) {
+  const d = dateUTC(s);
+  d.setUTCDate(d.getUTCDate() + count);
+  return d.toISOString().slice(0, 10);
+}
+function nextBusinessDay(s) {
+  let d = plusDays(s, 1);
+  while ([0, 6].includes(dateUTC(d).getUTCDay())) d = plusDays(d, 1);
+  return d;
+}
+
+// A small RFC-4180-style CSV parser: quoted commas, escaped quotes, CRLF and final newline.
+function parseCSV(text) {
+  const rows = [];
+  let row = [], field = '', quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (c === '"') {
+      if (quoted && text[i + 1] === '"') { field += '"'; i++; }
+      else quoted = !quoted;
+    } else if (c === ',' && !quoted) {
+      row.push(field); field = '';
+    } else if ((c === '\n' || c === '\r') && !quoted) {
+      if (c === '\r' && text[i + 1] === '\n') i++;
+      row.push(field); field = '';
+      if (row.some(x => x !== '')) rows.push(row);
+      row = [];
+    } else field += c;
+  }
+  if (quoted) throw new Error('The source CSV has an unclosed quoted field.');
+  if (row.length || field) { row.push(field); rows.push(row); }
+  if (!rows.length) throw new Error('No rows in CSV.');
+  const headers = rows.shift().map(s => s.trim());
+  const required = ['TICKET_ID','OPENED','CUSTOMER','COUNTRY','DELIVERED','FIRMWARE','ISSUE','STATUS','LAST_REPLY_FROM','LAST_REPLY_DATE','NOTES'];
+  if (required.some(h => !headers.includes(h))) throw new Error('The CSV is missing a required column.');
+  const ids = new Set();
+  const tickets = rows.map((fields, index) => {
+    if (fields.length !== headers.length) throw new Error(`Row ${index + 2} has ${fields.length} columns; expected ${headers.length}.`);
+    const ticket = Object.fromEntries(headers.map((h,i) => [h, fields[i]]));
+    if (ids.has(ticket.TICKET_ID)) throw new Error(`Duplicate ID: ${ticket.TICKET_ID}.`);
+    ids.add(ticket.TICKET_ID);
+    if (!STATUS_LABELS[ticket.STATUS]) throw new Error(`Unknown source status on ${ticket.TICKET_ID}.`);
+    return ticket;
+  });
+  if (tickets.length !== 12) throw new Error(`Expected 12 source tickets; got ${tickets.length}.`);
+  return tickets;
+}
+
+let tickets = [], edits = {}, selectedId = null, filter = 'all', query = '', storageError = null;
+const el = id => document.getElementById(id);
+
+function readEdits() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw === null) return {};
+    const data = JSON.parse(raw);
+    if (!data || data.version !== 1 || !data.edits || typeof data.edits !== 'object' || Array.isArray(data.edits)) throw new Error('Unrecognized stored format.');
+    for (const [id, edit] of Object.entries(data.edits)) {
+      if (!/^T-\d+$/.test(id) || !edit || !STATUS_LABELS[edit.status] || !Array.isArray(edit.notes) ||
+        edit.notes.some(n => typeof n.text !== 'string' || typeof n.at !== 'string')) throw new Error(`Unreadable saved record: ${id}.`);
+    }
+    return data.edits;
+  } catch (err) {
+    storageError = `Saved changes could not be loaded (${err.message}). They have not been cleared. Status and note editing is disabled to protect your data.`;
+    return {};
+  }
+}
+function currentStatus(ticket) { return edits[ticket.TICKET_ID]?.status || ticket.STATUS; }
+function replyDue(ticket) { return ticket.LAST_REPLY_FROM === 'customer' ? nextBusinessDay(ticket.LAST_REPLY_DATE) : null; }
+function isOverdue(ticket) { const due = replyDue(ticket); return !!due && due < SCENARIO && currentStatus(ticket) !== 'resolved'; }
+function isHigh(ticket) { return currentStatus(ticket) !== 'resolved' && CASE_NOTES[ticket.TICKET_ID].severity !== 'normal'; }
+function priority(ticket) {
+  if (currentStatus(ticket) === 'resolved') return { label: 'Resolved', css: 'resolved', reason: 'Recorded as resolved. The original source data remains available.', rank: 99 };
+  const rule = CASE_NOTES[ticket.TICKET_ID];
+  const due = replyDue(ticket);
+  let reason = rule.reason;
+  if (due && due < SCENARIO && !reason.toLowerCase().includes('overdue')) reason += ` Reply due ${formatDate(due)}.`;
+  return { label: rule.severity === 'critical' ? 'Urgent' : rule.severity === 'high' ? 'High' : 'Today', css: rule.severity, reason, rank: rule.rank };
+}
+function allSorted() { return [...tickets].sort((a,b) => priority(a).rank - priority(b).rank || a.TICKET_ID.localeCompare(b.TICKET_ID)); }
+function displayStatus(s) { return STATUS_LABELS[s] || s; }
+function renderAlert() {
+  const alert = el('alert');
+  if (!storageError) { alert.classList.add('hidden'); return; }
+  alert.textContent = storageError; alert.classList.remove('hidden');
+}
+function renderStats() {
+  el('stat-total').textContent = tickets.length;
+  el('stat-high').textContent = tickets.filter(isHigh).length;
+  el('stat-overdue').textContent = tickets.filter(isOverdue).length;
+  el('stat-resolved').textContent = tickets.filter(t => currentStatus(t) === 'resolved').length;
+}
+function visibleTickets() {
+  return allSorted().filter(t => {
+    const value = `${t.TICKET_ID} ${t.CUSTOMER} ${t.ISSUE}`.toLowerCase();
+    return value.includes(query) && (
+      filter === 'all' ||
+      (filter === 'high' && isHigh(t)) ||
+      (filter === 'overdue' && isOverdue(t)) ||
+      (filter === 'open' && currentStatus(t) !== 'resolved') ||
+      (filter === 'resolved' && currentStatus(t) === 'resolved'));
+  });
+}
+function renderQueue() {
+  const items = visibleTickets();
+  el('visible-count').textContent = `${items.length} shown`;
+  if (!items.length) { el('queue').innerHTML = '<p class="loading">No tickets match this filter.</p>'; return; }
+  el('queue').innerHTML = items.map(t => {
+    const p = priority(t), due = replyDue(t);
+    const status = displayStatus(currentStatus(t));
+    const dueLabel = due ? ` · Reply due ${formatDate(due)}` : '';
+    return `<button type="button" class="ticket" data-id="${escapeHtml(t.TICKET_ID)}" aria-current="${selectedId === t.TICKET_ID ? 'true' : 'false'}">
+      <div class="ticket-left"><span class="ticket-id">${escapeHtml(t.TICKET_ID)}</span><span class="priority ${p.css}">${p.label}</span></div>
+      <div class="ticket-center"><div class="ticket-top"><strong class="ticket-name">${escapeHtml(t.CUSTOMER)}</strong><span class="ticket-status">${escapeHtml(status)}</span></div>
+      <p class="ticket-issue">${escapeHtml(t.ISSUE)}</p><div class="ticket-reason ${p.css === 'normal' || p.css === 'resolved' ? 'neutral' : ''}">${escapeHtml(p.reason)}${escapeHtml(dueLabel && !p.reason.includes('Reply due') ? dueLabel : '')}</div></div>
+    </button>`;
+  }).join('');
+}
+function relatedItems(ticket) {
+  const id = ticket.TICKET_ID;
+  const list = [];
+  if (['T-101','T-109'].includes(id)) list.push({ label: 'Same customer and refund concern', ids: ['T-101','T-109'].filter(v => v !== id) });
+  if (['T-101','T-102','T-103'].includes(id)) list.push({ label: 'Candidate interrupted-cycle pattern (firmware 2.4.1; three customers)', ids: ['T-101','T-102','T-103'].filter(v => v !== id) });
+  return list;
+}
+function renderDetail() {
+  const detail = el('detail');
+  if (!selectedId) { detail.className = 'empty-detail'; detail.innerHTML = '<div class="empty-mark">↗</div><h3>Select a ticket</h3><p>Review the source record, choose a status and save an internal note.</p>'; return; }
+  const t = tickets.find(v => v.TICKET_ID === selectedId);
+  if (!t) return;
+  const p = priority(t), saved = edits[t.TICKET_ID]?.notes || [], due = replyDue(t), related = relatedItems(t);
+  detail.className = '';
+  detail.innerHTML = `<div class="detail-head"><div class="detail-kicker"><span class="detail-id">${t.TICKET_ID} · ${t.COUNTRY}</span><span class="priority ${p.css}">${p.label}</span></div><h2>${escapeHtml(t.CUSTOMER)}</h2><p>${escapeHtml(t.ISSUE)}</p></div>
+    <div class="detail-body"><h3 class="section-title">Original record</h3>
+      <dl class="facts"><div><dt>Opened</dt><dd>${formatDate(t.OPENED)}</dd></div><div><dt>Delivered</dt><dd>${formatDate(t.DELIVERED)}</dd></div>
+      <div><dt>Firmware</dt><dd>${escapeHtml(t.FIRMWARE)}</dd></div><div><dt>Source status</dt><dd>${escapeHtml(displayStatus(t.STATUS))}</dd></div>
+      <div><dt>Last reply from</dt><dd>${escapeHtml(t.LAST_REPLY_FROM)}</dd></div><div><dt>Last reply date</dt><dd>${formatDate(t.LAST_REPLY_DATE)}</dd></div>
+      ${due ? `<div><dt>Response due</dt><dd>${formatDate(due)}${due < SCENARIO ? ' (overdue)' : due === SCENARIO ? ' (today)' : ''}</dd></div>` : '<div><dt>Response SLA</dt><dd>Awaiting internal follow-up</dd></div>'}
+      <div><dt>Refund window ends*</dt><dd>${formatDate(plusDays(t.DELIVERED, 30))}</dd></div></dl>
+      <div class="detail-callout"><strong>Recommended next action</strong><p>${escapeHtml(CASE_NOTES[t.TICKET_ID].next)}</p></div>
+      <h3 class="section-title">Original notes</h3><div class="source-note"><b>Imported source · read-only</b>${escapeHtml(t.NOTES || 'No note supplied.')}</div>
+      ${related.length ? `<div class="related"><h3 class="section-title">Related cases</h3>${related.map(r => `<div class="related-item"><strong>${escapeHtml(r.label)}</strong><div>${r.ids.map(v => `<button type="button" data-related="${v}">${v}</button>`).join(' · ')}</div></div>`).join('')}<p class="edit-description">Relationships are based on supplied facts and are not confirmed engineering diagnoses.</p></div>` : ''}
+      <div class="edit-box"><h3 class="section-title">Operator update · local only</h3><label for="status">Status</label><select id="status" ${storageError ? 'disabled' : ''}>${Object.entries(STATUS_LABELS).map(([k,v]) => `<option value="${escapeHtml(k)}" ${k === currentStatus(t) ? 'selected' : ''}>${escapeHtml(v)}</option>`).join('')}</select>
+      <label for="note">Add an internal note</label><textarea id="note" placeholder="What did you check? Who owns the next action?" ${storageError ? 'disabled' : ''}></textarea><p class="edit-description">Internal notes do not count as replies or confirm external actions. You can save a status without a note.</p>
+      ${saved.length ? `<div class="saved-notes"><h3 class="section-title">Saved notes (${saved.length})</h3>${saved.map(n => `<div class="saved-note">${escapeHtml(n.text)}<time datetime="${escapeHtml(n.at)}">Saved ${escapeHtml(new Date(n.at).toLocaleString('en-CA'))}</time></div>`).join('')}</div>` : ''}
+      <div class="button-row"><span class="save-indicator" id="save-message" aria-live="polite"></span><button id="save" type="button" class="primary-btn" ${storageError ? 'disabled' : ''}>Save changes</button></div>
+      <p class="edit-description" style="margin-top:13px">*Modeled 30 days after delivery; this date only affects actual refund requests. The real company may use a different cutoff.</p></div></div>`;
+}
+function saveSelection() {
+  if (!selectedId || storageError) return;
+  const t = tickets.find(v => v.TICKET_ID === selectedId);
+  if (!t) return;
+  const status = el('status').value, note = el('note').value.trim();
+  if (!STATUS_LABELS[status]) return;
+  const entry = edits[selectedId] || { status: t.STATUS, notes: [] };
+  const newEntry = { status, notes: [...entry.notes], updatedAt: new Date().toISOString() };
+  if (note) newEntry.notes.push({ text: note, at: new Date().toISOString() });
+  const next = { ...edits, [selectedId]: newEntry };
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, edits: next }));
+    edits = next;
+    renderStats(); renderQueue(); renderDetail();
+    el('save-message').textContent = 'Saved in this browser';
+  } catch (err) {
+    const message = el('save-message');
+    message.textContent = `Not saved: ${err.message}`;
+    message.className = 'save-error';
+  }
+}
+function selectTicket(id) {
+  if (!tickets.some(t => t.TICKET_ID === id)) return;
+  selectedId = id;
+  renderQueue(); renderDetail();
+}
+
+async function boot() {
+  try {
+    const response = await fetch('./tickets.csv', { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Cannot load tickets.csv (${response.status}). Start a local HTTP server, rather than opening index.html as a file.`);
+    tickets = parseCSV(await response.text());
+    if (tickets.some(t => !CASE_NOTES[t.TICKET_ID])) throw new Error('A source ticket has no priority rule.');
+    edits = readEdits();
+    renderAlert(); renderStats(); renderQueue(); renderDetail();
+  } catch (err) {
+    storageError = `Queue could not load: ${err.message}`;
+    renderAlert(); el('queue').innerHTML = '<p class="loading">Unable to display the queue. Check the supplied CSV and server.</p>';
+    return;
+  }
+  el('queue').addEventListener('click', event => {
+    const button = event.target.closest('button[data-id]');
+    if (button) selectTicket(button.dataset.id);
+  });
+  el('detail').addEventListener('click', event => {
+    const related = event.target.closest('button[data-related]');
+    if (related) { selectTicket(related.dataset.related); return; }
+    if (event.target.closest('#save')) saveSelection();
+  });
+  el('search').addEventListener('input', event => { query = event.target.value.trim().toLowerCase(); renderQueue(); });
+  el('filter').addEventListener('change', event => { filter = event.target.value; renderQueue(); });
+  selectTicket(allSorted()[0].TICKET_ID);
+}
+boot();
+
+</script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-symbol" aria-hidden="true">L</span><div><strong>LILA</strong><small>Customer operations</small></div></div>
+      <div class="top-meta"><span class="eyebrow">OPERATIONS DESK</span><strong>Monday, 5 October 2026</strong><span class="scenario-pill">Exercise scenario</span></div>
+    </header>
+    <main class="page">
+      <div class="page-intro">
+        <div><p class="eyebrow">MONDAY OPERATIONS</p><h1>The support queue</h1><p>Start with the deadlines and unresolved commitments. Every ticket has a reason for its position.</p></div>
+        <span class="source-label">Source: 12 supplied records</span>
+      </div>
+      <div id="alert" role="alert" class="system-alert hidden"></div>
+      <section class="stats" aria-label="Queue summary"><div class="stat"><span>Total tickets</span><strong id="stat-total">–</strong></div><div class="stat"><span>High attention</span><strong id="stat-high">–</strong></div><div class="stat"><span>Overdue customer replies</span><strong id="stat-overdue">–</strong></div><div class="stat"><span>Recorded as resolved</span><strong id="stat-resolved">–</strong></div></section>
+      <section class="signal-strip"><div><span class="signal-icon" aria-hidden="true">!</span><div><strong>Patterns worth investigating</strong><p><b>3 different customers</b> report interrupted cycles on firmware 2.4.1 (T-101, T-102, T-103). Maya also has an unanswered related ticket, T-109. These are leads for investigation, not confirmed diagnoses.</p></div></div></section>
+      <div class="workspace">
+        <section class="queue-pane" aria-label="Ticket queue">
+          <div class="pane-heading"><div><h2>Tickets</h2><p>Sorted by urgency and policy deadline</p></div><span id="visible-count" class="subtle">12 shown</span></div>
+          <div class="toolbar"><label class="search-wrap"><span class="sr-only">Search tickets</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4 4"></path></svg><input id="search" type="search" placeholder="Search name, issue or ticket ID" autocomplete="off"></label><label class="filter-wrap"><span class="sr-only">Filter tickets</span><select id="filter"><option value="all">All tickets</option><option value="high">High attention</option><option value="overdue">Reply overdue</option><option value="open">Not resolved</option><option value="resolved">Recorded resolved</option></select></label></div>
+          <div id="queue" class="queue-list" aria-live="polite"><p class="loading">Loading the provided CSV…</p></div>
+          <p class="pane-footnote">A saved status or internal note does not send a message, file a claim, issue a refund or dispatch a replacement.</p>
+        </section>
+        <aside class="detail-pane" aria-label="Selected ticket"><div id="detail" class="empty-detail"><div class="empty-mark">↗</div><h3>Select a ticket</h3><p>Review the source record, choose a status and save an internal note.</p></div></aside>
+      </div>
+      <footer class="footer"><span>Local browser tool · No external actions</span><span>Response within 1 business day · Returns within 30 days · Carrier claims within 14 days</span></footer>
+    </main>
+  </div>
+</body>
+</html>
