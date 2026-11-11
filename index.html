@@ -175,6 +175,11 @@ function renderDetail() {
   const t = tickets.find(v => v.TICKET_ID === selectedId);
   if (!t) return;
   const p = priority(t), saved = edits[t.TICKET_ID]?.notes || [], due = replyDue(t), related = relatedItems(t);
+  const refundFact = ['T-101','T-109','T-105','T-108'].includes(t.TICKET_ID)
+    ? (t.TICKET_ID === 'T-105'
+      ? '<div><dt>Return request</dt><dd>Opened Sep 18 (within 30 days)</dd></div>'
+      : `<div><dt>Refund window boundary*</dt><dd>${formatDate(plusDays(t.DELIVERED, 30))}</dd></div>`)
+    : '';
   detail.className = '';
   detail.innerHTML = `<div class="detail-head"><div class="detail-kicker"><span class="detail-id">${t.TICKET_ID} · ${t.COUNTRY}</span><span class="priority ${p.css}">${p.label}</span></div><h2>${escapeHtml(t.CUSTOMER)}</h2><p>${escapeHtml(t.ISSUE)}</p></div>
     <div class="detail-body"><h3 class="section-title">Original record</h3>
@@ -182,7 +187,7 @@ function renderDetail() {
       <div><dt>Firmware</dt><dd>${escapeHtml(t.FIRMWARE)}</dd></div><div><dt>Source status</dt><dd>${escapeHtml(displayStatus(t.STATUS))}</dd></div>
       <div><dt>Last reply from</dt><dd>${escapeHtml(t.LAST_REPLY_FROM)}</dd></div><div><dt>Last reply date</dt><dd>${formatDate(t.LAST_REPLY_DATE)}</dd></div>
       ${due ? `<div><dt>Response due</dt><dd>${formatDate(due)}${due < SCENARIO ? ' (overdue)' : due === SCENARIO ? ' (today)' : ''}</dd></div>` : '<div><dt>Response SLA</dt><dd>Awaiting internal follow-up</dd></div>'}
-      <div><dt>Refund window ends*</dt><dd>${formatDate(plusDays(t.DELIVERED, 30))}</dd></div></dl>
+      ${refundFact}</dl>
       <div class="detail-callout"><strong>Recommended next action</strong><p>${escapeHtml(CASE_NOTES[t.TICKET_ID].next)}</p></div>
       <h3 class="section-title">Original notes</h3><div class="source-note"><b>Imported source · read-only</b>${escapeHtml(t.NOTES || 'No note supplied.')}</div>
       ${related.length ? `<div class="related"><h3 class="section-title">Related cases</h3>${related.map(r => `<div class="related-item"><strong>${escapeHtml(r.label)}</strong><div>${r.ids.map(v => `<button type="button" data-related="${v}">${v}</button>`).join(' · ')}</div></div>`).join('')}<p class="edit-description">Relationships are based on supplied facts and are not confirmed engineering diagnoses.</p></div>` : ''}
@@ -190,7 +195,7 @@ function renderDetail() {
       <label for="note">Add an internal note</label><textarea id="note" placeholder="What did you check? Who owns the next action?" ${storageError ? 'disabled' : ''}></textarea><p class="edit-description">Internal notes do not count as replies or confirm external actions. You can save a status without a note.</p>
       ${saved.length ? `<div class="saved-notes"><h3 class="section-title">Saved notes (${saved.length})</h3>${saved.map(n => `<div class="saved-note">${escapeHtml(n.text)}<time datetime="${escapeHtml(n.at)}">Saved ${escapeHtml(new Date(n.at).toLocaleString('en-CA'))}</time></div>`).join('')}</div>` : ''}
       <div class="button-row"><span class="save-indicator" id="save-message" aria-live="polite"></span><button id="save" type="button" class="primary-btn" ${storageError ? 'disabled' : ''}>Save changes</button></div>
-      <p class="edit-description" style="margin-top:13px">*Modeled 30 days after delivery; this date only affects actual refund requests. The real company may use a different cutoff.</p></div></div>`;
+      ${refundFact ? '<p class="edit-description" style="margin-top:13px">*Modeled 30 days after delivery. Earlier contact dates may affect eligibility; final exceptions require manager approval.</p>' : ''}</div></div>`;
 }
 function saveSelection() {
   if (!selectedId || storageError) return;
