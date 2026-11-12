@@ -82,18 +82,10 @@ Query, Zod 4, and Papa Parse for the CSV.
 
 ## Verification status
 
-See [browser acceptance](docs/evidence/browser-acceptance.md) for the corrected candidate's observed Chrome journeys, including the save-time validation regression and genuine quota failure. [Completion](docs/completion.md) distinguishes this current pass from the earlier audit's source-only evidence. The applicant recording and final submission remain pending.
+The [browser acceptance record](docs/evidence/browser-acceptance.md) names the implementing agent's Chrome 157 journeys and source revision: twelve tickets, save/refresh with source facts intact, URL/history/filters, related cases, dirty navigation, resolution-note validation, conflict/recovery, offline save, a genuine quota failure, and desktop/390px layout. It also records the original limits; these are observed local workflows, not external support actions.
 
-- `npm run build` passed (TypeScript check and Vite production bundle). The built HTML and JS returned HTTP
-  200 through Vite preview.
-- A fresh headless Chrome session opened the app at `http://127.0.0.1:5173/`. All twelve unique IDs loaded
-  without an initialization write. Tom's claim deadline, Maya's links, Grace's warehouse hold, and Oliver's
-  purchase-only context were inspected. Status and note saving survived refresh with source fields unchanged.
-- Browser checks also exercised no-op and resolution-note validation, selected-ticket URL history, dirty
-  navigation cancellation/acceptance, active/resolved views and reopening, conflict reload, an offline local
-  save, corrupt-data backup and scoped reset, and a real quota-exceeded write failure. In that failure the
-  draft remained and no saved claim appeared. A 390px viewport had no document overflow and renders each
-  ticket as a complete card.
-- These checks used isolated browser contexts and example internal notes only. They do not imply that any
-  support action happened. There are no unit suites or remote CI jobs. Browser-controlled unload prompts,
-  actual applicant recording, public hosting, and the complete submission link remain separate checks.
+A fresh wrap-up checkout installed 105 packages with `npm ci` in 9 seconds and passed the typecheck/production build. The bundled CSV is byte-identical to the twelve-row source; rubric and original tickets remain unchanged. The committed desktop/mobile captures were inspected.
+
+One subsequent change adds the same detail anchor to related-case links that queue rows already use. It passed targeted source review and the build. Its focused 390px navigation/discard check remains pending; [completion.md](docs/completion.md) gives the exact three actions and current evidence. Do not call that new path browser-verified until observed.
+
+The applicant recording and complete final PDF/access checks remain pending. The review PDF is a draft. There are no unit suites, mocks, or remote CI jobs. Repository startup is the rubric-permitted delivery; no live hosted app is claimed.

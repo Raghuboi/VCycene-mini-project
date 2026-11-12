@@ -1,6 +1,6 @@
 # Monday queue build plan
 
-**Accepted product decisions, updated 11 November 2026.** D1, D2 and D4 were approved in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). The implemented application and current browser evidence are in [PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) and README. D3's prior elapsed time, hard stop, application route and applicant audio remain unknown; no time-compliance or completed-submission claim is made.
+**Accepted product decisions; completion update 12 November 2026 (UTC).** D1, D2 and D4 were approved in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). The implemented application and current browser evidence are in [PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) and README. D3's prior elapsed time, hard stop, application route and applicant audio remain unknown; no time-compliance or completed-submission claim is made.
 Current remaining work, corrections, and evidence are tracked in [completion.md](completion.md). The sequence below is the original build plan, not a request to repeat completed implementation.
 Source baseline: [ace5735ebc65158b3cc8ea86c5a10ad3d0b6fc7c](https://github.com/Raghuboi/VCycene-mini-project/tree/ace5735ebc65158b3cc8ea86c5a10ad3d0b6fc7c).
 Read the unchanged [rubric](../rubric.md) and [sample CSV](../tickets.csv). The initial repository has those files and a gitignore, with no starter application.
@@ -276,15 +276,15 @@ The complete state/error/URL evidence matrix is in [state and verification](stat
 A review finding names the violated requirement, actual evidence, consequence, and smallest repair.
 Do not make style preferences or hypothetical scale demands blockers.
 
-| Work | Current state | Dependency | Done evidence |
-|---|---|---|---|
-| [#1 Decisions](https://github.com/Raghuboi/VCycene-mini-project/issues/1) | Draft | Owner answers | Decisions recorded without conflicting defaults. |
-| [#2 Working flow](https://github.com/Raghuboi/VCycene-mini-project/issues/2) | Draft | D1, D4, and remaining budget | Browser save and refresh proof. |
-| [#3 Priority and related cases](https://github.com/Raghuboi/VCycene-mini-project/issues/3) | Draft | #2, D2 | All reasons and group membership inspected. |
-| [#4 Verification and delivery](https://github.com/Raghuboi/VCycene-mini-project/issues/4) | Draft | #2 and #3 | Current candidate checked and evaluator entry verified. |
-| [#5 Submission](https://github.com/Raghuboi/VCycene-mini-project/issues/5) | Draft | #4 for final link/notes; applicant audio | Complete accessible document and actual recording. |
+| Work owner | Contract / evidence |
+|---|---|
+| [#1 Decisions](https://github.com/Raghuboi/VCycene-mini-project/issues/1) | Accepted D1/D2/D4 and the current completion map. |
+| [#2 Working flow](https://github.com/Raghuboi/VCycene-mini-project/issues/2) | Load, edit, save and refresh; preserved source facts and honest storage failures. |
+| [#3 Priority and related cases](https://github.com/Raghuboi/VCycene-mini-project/issues/3) | House-rule reasons, preserved relationships and usable navigation. |
+| [#4 Verification and delivery](https://github.com/Raghuboi/VCycene-mini-project/issues/4) | Revision-bound browser evidence and runnable evaluator entry. |
+| [#5 Submission](https://github.com/Raghuboi/VCycene-mini-project/issues/5) | Complete accessible document with the applicant's actual recording. |
 
-Issue bodies own current status; this table is the initial plan.
+Issue bodies and [completion.md](completion.md) own current status. This specification defines acceptance; its original time budget is not another execution cycle.
 Use Draft -> Ready -> In progress -> Review -> Verified, with Blocked and a wake condition when needed.
 Verified engineering work and resolved customer tickets are separate concepts.
 A runtime blocker should identify the missing capability, affected outcome, next action, and evidence still absent.
@@ -295,7 +295,7 @@ A runtime blocker should identify the missing capability, affected outcome, next
 - [MDN localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage): persistence and origin/private-session limitations.
 - [Papa Parse documentation](https://www.papaparse.com/docs): native CSV parsing.
 - [Skills and review contract](skills-and-review.md): reviewed upstream files, pins, dependencies, and project overrides.
-- [Codex handoff](codex-handoff.md): bounded execution after the owner settles the plan.
+- [Codex handoff](codex-handoff.md): the remaining focused check and recording-dependent finalization.
 
 The initial plan preceded implementation. PR #8 now contains the application; completion.md distinguishes reported prior browser evidence, current checks, and remaining submission work.
 

@@ -94,14 +94,11 @@ Log forks, blockers, corrections, and verification checkpoints. Do not log every
 Evidence pointers must resolve to the actual commit, output, screenshot, or file. Append corrections rather than rewriting what happened.
 The final handoff states what works, how to run it, what was checked, and what remains unresolved.
 
-## PR sequence
+## PR and review state
 
-Keep the existing planning PR #6 for this specification. After the owner settles the open product choices, one writer builds on the approved planning revision. If that PR is not yet merged, create the implementation branch from it and identify the stacked base explicitly.
+PR #8 is the sole application/submission candidate. Planning PR #6 is included in its ancestry and closed; the HTML candidate #7 is closed as superseded. Continue on the current branch and use the existing issues. Do not create another planning or delivery PR solely to split this small completion task.
 
-1. **Working queue PR:** complete issue #2, then #3 on the same branch. Record save/refresh proof before adding priority/context. Two working milestones need not become two dependency-stacked implementation PRs.
-2. **Submission/delivery PR, if it contains separate changes:** final README, verified links, build notes, written replies, and document. Issue #4 gates the current application revision; issue #5 cannot be called complete without the applicant's recording.
-
-Use one final Spec/Standards review of the fixed working candidate, with affected-path checks after repairs. A docs-only follow-up needs content/links/word-count verification, not a second full code-review panel. User review and merge remain separate from the agent's readiness report.
+The bounded Spec/Standards review and targeted repair are complete for the current delta; [completion.md](completion.md) records the remaining browser observation. Documentation-only updates need content/link verification, not another full code-review panel. User review/merge remains separate from readiness, and the rubric permits branch-specific repository delivery.
 
 ## Complete Pstack inventory and disposition
 

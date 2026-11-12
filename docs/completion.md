@@ -1,85 +1,69 @@
-# Completion and verification
+# Completion plan
 
-**Current implementation evidence:** The corrected application was exercised in Chrome 157 on Windows at source `5eaa3b76d48228f857253d0083d71b1fd30503d6`; see [browser acceptance](evidence/browser-acceptance.md) and its desktop/mobile captures. The save-time unknown-ticket rejection, backup/reset, normal refresh persistence, real quota failure/retry, policy text, URL navigation, keyboard, and narrow layout all passed. Applicant-owned audio and the recording-dependent final PDF/application submission remain pending. The historical audit below preceded this corrected browser pass; its "pending" statements describe the earlier environment, not the current app gate.
+Updated 12 November 2026 (UTC). This is the execution entry point. The [specification](plan.md), [state contract](state-and-verification.md), and [skills contract](skills-and-review.md) remain references; do not restart their original build sequence.
 
-**Historical audit: 11 November 2026, America/Toronto.** At that point the remaining work was targeted browser verification and the applicant's submission package. Do not restart design or add features.
+## Current result
 
-## Revision and evidence
+The required queue and related-case feature are implemented. The latest full browser record covers source `5eaa3b76d48228f857253d0083d71b1fd30503d6`; the subsequently audited head `d9ce27ac73151ba72c8b403ccbc05f198cb4da77` has identical application source. A bounded review found one navigation inconsistency: related-case links omitted the detail anchor already used by queue rows.
 
-- Audited head: `b934cd5fa29adb4ce6441c758ed928b9896f5d0c`, branch `feat/monday-queue-accepted`.
-- `main` was still `ace5735ebc65158b3cc8ea86c5a10ad3d0b6fc7c`, containing the original assignment rather than the app. Use the explicit branch instructions in README until a reviewed merge.
-- The implementing agent reported browser checks at `6f0101adad385571209b63b38af88d1e56ff6866`. The diff from that revision to the audited head changes only three planning documents. Those reports are prior evidence, not a fresh browser run by this audit.
-- This correction changes `src/lib/queue.ts` and `src/lib/policy.ts`. Their affected behavior requires the checks below. The current PR head identifies the corrected candidate; record its full SHA with the next browser result.
+Corrected source: `6f26d0b006f89b1b36607765f5adb35ae47cfd77`. The only application change after the browser-verified source is `hash="ticket-detail"` on related-case links. It passed targeted source review and the production build. **Its three-action browser check below remains pending.** Do that before treating the current application as fully accepted. Do not repeat the full completed browser pass.
 
-Evidence terms: **observed** means executed in this audit; **reported** means recorded by the implementing agent; **inspected** means source review; **pending** means the required outcome has not yet been established for the correction.
+[PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) is the delivery candidate. Main remains the original assignment. The explicit implementation-branch URL and README commands are the evaluator entry; merging and live hosting are not rubric requirements.
 
-## Corrections made
+## First principles: what completion means
 
-1. **Save validation before persistence.** A schema-valid saved document could contain an unknown `T-999` key. Previously a note/status write could commit before snapshot membership validation threw, causing the UI to say the update was not saved. The canonical snapshot is now validated before `writeEdits`; corruption errors retain the original raw value for backup. Independent targeted source review confirmed the ordering. Runtime regression remains pending.
-2. **Maya eligibility uncertainty.** Application guidance now checks earlier request history before seeking an exception if needed, consistent with the written reply.
-3. **Grace and manager authority.** Arrival is attributed to tracking, rather than asserted as confirmed receipt. The house-rule list includes the manager's authority over exceptions.
-4. **Evaluator startup.** README and submission specify the actual implementation branch, Node 24, and `npm ci`. A default clone of the current main branch would not contain the application.
-5. **Execution state.** AGENTS and the skill contract recognize the accepted product decisions and built application. No additional product approval is required to finish the existing scope.
-
-## Checks actually performed in this audit
-
-| Check | Result |
-|---|---|
-| Clean checkout | Observed exact audited head in a new local clone. |
-| Locked install | `npm ci --no-audit --no-fund` succeeded; 105 packages, 8 seconds. |
-| Production build before and after corrections | Both passed; build includes TypeScript checking. Corrected Vite build: 298 modules, 2.13 seconds. |
-| Served production files | Preview HTML, JavaScript and CSS returned HTTP 200. Preview startup plus HTTP checks took 0.53 seconds in the same process environment. This is not browser-interaction proof. |
-| Source import | Twelve records, twelve unique IDs; bundled and original CSV bytes identical. |
-| Diff integrity | `git diff --check` passed. Original rubric/CSV were not edited. |
-| Code review | Separate bounded Spec and Standards reviews, then one targeted inspection of the repair. No remaining static defect found in that repaired path. |
-| Written limits | Build notes 150/200; Maya 114/150; Wei 99/120; manager 99/120 words, excluding headings. Recount if edited. |
-
-Environment: Node 24.22.1, npm 11.9.0, Linux. Build warnings concern a third-party annotation and the existing bundle-size advisory; they did not fail the build. No dependency upgrade, unit suite, mock, or new CI was added.
-
-## Browser boundary
-
-System Chromium could not launch because the environment denied a required socket operation. The available cloud browser could not reach the local preview; recovering its failed tab was then rejected by browser policy. No policy changes, security bypass, or substitute success evidence were used.
-
-Consequently, this audit did **not** execute the corrected application in a browser. The earlier implementer reports cover save/refresh, navigation, filters, relationships, mobile/keyboard semantics, offline save, revision recovery, corruption recovery, and genuine quota failure. Keep those reports attributed to their source revision. The following bounded pass is the remaining code gate.
-
-## Remaining browser pass: 15-20 minutes
-
-Use an isolated browser profile and the corrected PR head. Preserve the exact raw storage value when checking recovery. Do not use mocked storage APIs.
-
-| Check | Actions and required result |
-|---|---|
-| Normal save after repair | Start with the original twelve tickets. On T-104, change status and append a unique note. Save and refresh. Both edits remain; original note and last-reply fields remain intact; another ticket is unchanged. |
-| Unknown stored ID during editing | Load T-104 first. Then set only `vcycene.queue.edits` to the JSON below through browser developer tools. Submit a nonempty note. The UI reports failure, the draft remains, and the raw stored string is byte-for-byte unchanged. No T-104 edit or revision is appended. |
-| Corruption recovery | From that failure, open backup/reset options after explicitly discarding the draft. Download the original raw value. Confirm the app-only reset; all twelve original tickets return. Unrelated storage stays untouched. |
-| Write refusal | Exercise the previously used real quota/permission failure in the isolated profile. A failed write retains the draft and reports no Saved outcome. Then retry after the genuine condition is cleared. |
-| Corrected policy copy | Inspect both Maya records: earlier history is checked, exception only if needed. Inspect Grace: tracking-reported arrival and missing warehouse confirmation. Expand policy guidance and confirm all five house rules. |
-| Short navigation regression | Check Back/Forward, dirty-navigation cancellation, Resolved-note guard/reopen, and related-case links. Inspect the corrected text at a narrow width. |
-
-Use this schema-valid but unknown-ticket document for the second check:
-
-```json
-{"version":1,"tickets":{"T-999":{"status":"open","revision":1,"notes":[]}}}
-```
-
-Record the full commit SHA, browser, URL, action, observed result, and evidence location in [issue #4](https://github.com/Raghuboi/VCycene-mini-project/issues/4). Screenshots establish wording/layout; storage readback and refresh establish persistence. A failed required check stays open. Repeat only checks affected by any further correction.
-
-## Submission completion
-
-| Item | Current state | Next action / owner |
+| Rubric outcome | Delivered behavior | Completion evidence |
 |---|---|---|
-| Tool and one extra | Implemented; corrected build passes | Executing agent completes the bounded browser gate. |
-| Evaluator entry | Explicit branch clone instructions; clean install/build/HTTP observed | Verify the actual submission link and fresh startup in a private browser on the final revision. A live deployment is optional under the rubric. |
-| Written build/customer/team material | Complete draft within all word limits | Preserve the edited Maya wording; update any claims if implementation changes. |
-| Applicant recording | Missing from repository/submission | Applicant records naturally, at most two minutes, and supplies an accessible playable link. |
-| Attachment | `output/pdf/VCycene-submission-draft.pdf` is a review copy | After audio is supplied, insert its link into SUBMISSION.md, regenerate the PDF, and check all links/audio privately. Remove the draft warning only after all gates pass. |
-| Merge | PR #8 is unmerged | Applicant reviews and merges when satisfied. Branch-specific delivery is possible without a merge; never point the evaluator at empty main. |
-| Application sending | Not performed | Confirm application route and send only on an explicit instruction. |
-| Time compliance | Prior total elapsed time remains unknown | Applicant supplies actual timing; do not claim the four-hour limit was met. |
+| Load the sample | Browser opens with the twelve supplied tickets; no account, prompt, upload or model API is needed. | Twelve distinct IDs, original facts preserved, no initial storage write. |
+| Explain priorities | Fixed October 5 scenario; house-rule deadlines and a reason per ticket. | Tom's October 6 claim boundary, separate Maya obligations, Grace's warehouse gate and other case distinctions. |
+| Retain edits | An operator changes status/adds an internal note; one browser-local edits document survives refresh. | Save/readback, unchanged source metadata and another ticket unchanged. |
+| One useful extra | Related records for Maya and the three-customer candidate firmware group. | Membership/navigation already observed; the new detail-anchor path needs the focused check. |
+| Accessible delivery | Public implementation branch with Node 24, `npm ci`, `npm run dev`. | Prior fresh clone/public-browser access record; current clean install and build. |
+| Required writing | Build notes, Maya, Wei and manager messages in SUBMISSION.md. | 150/200, 114/150, 99/120 and 99/120 words. Preserve approved text. |
+| Complete attachment | One document/PDF with tool link, writing and the applicant's own audio link. | Review PDF exists; personal audio and final access checks remain. |
 
-The recording is the only mandatory content item that must be created by the applicant personally. Document assembly, link checks, and the remaining browser pass are agent work once the needed input/environment is available.
+The tool runs in an ordinary browser. Coding tools help build it; there is no runtime harness. Completing the assignment does not require closing all twelve customer cases. A saved status records the operator's position; it cannot establish a sent reply, filed claim, warehouse receipt, shipment or refund. Ticket-specific resolution conditions remain in [the case matrix](plan.md#what-would-resolve-each-case).
 
-## Final acceptance and walkthrough
+## Evidence and its limits
 
-Close [issue #2](https://github.com/Raghuboi/VCycene-mini-project/issues/2) and [issue #3](https://github.com/Raghuboi/VCycene-mini-project/issues/3) only after the corrected behavior is observed. Close issue #4 after final access and evidence are recorded. Close [issue #5](https://github.com/Raghuboi/VCycene-mini-project/issues/5) only when the recording and complete attachment are accessible.
+- **Recorded by the implementing agent:** [Chrome acceptance](evidence/browser-acceptance.md) at `5eaa3b76`, including save/refresh, no-op and resolution guard, URL history, dirty navigation, offline save, revision conflict, unknown stored ID rejected before writing, raw backup/scoped reset, stale-backup refusal, real quota failure/retry, policy, keyboard and layout. [Issue #4's access record](https://github.com/Raghuboi/VCycene-mini-project/issues/4#issuecomment-6814848549) also records a fresh public clone and unauthenticated repository access.
+- **Observed in this wrap-up:** clean worktree at `d9ce27ac`; `npm ci` installed 105 packages in 9 seconds; builds before/after the anchor correction passed, including TypeScript. Corrected Vite build took 2.13 seconds. Twelve unique CSV IDs; bundled CSV byte-identical; rubric and source CSV unchanged. Both committed screenshots inspected. Written counts rechecked; PDF unchanged from the rendered, text-checked review copy.
+- **Inspected in this wrap-up:** separate bounded Spec/Standards reviews of the new delta, followed by one targeted confirmation of the one-line repair. No additional required feature or concrete source defect was found.
+- **Pending:** observed related-link visibility and dirty-cancellation behavior on `6f26d0b`. This audit did not run a browser: the earlier approved browser attempt was blocked by the environment/policy and was not bypassed. Source review/build are not browser evidence.
 
-For the interview, explain Tom's first position, Maya's linked history, the candidate firmware group, and the distinction between recording a status and completing an external action. Demonstrate a saved note surviving refresh. Know where policy reasoning (`src/lib/policy.ts`), save behavior (`src/lib/queue.ts`), and presentation live so the small live change stays bounded.
+Supported scope remains one browser/origin and one active editing tab. Native unload prompts are browser-controlled; drafts are not autosaved. No multiuser/cross-tab atomicity or hosted service is claimed. No unit tests, mocks, new CI or dependency changes were introduced.
+
+## Next agent task: one focused check, 2–3 minutes
+
+Use an environment with a permitted working browser, the corrected source above, and README startup. Record the actual full checkout SHA; a later documentation-only commit may contain the same source.
+
+1. At 390px width, open T-101 and follow its related T-109 link. Confirm T-109 is selected in the URL and its detail is visible without scrolling through the queue.
+2. On T-109, type a unique unsaved note, follow related T-101, and cancel the discard confirmation. Confirm T-109 and the exact draft remain.
+3. Follow the link again and accept discard. Confirm T-101's detail is visible and it does not inherit the discarded note.
+
+Record browser, SHA, actions and results in #4 with a useful screenshot/readback. If these pass, close #3 and #4 and freeze application code. If a path fails, repair only that path and repeat it. If a browser is unavailable, preserve the pending result and give the exact capability blocker; do not substitute another full review or fabricate a pass.
+
+## Finish sequence after technical acceptance
+
+The next input is the applicant's own natural audio, at most 120 seconds. It must not be generated or read from a script. No other product clarification is needed.
+
+| Step | Owner | Estimate | Exit condition |
+|---|---|---|---|
+| Supply recording | Applicant | Applicant-controlled | Natural response and playable evaluator-accessible URL. Talking points are in SUBMISSION.md. |
+| Check audio and submission facts | Agent + applicant input | 3–5 min | Measure duration, play in a private window; record actual application route and elapsed assignment time. |
+| Finalize canonical text | Agent | 3–5 min | Insert audio URL in SUBMISSION.md; preserve all four approved written sections; keep the implementation-branch link unless a reviewed merge changes the target. |
+| Produce final attachment | Agent | 5–8 min | Regenerate PDF from canonical text, render every page, inspect layout/text/hyperlink annotations, remove draft warnings only when required content is present. |
+| Verify final delivery | Agent | 4–7 min | Every final link opens privately; audio plays; document includes every rubric item. Record evidence and close #5/#1. |
+| Submit and optional merge | Applicant | Applicant-controlled | Review PR/document; submit through the rubric's applicable channel. Agent sends or merges only on a separate explicit instruction. |
+
+The four-hour rule concerns actual total assignment work, not this remaining estimate. Prior elapsed time is unknown; no compliance claim or clock reset is allowed. The audio and final document are incomplete until the actual recording is present and accessible.
+
+## GitHub ownership and stop rule
+
+- **#2:** persistence/source preservation complete on recorded browser evidence; close as completed. The anchor repair does not change persistence.
+- **#3:** policy/grouping complete; close after the focused related-navigation check in #4.
+- **#4:** current install/build complete; one focused browser check remains. Repository delivery is accepted; merge is not a gate.
+- **#5:** writing and reviewed PDF draft complete; blocked on personal audio, then final attachment/access checks.
+- **#1:** current map; close once all deliverables are complete. Accepted D1/D2/D4 remain settled.
+
+Do not add features, install more skills, rewrite the approved messages, or create a second plan. Use the existing issues and PR. After the focused check passes, remaining changes are submission material only unless a concrete regression is found.

@@ -4,7 +4,7 @@
 
 The rubric requires twelve loaded tickets, explained priorities, editable status and notes that survive refresh, and one useful additional feature. It does not require a backend, agent runtime, shared editing, autosaved drafts, or external support actions. The user requires React/Vite, shadcn, TanStack Router/Query, a minimal state model, and no unit tests.
 
-The owner accepted D1, D2 and D4 in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). The application in PR #8 implements this contract with TypeScript, Zod v4, one code-based Router route, the bundled CSV, shadcn-style native form primitives and related cases. D3's time/submission inputs remain unknown. This document defines the contract; README and the work-issue comments record actual observed behavior.
+The owner accepted D1, D2 and D4 in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). The application in PR #8 implements this contract with TypeScript, Zod v4, one code-based Router route, the bundled CSV, shadcn-style native form primitives and related cases. D3's time/submission inputs remain unknown. This document defines the contract. [Completion](completion.md) records current status; [browser acceptance](evidence/browser-acceptance.md) binds observed journeys to their source revision.
 
 ## One owner for each state
 
@@ -33,7 +33,7 @@ Ticket selection adds a history entry so Back/Forward restores it. List filters 
 
 A filter with no matches shows an honest empty-view message and an All tickets link; it is not a load failure. Preserve any selected detail. A CSV parse/schema failure is a load error and must not become an apparently valid empty queue.
 
-Render the detail inline. This avoids a second drawer-open state. Use CSS to adapt the same content to a narrow viewport.
+Render the detail inline. Both queue-row and related-case links target `#ticket-detail` so the selected detail is visible on stacked layouts. This avoids a second drawer-open state. Use CSS to adapt the same content to a narrow viewport.
 
 ## Form and save contract
 
@@ -50,7 +50,7 @@ While saving, disable form edits and submission and block ticket navigation. Alw
 1. Read and validate the current storage document.
 2. Check the command’s ticket revision against the current committed revision.
 3. Construct the updated status and appended note together, incrementing that ticket’s revision.
-4. Validate and serialize the complete edits document.
+4. Validate the complete edits document and known source-ticket membership; construct the canonical snapshot before any write. Serialize the validated edits.
 5. Write it with one setItem call. Successful return is the commit point.
 6. Return the canonical queue snapshot; onSuccess publishes it to the single Query key.
 
@@ -68,7 +68,7 @@ On conflict, offer Reload saved version. Keep the draft until the operator expli
 
 Storage access/write failures must show a useful error, retain the draft, and leave the displayed committed snapshot unchanged. Offer a deliberate retry; never claim a save succeeded merely because the controls changed.
 
-For corrupt or unsupported stored data, retain the raw value and offer Retry. Recovery requires downloading a backup of that value, followed by a separate confirmation to reset this application’s edits. Never silently reset or clear unrelated origin storage. If the value cannot be read or backed up, keep reset unavailable. Publish the original queue only after the reset succeeds.
+For corrupt or unsupported stored data, retain the raw value and offer Retry. Recovery requires downloading a backup of that value, followed by a separate confirmation to reset this application’s edits. Never silently reset or clear unrelated origin storage. If the value cannot be read or backed up, keep reset unavailable. Before removal, compare the current raw value with the offered backup; refuse reset if it changed, preserving newer data and offering Retry. Publish the original queue only after the reset succeeds.
 
 ## Explicit transitions
 
@@ -99,7 +99,7 @@ Use the blocker’s conditional before-unload handling for refresh/tab close. Br
 
 ## Verification and evidence
 
-No test files, unit tests, fabricated results, or mocks. Run typecheck and production build, then a bounded real-browser pass. Record observed results, relevant screenshots, and failures against the reviewed commit. Until executed, every row is **unverified**.
+No test files, unit tests, fabricated results, or mocks. Run typecheck and production build, then a bounded real-browser pass. Record observed results, relevant screenshots, and failures against the reviewed commit. This matrix defines acceptance, not current status; current results and the one focused follow-up are in [completion.md](completion.md).
 
 ### Core browser checks
 
