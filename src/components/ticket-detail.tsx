@@ -10,6 +10,12 @@ import type { CommittedTicket } from "../lib/queue";
 import type { QueueView } from "../lib/search";
 import { STATUS_LABELS } from "../lib/status";
 
+function focusSelectedTitle(node: HTMLHeadingElement | null) {
+  // The ticket pane is below the queue on narrow screens. A URL/hash scroll
+  // alone leaves keyboard and screen-reader focus on the old queue link.
+  node?.focus({ preventScroll: true });
+}
+
 function Fact({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div>
@@ -39,7 +45,7 @@ export function TicketDetail({
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
               <p className="font-mono text-xs text-muted-foreground">{source.TICKET_ID}</p>
-              <CardTitle className="text-base">
+              <CardTitle className="text-base" tabIndex={-1} ref={focusSelectedTitle}>
                 {source.CUSTOMER} <span className="font-normal text-muted-foreground">· {source.COUNTRY}</span>
               </CardTitle>
             </div>

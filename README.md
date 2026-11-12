@@ -55,8 +55,9 @@ One versioned document in `localStorage` under `vcycene.queue.edits`, holding on
   `setItem`. That successful return is the commit point; there is no optimistic update and no
   write-then-read-back loop.
 - Unreadable, unsupported, or unvalidated data is reported instead of replaced. The screen offers a backup
-  download of the raw value, then a separate confirmed reset of this app's key only. Nothing else in the
-  origin's storage is touched.
+  download of the raw value, then a separate confirmed reset of this app's key only. Before removal the
+  browser also writes a uniquely named `vcycene.queue.edits.backup.*` copy. If quota or access prevents
+  that copy, reset refuses to delete the active value. Unrelated origin storage is not cleared.
 - Saving `Resolved` requires a new note. Reopening keeps every note. An internal note never changes
   `LAST_REPLY_FROM` or `LAST_REPLY_DATE`.
 - Leaving a ticket with an unsaved status or note asks for confirmation, and a refresh or tab close warns

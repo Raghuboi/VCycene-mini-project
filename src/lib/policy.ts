@@ -93,7 +93,7 @@ const TRIAGE: Record<string, TriageEntry> = {
     headline:
       "Return-label request is unanswered. The request was made well inside the refund window and needs a label, not a policy debate.",
     nextAction:
-      "Send or advance the return label now. Do not apply today's age to a request that was already timely.",
+      "Send or advance the return label now. Do not apply today's age to a request that was already timely. Refund payment still waits for warehouse confirmation of the returned unit.",
     risk: "refund",
   },
   "T-102": {
@@ -108,7 +108,7 @@ const TRIAGE: Record<string, TriageEntry> = {
     rank: 8,
     band: "Overdue",
     headline:
-      "Amber light reported while the unit seems to run normally, on firmware 2.4.0. Close to the cohort by symptom, outside it by version.",
+      "Amber light reported while the unit seems to run normally on firmware 2.4.0. The light overlaps; the interrupted-cycle pattern does not.",
     nextAction:
       "Clarify what the amber light is doing and give supported guidance. Do not call this the same failure as the 2.4.1 reports.",
   },
@@ -293,7 +293,7 @@ export function relatedCasesFor(
     const delivered = formatDay(parseCalendarDate(ticket.DELIVERED));
     related.push({
       kind: "same-customer",
-      title: "Same customer, same unit",
+      title: "Same customer, matching delivery date",
       explanation: `${ticket.CUSTOMER} also has the separate ${sameCustomer.map((entry) => entry.TICKET_ID).join(" and ")} record for the unit delivered ${delivered}. Both records stay visible; linking does not close, merge, or resolve either one, and a newer message does not answer the older one.`,
       tickets: [ticket, ...sameCustomer],
     });

@@ -48,8 +48,10 @@ def main() -> None:
     args = parser.parse_args()
     voice = section("Voice response to Maya (two minutes or less)")
     if args.final:
-        if "APPLICANT ACTION REQUIRED" in voice or not re.search(r"https://\S+", voice):
-            raise ValueError("Final PDF requires a real applicant recording URL in SUBMISSION.md")
+        # The entire voice section must be replaced; a URL alongside rehearsal
+        # text is not a finished recording section. Playback is verified separately.
+        if not re.fullmatch(r"https://\S+", voice):
+            raise ValueError("Final PDF requires only the real applicant recording URL in the voice section")
         output = ROOT / "output/pdf/VCycene-submission.pdf"
     else:
         output = ROOT / "output/pdf/VCycene-submission-draft.pdf"
@@ -64,9 +66,15 @@ def main() -> None:
     }
 
     def para(text: str, style: str = "body") -> Paragraph:
-        escaped = html.escape(text).replace("\n", "<br/>")
+        escaped = html.escape(text).replace("`", "").replace("\n", "<br/>")
         escaped = re.sub(r"https://[^\s<]+", lambda m: f'<link href="{m.group(0)}" color="#1266a6">{m.group(0)}</link>', escaped)
         return Paragraph(escaped, styles[style])
+
+    def counted_heading(label: str, name: str, limit: int) -> str:
+        count = len(section(name).split())
+        if count > limit:
+            raise ValueError(f"{name} exceeds its {limit}-word limit ({count})")
+        return f"{label}  ({count} / {limit} words)"
 
     def blocks(text: str) -> Iterator[Flowable]:
         for part in re.split(r"\n\s*\n", text):
@@ -89,17 +97,20 @@ def main() -> None:
     if not args.final:
         story.append(para("DRAFT — NOT READY TO SUBMIT. Applicant recording and final access checks remain pending.", "warning"))
     story.append(para("01  Open the tool", "heading"))
-    url = "https://github.com/Raghuboi/VCycene-mini-project"
-    story.append(Paragraph(f'<link href="{url}" color="#1266a6">Open the verified repository on main</link>', styles["body"]))
-    story.extend(blocks("Run with Node 24 and npm." + section("Tool").split("Run with Node 24 and npm.", 1)[1]))
-    story.append(para("02  Build notes  (150 / 200 words)", "heading"))
+    tool = section("Tool")
+    repository = re.search(r"^Repository: (https://\S+)$", tool, re.M)
+    if not repository:
+        raise ValueError("The canonical tool section needs a repository URL")
+    story.append(para(repository.group(0)))
+    story.extend(blocks(tool.replace(repository.group(0), "", 1).strip()))
+    story.append(para(counted_heading("02  Build notes", "Build notes (under 200 words)", 200), "heading"))
     story.extend(blocks(section("Build notes (under 200 words)")))
     story.extend([Spacer(1, 12), para("The customer and team responses follow. All names, tickets, and policies are fictional.", "subtitle"), PageBreak(), para("Customer and team responses", "title"), para("Scenario date: October 5, 2026  |  Messages remain unsent", "subtitle")])
     for label, name in [
-        ("03  Maya written reply  (114 / 150 words)", "Written reply to Maya (under 150 words)"),
+        (counted_heading("03  Maya written reply", "Written reply to Maya (under 150 words)", 150), "Written reply to Maya (under 150 words)"),
         ("04  Voice response to Maya" if args.final else "04  Recording pending", "Voice response to Maya (two minutes or less)"),
-        ("05  Message to Wei  (99 / 120 words)", "Message to Wei (under 120 words)"),
-        ("06  Manager update  (99 / 120 words)", "Message to manager, Monday end of day (under 120 words)"),
+        (counted_heading("05  Message to Wei", "Message to Wei (under 120 words)", 120), "Message to Wei (under 120 words)"),
+        (counted_heading("06  Manager update", "Message to manager, Monday end of day (under 120 words)", 120), "Message to manager, Monday end of day (under 120 words)"),
     ]:
         story.append(para(label, "heading"))
         text = section(name)

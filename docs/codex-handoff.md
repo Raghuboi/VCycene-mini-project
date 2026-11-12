@@ -35,7 +35,7 @@ Repair correctness/data loss, policy mistakes, broken entry and inaccessible req
 
 The applicant supplies their own natural recording, <=120 seconds. Measure duration and listen in full. Check the failure acknowledgment, refund/history/manager uncertainty, warehouse payment gate and October 6 update. Confirm private-window playback of the real link. A local file needs an appropriate evaluator-accessible hosting destination before it can be linked; use the applicant's intended sharing scope.
 
-In SUBMISSION.md, replace the **entire body** of `## Voice response to Maya (two minutes or less)` with the verified HTTPS recording link. Remove placeholder and talking points. Preserve the approved build/Maya/Wei/manager bodies and their 150/114/99/99 whitespace counts. Keep the main repository URL.
+In SUBMISSION.md, replace the **entire body** of `## Voice response to Maya (two minutes or less)` with the verified HTTPS recording link. Remove placeholder and talking points. Preserve the reviewed build/Maya/Wei/manager bodies and their current 153/114/99/100 whitespace counts. Keep the main repository URL.
 
 Remove top-level draft/editorial instructions once content and access checks pass. If the final PDF displays raw authoring markup in tool instructions, correct that presentation without changing the approved message bodies. Do not invent a recipient, application route or timing claim.
 

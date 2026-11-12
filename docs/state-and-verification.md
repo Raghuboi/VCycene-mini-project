@@ -68,7 +68,7 @@ On conflict, offer Reload saved version. Keep the draft until the operator expli
 
 Storage access/write failures must show a useful error, retain the draft, and leave the displayed committed snapshot unchanged. Offer a deliberate retry; never claim a save succeeded merely because the controls changed.
 
-For corrupt or unsupported stored data, retain the raw value and offer Retry. Recovery requires downloading a backup of that value, followed by a separate confirmation to reset this application’s edits. Never silently reset or clear unrelated origin storage. If the value cannot be read or backed up, keep reset unavailable. Before removal, compare the current raw value with the offered backup; refuse reset if it changed, preserving newer data and offering Retry. Publish the original queue only after the reset succeeds.
+For corrupt or unsupported stored data, retain the raw value and offer Retry. Recovery asks the operator to download the raw value and separately confirm reset; the app also writes a uniquely named browser-local backup before removing the active key. If that backup write fails, reset fails closed and keeps the active value. Never silently reset or clear unrelated origin storage. Before removal, compare the current raw value with the offered backup; refuse reset if it changed, preserving newer data and offering Retry. Publish the original queue only after the reset succeeds. Browser-local backups are not a substitute for the operator's downloaded copy.
 
 ## Explicit transitions
 

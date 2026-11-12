@@ -77,7 +77,7 @@ export function QueueLoadError({ error, onRetry }: { error: unknown; onRetry: ()
       {canReset ? (
         <form onSubmit={(event) => { event.preventDefault(); handleReset(); }} className="space-y-3 rounded-md border border-border px-3 py-3">
           <p className="text-sm text-foreground">
-            Resetting is separate from the backup. Download the backup first, then confirm below.
+            Download the raw value first. Before removing active edits, this browser also keeps a separate local backup. If that copy fails, reset leaves the active value untouched.
           </p>
           <label className="flex items-start gap-2 text-sm text-muted-foreground">
             <input type="checkbox" name="backedUp" required className="mt-0.5" />

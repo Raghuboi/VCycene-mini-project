@@ -139,7 +139,14 @@ function QueuePage() {
         </section>
 
         <aside id="ticket-detail" aria-label="Ticket detail" className="min-w-0 scroll-mt-4 xl:sticky xl:top-4">
-          {selected ? (
+          {queue.isPending ? (
+            <Card>
+              <CardHeader>
+                <CardTitle>Loading ticket detail</CardTitle>
+                <CardDescription>Checking the bundled records before showing the selected ticket.</CardDescription>
+              </CardHeader>
+            </Card>
+          ) : selected ? (
             <TicketDetail key={selected.source.TICKET_ID} ticket={selected} tickets={tickets} view={view} />
           ) : search.ticket ? (
             <Card>
