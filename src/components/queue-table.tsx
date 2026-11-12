@@ -72,7 +72,7 @@ export function QueueTable({
                 ) : null}
               </TableCell>
               <TableCell role="cell">
-                <span className="text-[0.7rem] font-semibold uppercase text-muted-foreground sm:hidden">Reply timing</span>
+                <span className="mr-2 text-[0.7rem] font-semibold uppercase text-muted-foreground sm:hidden">Reply timing</span>
                 <span className={`text-xs ${TIMING_TONE[timing.tone]}`}>{timing.label}</span>
               </TableCell>
               <TableCell role="cell" className="whitespace-nowrap">
