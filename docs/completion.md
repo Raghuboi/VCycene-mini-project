@@ -6,23 +6,23 @@ Updated 12 November 2026, America/Toronto. The [original rubric](../rubric.md) i
 
 The application is merged and has recorded browser acceptance. Main is `c15aebcfffd32a23ec72619cd9a2d115cdc677b1`. PRs #8/#9 are merged; issues #2/#3/#4 are closed. PR #10 is the sole open finalization candidate. Its earlier head `41870b890c8fb9cafbc54f19ed1055705b464f6c` adds the final-PDF subtitle correction and submission handoff; this update adds the requested rubric audit and consolidates the docs.
 
-Source/writing review and vision inspection of four committed application captures found no demonstrated rubric-blocking app or policy defect. The prior executed browser record covers core behavior, failure paths and the final related-link correction. The newly requested live wave B1–B7 has not run in this bundle audit. Preserve that distinction.
+The fresh Chrome 157 wave began on `b67fa27c` (B1 clone usable in 10.053 seconds); B2–B6 were rerun on post-review repair commit `ba854413`. All twelve source cases were inspected, status/note saves survived refresh, navigation and related cases worked, genuine storage failure/recovery was exercised, and 1440/1024/390px captures were visually inspected. [Browser evidence](evidence/browser-acceptance.md#fresh-final-rubric-wave-and-focused-repair-readback) gives exact values and limits. The post-merge B7 default-main readback belongs in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1).
 
 | Work | State | Owner / next action |
 |---|---|---|
-| Required app and useful extra | Recorded acceptance complete | Executing agent runs the owner's fresh B1–B7 wave against one fixed candidate, within the actual remaining allowance. |
+| Required app and useful extra | Fresh B1–B6 acceptance complete | Post-merge B7 default-main readback is tracked in issue #1. |
 | Direct rubric audit | Completed in [rubric-audit.md](rubric-audit.md) | Use its requirement IDs for findings and final acceptance. |
-| Approved writing | Complete: build 150, Maya 114, Wei 99, manager 99 words | Preserve [SUBMISSION.md](../SUBMISSION.md) as the single source. |
+| Submission writing | Complete: build 153, Maya 114, Wei 99, manager 100 words | [SUBMISSION.md](../SUBMISSION.md) remains the single source; build agency/tool name and manager's evidence wording were corrected after review. |
 | Documentation cleanup | Prepared in PR #10 | Retired conflicting draft; condensed spec/skills guidance; distinct status, audit, execution and owner guides. |
 | Applicant audio | Missing required content R8 | Applicant records naturally, <=120 seconds, and provides a file or playable URL. |
 | Complete attachment and final link checks | Pending R11/R12 | Agent inserts actual audio link, renders/checks the final PDF and verifies private playback. |
-| Main consolidation and final delivery | Pending final review | Finish PR #10, merge when authorized, verify final main entry, then close #5 on artifact evidence. #1 remains for actual submission confirmation. |
+| Main consolidation and final delivery | Pending PR #10 review/merge | Verify final main entry B7. Keep #5 open until the audio-bearing artifact exists and #1 for actual submission. |
 | Actual submission R13 | Not performed | Use the confirmed application route and explicit sending instruction. |
 | Four-hour compliance | Unknown | Record actual prior elapsed work and deadline; never claim a new clock. |
 
 ## Run one bounded wave
 
-The existing technical evidence stands. The owner now asks for a fresh acceptance pass, not another design phase. Run the agent instructions in [codex-handoff.md](codex-handoff.md).
+The existing technical evidence stands and B1–B6 are now executed. Finish the bounded review, make only concrete corrections, consolidate PR #10, and run B7 on main. The applicant will record at the end; do not replace that input or delay independent work for it.
 
 | Phase | Estimated agent time | Exit condition |
 |---|---:|---|

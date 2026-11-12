@@ -1,30 +1,30 @@
 # Audit against the original rubric
 
-Audit date: 12 November 2026, America/Toronto. Application baseline: main `c15aebcfffd32a23ec72619cd9a2d115cdc677b1`. Reviewed finalization candidate before this documentation update: `41870b890c8fb9cafbc54f19ed1055705b464f6c`, PR #10. Application source and dependencies match the browser-reviewed candidate `837b522a`; the finalization branch changes documents and the PDF helper.
+Audit date: 12 November 2026, America/Toronto. Application baseline: main `c15aebcfffd32a23ec72619cd9a2d115cdc677b1`. PR #10 originally had a docs-only candidate `b67fa27c`; the bounded review found concrete recovery, navigation-focus and PDF issues, repaired in `ba854413c761897e480a2a30e444d97d523a50b1`. The original app source at `b67fa27c` matched `837b522a`; the repair commit changes the connected application and PDF helper. Its affected real-browser paths were rerun.
 
-The [original rubric](../rubric.md) is authoritative. The owner has now requested one fresh final browser/vision wave. That new wave is planned below, not claimed executed. Prior browser evidence remains valid for its recorded source. This audit read the rubric/CSV, reviewed the approved writing and current state, and inspected four committed application captures with vision. It did not run a new live browser session.
+The [original rubric](../rubric.md) is authoritative. The requested browser/vision wave began on `b67fa27c`; B2–B6 were rerun after concrete repairs on `ba854413`, with observations and fresh captures in [browser acceptance](evidence/browser-acceptance.md#fresh-final-rubric-wave-and-focused-repair-readback). Post-merge B7 default-main verification is tracked in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1). Earlier evidence remains valid for its recorded source; no applicant audio has been supplied.
 
 ## Explicit submission requirements
 
 | ID | What the rubric requires | Current evidence | Disposition |
 |---|---|---|---|
-| R1 | Load all twelve supplied tickets. | Recorded twelve distinct IDs, original source fields and no initial storage write. | Supported by prior executed browser evidence. Reconfirm in B1. |
-| R2 | Show which tickets need attention first and say why, using the house rules. | Per-ticket reasons and source-based policy in the app; [twelve-ticket matrix](plan.md#policy-assumptions-and-ticket-analysis). | No concrete policy defect found. Inspect every detail in B2. |
-| R3 | Change status, add a note, and retain changes after refresh. | Exact saved values and unchanged source facts observed; real failure/recovery checks recorded. | Supported. Reconfirm through the interface in B3/B5. |
-| R4 | Add one useful feature that was not requested. | Maya's related records and the three-customer candidate firmware group, including the final related-link regression. | Complete on recorded evidence. Reconfirm B4. |
-| R5 | Supply a live link if possible, otherwise a repo that starts in under five minutes. | Main is public. Supplied session messages 562–567 span about 46.4 seconds from fresh-clone command through successful Chrome load/save/refresh, with Node/npm present. PR #9 and the log record private repo/README access. | Repository route satisfies the choice. B1 times current candidate startup; B7 verifies final main entry. |
-| R6 | Build notes <=200 words: tools, one AI mistake/how caught, next addition/why. | 150 words. Names the actual mobile-clipping mistake, screenshot-based correction and follow-up ownership/reminders. | Complete. Preserve approved body and recount after edits. |
+| R1 | Load all twelve supplied tickets. | Fresh B1/B2 observed twelve distinct IDs, original source fields and no initial storage write. | Complete in B1/B2. |
+| R2 | Show which tickets need attention first and say why, using the house rules. | B2 compared each detail with the source and two case-specific reason/action phrases; [twelve-ticket matrix](plan.md#policy-assumptions-and-ticket-analysis). | Complete in B2; no policy defect found. |
+| R3 | Change status, add a note, and retain changes after refresh. | B3 confirmed exact saved values and unchanged source facts; B5 exercised real failure/recovery. | Complete in B3/B5. |
+| R4 | Add one useful feature that was not requested. | B4 confirmed Maya's related records and the three-customer candidate firmware group, with 390px target visibility in B6. | Complete in B4/B6. |
+| R5 | Supply a live link if possible, otherwise a repo that starts in under five minutes. | Public main entry was previously checked. Fresh candidate clone/install/start/browser usability in B1 took 10.053 seconds on Node 24/npm. | Repository route satisfies the choice; B7 verifies final main entry. |
+| R6 | Build notes <=200 words: tools, one AI mistake/how caught, next addition/why. | 153 words. Names Hermes Agent, the actual mobile-clipping mistake, screenshot-based correction and follow-up ownership/reminders without claiming the applicant personally ran the agent's checks. | Complete. Recount after edits. |
 | R7 | Written Maya reply <=150 words. | 114 words. Names restart-only closures and unanswered follow-up; honest refund/history/manager path, warranty alternative, warehouse gate and October 6 update. | Complete. No concrete policy violation found. |
 | R8 | Applicant speaks naturally for <=2 minutes, with an accessible recording link. The recording must not be read from a script. | No actual applicant recording or playable link supplied. | Missing mandatory content. Rehearsal guide is not a substitute. |
 | R9 | Wei message <=120 words that enables action without a clarifying question. | 99 words. Three cases with symptoms/version, onset uncertainty, exclusions, missing logs/serials, specific request and response time. | Complete within the supplied facts. Do not invent diagnostics. |
-| R10 | Manager message <=120 words: done, blocked/on whom, one decision. | 99 words. Triage and drafts are done; dependencies named; one conditional Maya-refund-exception decision requested. | Complete. Do not convert pending actions into accomplishments. |
+| R10 | Manager message <=120 words: done, blocked/on whom, one decision. | 100 words. Triage and drafts are done; dependencies named; one conditional Maya-refund-exception decision requested. Records share a delivery date, not a verified serial number. | Complete. Do not convert pending actions into accomplishments. |
 | R11 | One document/PDF containing tool link, build notes, Maya reply/audio link and both team messages. | Canonical text and two-page review PDF exist. Recording link and final clean PDF are absent. | Incomplete until real audio is inserted and final artifact inspected. |
 | R12 | Every final link opens in a private browser window before sending. | Repo access previously observed. Final PDF/audio links and actual playback remain pending. | Verify the actual final links and playback to establish ready-to-submit access. |
 | R13 | Upload the document with the LinkedIn/Indeed application, or send it to the original poster through the specified route. | No application submission or sending confirmation is recorded. | Applicant action, or a separately authorized send. Record actual confirmation; artifact readiness alone does not complete R13. |
 | G1 | Plan about three hours and stop at four. | Historical total elapsed work remains unknown. | Compliance unverified. Count this audit and earlier planning; do not reset the clock. |
 | G2 | Check AI-produced work. | Recorded source corrections, real browser checks and visual inspections. | Supported; applicant must be able to explain the actual mistake and correction. |
 
-R5's elapsed interval is evidence for that recorded environment, not a guarantee for every computer/network. The raw session export remains private. The [committed browser record](evidence/browser-acceptance.md), PRs #8/#9 and the supplied execution log establish the underlying actions.
+R5's elapsed interval is evidence for that recorded environment, not a guarantee for every computer/network. The raw session export remains private. The [committed browser record](evidence/browser-acceptance.md), PRs #8/#9 and fresh local results establish the underlying actions.
 
 The follow-up interview's walkthrough and small live change are preparation, not additional submission artifacts. React, Pstack, Ponytail, the no-unit policy, GitHub cleanup and our state-owner rules are owner/process choices, not extra employer grading requirements.
 
@@ -56,7 +56,7 @@ Delivery-day-zero, policy inclusivity/cutoff hours and the business-day calendar
 
 ## One final live browser and vision wave
 
-This section is an executable acceptance specification. Every row below is **pending for the newly requested wave**, even where a prior run passed. Use one fixed candidate, a permitted working browser and isolated disposable profiles. Record SHA, browser/version, URL, viewport and actual start/end times. No unit tests, mock storage APIs or new browser framework.
+This section is the executed acceptance specification for B1 on `b67fa27c` and B2–B6 on `ba854413`; exact observations, screenshots and limitations are in the [browser record](evidence/browser-acceptance.md#fresh-final-rubric-wave-and-focused-repair-readback). B7 is a post-merge check owned by issue #1. No unit tests or mock storage APIs were used.
 
 | ID | Execute through the real interface | Required observation and evidence | Rubric connection |
 |---|---|---|---|
@@ -74,7 +74,14 @@ Screenshots prove presentation. Refresh and independent readback prove persisten
 
 ## Findings and polish limits
 
-The new source/writing/vision audit found no demonstrated rubric-blocking app or policy defect. Four current captures show readable desktop/narrow queues and Maya details. They do not show every editor/error/recovery state, keyboard focus or 1024px layout; B6 fills that capture coverage.
+The source/writing/vision audit found no demonstrated rubric-blocking app or policy defect. The fresh captures cover desktop, 1024px and 390px queues, selected detail/editor, success and error/recovery states. B6 confirmed keyboard focus and semantic controls. These are observations on the local candidate, not claims about a hosted deployment.
+
+Concrete review findings addressed after the first browser pass:
+
+- Recovery no longer relies solely on a checkbox attesting to a downloaded file; it preserves a uniquely named browser-local raw backup before reset, and refuses reset if the backup write fails. Fresh B5 verified the exact backup bytes, stale-value refusal and unrelated sentinel preservation.
+- A valid selected URL shows a loading card, not a false unknown-ticket claim while Query is pending. A selected ticket title now receives focus when its keyed detail mounts; keyboard activation and 390px visibility were checked on the repair commit.
+- The PDF helper now reads the repository URL from the canonical Tool section, strips inline backticks, computes word labels and rejects a voice URL if rehearsal text remains. The two-page draft was regenerated, rendered and checked; final mode still refuses the missing audio.
+- Build notes identify Hermes Agent without claiming the applicant personally ran Chrome, and the manager message no longer assumes a verified shared serial/unit. Andre's action states the warehouse payment gate; Sofia's wording distinguishes an amber light from interrupted cycles.
 
 Concrete documentation findings addressed in this bundle:
 
@@ -87,6 +94,6 @@ Repair data loss, false saves, wrong policy, broken evaluator entry or inaccessi
 
 ## Evidence entry for the executing agent
 
-Append the actual new result to `docs/evidence/browser-acceptance.md` under the tested full SHA. Include B1–B7 result, observed value, capture/readback path and limitation. Keep historical runs intact. Record unresolved failures and repairs. Never prefill PASS rows from this plan.
+The B1–B6 results are appended to `docs/evidence/browser-acceptance.md` under the tested full SHAs, with observed values, capture/readback paths and limitations. Historical runs are preserved. Record actual B7 output in issue #1 after default-main readback; do not prefill PASS.
 
 Record final artifact/audio checks separately in issue #5: actual duration, private playback, exact PDF link targets, approved text/counts, every-page visual inspection, source SHA and final PDF hash. R8/R11/R12 close only on those real outputs. R13 closes only on actual submission confirmation through the applicable channel.
