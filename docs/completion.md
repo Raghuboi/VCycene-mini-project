@@ -1,74 +1,76 @@
-# Finalization bundle
+# Finalization status and work plan
 
-Updated 12 November 2026, America/Winnipeg. **The application is complete on main. The only missing required content is the applicant's own recording.** Final document assembly and private-window link checks follow that input.
+Updated 12 November 2026, America/Toronto. The [original rubric](../rubric.md) is the completion authority. The owner requested one final audit/polish wave, GitHub/document consolidation, and a personal walkthrough/recording guide. [Rubric audit](rubric-audit.md) directly addresses every requirement and the six evaluation criteria.
 
-Start the executing agent with [codex-handoff.md](codex-handoff.md). Preserve the approved [SUBMISSION.md](../SUBMISSION.md); the existing [PDF review copy](../output/pdf/VCycene-submission-draft.pdf) is deliberately a draft. The [rubric](../rubric.md) defines completion; the [case matrix](plan.md) and [state contract](state-and-verification.md) remain references, not a new build cycle.
+## Current state
 
-## Verified baseline
+The application is merged and has recorded browser acceptance. Main is `c15aebcfffd32a23ec72619cd9a2d115cdc677b1`. PRs #8/#9 are merged; issues #2/#3/#4 are closed. PR #10 is the sole open finalization candidate. Its earlier head `41870b890c8fb9cafbc54f19ed1055705b464f6c` adds the final-PDF subtitle correction and submission handoff; this update adds the requested rubric audit and consolidates the docs.
 
-Audited main: `c15aebcfffd32a23ec72619cd9a2d115cdc677b1`.
+Source/writing review and vision inspection of four committed application captures found no demonstrated rubric-blocking app or policy defect. The prior executed browser record covers core behavior, failure paths and the final related-link correction. The newly requested live wave B1–B7 has not run in this bundle audit. Preserve that distinction.
 
-| Work | Current evidence |
-|---|---|
-| Application merged | [PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) squash-merged at `89d61f80901837415219d36444a6ea98f17e2d4b`. |
-| Main evaluator entry | [PR #9](https://github.com/Raghuboi/VCycene-mini-project/pull/9) merged at `c15aebc`, aligning README, submission source and PDF with the default repository URL. |
-| Core browser acceptance | [Chrome record](evidence/browser-acceptance.md): twelve tickets; status/note save and refresh; source preservation; policy/relationships; URL/history; dirty navigation; real quota failure; offline save; corruption/conflict recovery. |
-| Final related-link check | Same record, final section: source `6f26d0b`, checkout `837b522a`, Chrome 157, 390px. T-101/T-109 detail visibility, cancelled/accepted discard and unchanged storage all passed; captures are committed. |
-| Fresh main startup | Supplied session tool results and PR #9 record: default clone at `89d61f8`, install/build, twelve IDs in Chrome, saved note retained after refresh. Public repo/README opened in a private browser context. |
-| Source reconciliation | Direct tree comparison shows main's application source and dependency files match the previously reviewed `837b522a` candidate. Squash-merge ancestry alone is not used as equivalence proof. |
-| Written material | Whitespace counts rechecked: build notes 150/200, Maya 114/150, Wei 99/120, manager 99/120. Approved bodies unchanged. |
-| Review PDF | Two pages, main repository hyperlink, explicit draft/recording warning. SHA-256 `ec9802eb8e6e91464156542614372329a7cb447454069ce47ce5c4cba1363add`; both pages rendered/inspected and bytes unchanged in this bundle. |
-
-The supplied execution log was checked against actual tool-result records, then current GitHub state. The browser results remain attributed to those executed sessions; this bundle audit did not run another browser or repeat the application build. The raw session export is not part of the public bundle.
-
-Issues #2/#3/#4 are closed. Keep #1/#5 open until the complete accessible attachment exists. No technical application gate remains; freeze application code unless a concrete regression appears. The tool uses the supplied CSV in a normal browser and does not require a runtime harness or external support integrations. The assignment does not require closing every customer case.
-
-## Inputs still needed
-
-| Input | Why it is needed | Does it block the final PDF? |
+| Work | State | Owner / next action |
 |---|---|---|
-| Applicant's own natural recording, no more than 120 seconds, as an audio file or playable URL | Mandatory rubric content. A local file must acquire evaluator-accessible hosting before finalization. | Yes. |
-| Application route/destination: LinkedIn or Indeed application, or the original post's contact | Determines whether the finished PDF is uploaded as a cover letter/resume page or sent to the poster. | No; needed to submit correctly. |
-| Actual elapsed assignment time and any real deadline | Allows factual reporting against the four-hour limit. Never invent timing or reset the clock. | No; omit an unsupported compliance claim. |
+| Required app and useful extra | Recorded acceptance complete | Executing agent runs the owner's fresh B1–B7 wave against one fixed candidate, within the actual remaining allowance. |
+| Direct rubric audit | Completed in [rubric-audit.md](rubric-audit.md) | Use its requirement IDs for findings and final acceptance. |
+| Approved writing | Complete: build 150, Maya 114, Wei 99, manager 99 words | Preserve [SUBMISSION.md](../SUBMISSION.md) as the single source. |
+| Documentation cleanup | Prepared in PR #10 | Retired conflicting draft; condensed spec/skills guidance; distinct status, audit, execution and owner guides. |
+| Applicant audio | Missing required content R8 | Applicant records naturally, <=120 seconds, and provides a file or playable URL. |
+| Complete attachment and final link checks | Pending R11/R12 | Agent inserts actual audio link, renders/checks the final PDF and verifies private playback. |
+| Main consolidation and final delivery | Pending final review | Finish PR #10, merge when authorized, verify final main entry, then close #5 on artifact evidence. #1 remains for actual submission confirmation. |
+| Actual submission R13 | Not performed | Use the confirmed application route and explicit sending instruction. |
+| Four-hour compliance | Unknown | Record actual prior elapsed work and deadline; never claim a new clock. |
 
-No other product decision needs the owner's attention. D1/D2/D4 remain accepted. Recording time belongs to the applicant; agent finalization after a playable URL arrives is estimated at **15–25 minutes**.
+## Run one bounded wave
 
-## Exact remaining sequence
+The existing technical evidence stands. The owner now asks for a fresh acceptance pass, not another design phase. Run the agent instructions in [codex-handoff.md](codex-handoff.md).
 
-### 1. Verify the real recording — 3–5 minutes
+| Phase | Estimated agent time | Exit condition |
+|---|---:|---|
+| Freeze candidate and execute browser/vision B1–B6 | 25–35 min | Actual user journeys, all twelve policy cases, fresh captures and saved-value/failure readback recorded under the SHA. |
+| Repair demonstrated findings and consolidate candidate | 5–10 min if needed | Smallest fixes; affected paths rechecked; docs/links consistent. Skip app changes if no failure is found. |
+| Finalize audio-dependent document | 15–25 min after playable audio arrives | Real duration/content/access checked; final PDF rendered and every link opens privately. |
+| Final main readback B7 | Included in consolidation allowance when feasible | Main matches the accepted application tree; submitted default entry works and one edit survives refresh. |
 
-Measure the actual duration; require <=120 seconds. Listen to the whole file and check that it is the applicant speaking naturally, intelligibly, without reading a script. The response should acknowledge the failed restart/closure history and unanswered follow-up, recognize the refund request, explain the honest remedy path without guaranteeing an exception, preserve the warehouse-confirmation payment gate, and give the next-update commitment.
+The nominal range is 45–70 minutes of agent execution if repairs are needed, plus applicant recording/review time. It is an estimate, not permission to exceed the rubric's four-hour total. Count earlier planning and this audit conservatively. If the remaining allowance is smaller, prioritize the literal rubric deliverables and preserve a truthful checkpoint at the stop time. Do not call an extended learning/polish session compliant with the original cap.
 
-Keep the scenario date October 5, 2026. The approved written reply commits to an update by the end of Tuesday, October 6. Use SUBMISSION.md's prompts while preparing; do not manufacture a recording or mark a missing one complete.
+Use one writer and two bounded review lenses. Spec checks the rubric and policy; Standards checks affected state/data boundaries and real usability. Vision inspection belongs to the real browser pass. Pstack/Ponytail principles are concrete checks in [skills-and-review.md](skills-and-review.md); no new plugin setup or review tournament is needed.
 
-Open the eventual recording URL in a private window and play it. A page that loads but requests login, permission or payment is not accessible playback. A private local file alone is not a submission link. Verify the chosen sharing scope before publishing any supplied file.
+## Keep each document authoritative for one job
 
-### 2. Finalize the canonical document — 3–5 minutes
+| File | Authority |
+|---|---|
+| `rubric.md`, `tickets.csv` | Original assignment and source facts; unchanged. |
+| `README.md` | Evaluator startup, app scope and supported storage limits. |
+| `SUBMISSION.md` | Sole approved submitted writing and eventual audio URL. |
+| `docs/rubric-audit.md` | Requirement/evaluation mapping, findings and B1–B7 acceptance definitions. |
+| `docs/completion.md` | Current status, owners, dependencies and GitHub disposition. |
+| `docs/codex-handoff.md` | Agent execution and finalization procedure. |
+| `docs/owner-runbook.md` | Applicant checklist, rehearsal/cue card and interview walkthrough. |
+| `docs/plan.md`, `GLOSSARY.md` | Accepted product/policy model, twelve-ticket reasoning and resolution conditions. |
+| `docs/state-and-verification.md` | State ownership, transitions and storage/navigation invariants. |
+| `docs/skills-and-review.md` | Active review principles and pinned provenance. |
+| `docs/evidence/browser-acceptance.md` and captures | Actual executed evidence, appended by source SHA. |
 
-Preserve the four approved written bodies exactly. Under the existing heading `## Voice response to Maya (two minutes or less)`, replace the **entire section body** with a concise recording label and the verified HTTPS URL. Remove both the placeholder and the talking-point instructions; the renderer includes this section verbatim.
+The obsolete `docs/submission-drafts.md` had a conflicting 112-word Wei variant and stale pending-tool text. It is retired; Git history preserves it. The canonical 99-word Wei body is unchanged. The original build schedule and full dormant-skill inventory no longer direct active work.
 
-Remove the top-level draft warning/title wording and the final editorial submission checklist once content/access checks are complete. Keep the fictional-scenario context. Use `https://github.com/Raghuboi/VCycene-mini-project` as the tool link; the verified application is on main. Do not add recipients, resume details or timing claims from assumptions.
+## Consolidate GitHub without losing evidence
 
-### 3. Generate and inspect the final PDF — 5–8 minutes
+Keep PR #10 as the sole open candidate for this finalization. Keep #5 open until artifact readiness and #1 open until actual submission confirmation. Do not reopen closed #2–#4 merely to repeat acceptance; issue #1 tracks the newly requested wave and #5 owns the recording/final artifact.
 
-Use the corrected helper included with this bundle:
+| Ref / work item | Disposition |
+|---|---|
+| `main` | Authoritative evaluator entry. After review, consolidate only the accepted PR #10 changes and actual final submission material. |
+| `docs/finalization-bundle-2026-11-12` / PR #10 | Continue here; preserve newer work. Do not create a competing finalization branch or plan. |
+| `feat/monday-queue-accepted` | Historical PR #8 implementation/evidence. Main contains its squash-merged app. Retain until final delivery and evidence-link review are complete. |
+| `planning/monday-queue-2026-11-10` | Historical planning PR #6, closed as superseded. Do not merge it again. |
+| `feat/monday-queue-tool` | Superseded HTML PR #7, closed and unmerged. It is not part of the accepted React candidate. Do not merge it into main. |
 
-```bash
-uv run --with reportlab python scripts/build-submission-pdf.py --final
-```
+Branch deletion is optional housekeeping after delivery, not a rubric gate. Before an authorized deletion, record the exact head, compare unique content and check evidence links. Squash merges mean ancestry-only merged-branch checks are insufficient. Keep a branch if preservation or authorization is uncertain; do not delay the submission for this cleanup.
 
-Expected output: `output/pdf/VCycene-submission.pdf`. Final mode now labels the document **Application submission**; review mode retains **Application review copy**. Windows with Arial and Linux with DejaVu Sans are supported by the existing font lookup. Use the already working environment; do not turn this into a tooling setup project.
+Merge only the reviewed final candidate under the owner's instruction. Read back the merge SHA, check the default evaluator URL and mark readiness separately from actual submission. No force-push, history rewrite, automatic branch purge or application send is part of preparing this bundle.
 
-The helper refuses the current missing-audio placeholder or absence of an HTTPS URL. That guard was executed against the actual draft and created no final PDF. It does not verify the speaker, duration, content or access: those need the real observations above. No fabricated URL was used to simulate completion.
+## Ready-to-submit condition
 
-Render every final page and inspect for clipped text, overlaps, bad page breaks, unexpected extra pages or unreadable links. Compare the four written sections with canonical source, recount their words, and inspect actual PDF hyperlink targets. Require no `DRAFT`, `Recording pending`, `APPLICANT ACTION REQUIRED`, `Talking points only`, or `Application review copy` residue in the final PDF. The final render remains unperformed until real audio is available.
+R1–R12 have concrete evidence, the actual recording is <=120 seconds and plays privately, the final PDF contains every required item with no draft/editorial residue, and all final links work. Keep G1 timing uncertainty explicit if the historical facts remain unavailable. Close #5 when the complete accessible attachment exists. Keep #1 open for R13 until the applicant confirms actual submission. Never mark R13 complete without a real submission.
 
-### 4. Verify and hand over — 4–7 minutes
-
-Open every final PDF link in a private browser window; play the actual recording again from its PDF link. Retain the PDF filename/hash, source revision, duration, word counts and observed link results in #5. Close #5 and #1 only after this complete accessible attachment exists. Record readiness separately from whether the application was actually sent.
-
-The applicant reviews and submits via the rubric's applicable channel. No customer/team messages or application have been sent by this bundle. Sending, publishing a supplied recording, and merging this finalization change remain actions for explicit authorization; the already verified main app is available independently.
-
-## Finish rule
-
-No additional features, new skill installation, unit tests, mocks, CI or broad review cycle. This bundle changes finalization instructions and one PDF subtitle, not application behavior. If audio is missing, stop at this complete reviewable packet and state that single content blocker. If audio is supplied, finish the document and checks rather than producing another plan.
+The current review PDF remains a draft. No personal recording, final audio-bearing PDF or new live-browser result was fabricated for this bundle.

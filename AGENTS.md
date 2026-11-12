@@ -2,7 +2,8 @@
 
 Read [rubric.md](rubric.md), [tickets.csv](tickets.csv), and the current decisions in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1).
 The specification is [docs/plan.md](docs/plan.md), the state and evidence contract is [docs/state-and-verification.md](docs/state-and-verification.md), and execution instructions are [docs/codex-handoff.md](docs/codex-handoff.md).
-The owner accepted D1, D2, and D4 in issue #1 and authorized implementation and completion. PR #8 is merged into main; PR #9 aligned evaluator instructions and the PDF review copy. Continue the recording-dependent work in [docs/completion.md](docs/completion.md); do not restart the planning phase. Historical elapsed time and the applicant's recording are still unknown.
+The original rubric is the audit authority. [docs/rubric-audit.md](docs/rubric-audit.md) maps its requirements and the requested final browser/vision wave. [docs/owner-runbook.md](docs/owner-runbook.md) contains the walkthrough and recording rehearsal guide.
+The owner accepted D1, D2, and D4 in issue #1 and authorized implementation and completion. PR #8 is merged into main; PR #9 aligned evaluator instructions and the PDF review copy. Continue the owner-requested final rubric audit and recording-dependent work in [docs/completion.md](docs/completion.md); do not restart product design. Historical elapsed time and the applicant's recording are still unknown.
 
 ## Delivery rules
 
