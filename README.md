@@ -55,8 +55,9 @@ One versioned document in `localStorage` under `vcycene.queue.edits`, holding on
   `setItem`. That successful return is the commit point; there is no optimistic update and no
   write-then-read-back loop.
 - Unreadable, unsupported, or unvalidated data is reported instead of replaced. The screen offers a backup
-  download of the raw value, then a separate confirmed reset of this app's key only. Nothing else in the
-  origin's storage is touched.
+  download of the raw value, then a separate confirmed reset of this app's key only. Before removal the
+  browser also writes a uniquely named `vcycene.queue.edits.backup.*` copy. If quota or access prevents
+  that copy, reset refuses to delete the active value. Unrelated origin storage is not cleared.
 - Saving `Resolved` requires a new note. Reopening keeps every note. An internal note never changes
   `LAST_REPLY_FROM` or `LAST_REPLY_DATE`.
 - Leaving a ticket with an unsaved status or note asks for confirmation, and a refresh or tab close warns
@@ -86,6 +87,6 @@ A fresh default-branch clone at merge commit `89d61f8` ran `npm ci` (103 package
 
 A fresh wrap-up checkout installed 105 packages with `npm ci` in 9 seconds and passed the typecheck/production build. The bundled CSV is byte-identical to the twelve-row source; rubric and original tickets remain unchanged. The committed desktop/mobile captures were inspected.
 
-The subsequent one-line related-case anchor change also passed its focused 390px Chrome navigation/discard check on checkout `837b522a`; [completion.md](docs/completion.md) and the browser record include exact results and screenshots. Application code is frozen pending only a concrete regression.
+The prior related-link check ran on `837b522a`; the fresh finalization wave started on `b67fa27c` and reran affected browser paths after concrete recovery, focus/loading and policy-copy repairs in `ba854413`. The [browser record](docs/evidence/browser-acceptance.md#fresh-final-rubric-wave-and-focused-repair-readback) names both source revisions and the limits. Main readback follows the PR #10 merge.
 
 The applicant recording and complete final PDF/access checks remain pending. The review PDF is a draft. There are no unit suites, mocks, or remote CI jobs. Repository startup is the rubric-permitted delivery; no live hosted app is claimed.

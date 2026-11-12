@@ -1,61 +1,76 @@
-# Completion plan
+# Finalization status and work plan
 
-Updated 12 November 2026 (UTC). This is the execution entry point. The [specification](plan.md), [state contract](state-and-verification.md), and [skills contract](skills-and-review.md) remain references; do not restart their original build sequence.
+Updated 12 November 2026, America/Toronto. The [original rubric](../rubric.md) is the completion authority. The owner requested one final audit/polish wave, GitHub/document consolidation, and a personal walkthrough/recording guide. [Rubric audit](rubric-audit.md) directly addresses every requirement and the six evaluation criteria.
 
-## Current result
+## Current state
 
-The required queue and related-case feature are implemented and browser-verified. The full Chrome acceptance record covers source `5eaa3b76d48228f857253d0083d71b1fd30503d6`; the subsequent related-case anchor change at `6f26d0b006f89b1b36607765f5adb35ae47cfd77` passed the focused 390px navigation/discard check on checkout `837b522a45bfb0991260f33982d92b290c9e940b`. See [browser acceptance](evidence/browser-acceptance.md) and the two related-case captures. Application code is frozen unless a concrete regression appears.
+The application is merged and has recorded browser acceptance. Main is `c15aebcfffd32a23ec72619cd9a2d115cdc677b1`. PRs #8/#9 are merged; issues #2/#3/#4 are closed. PR #10 is the sole open finalization candidate. Its earlier head `41870b890c8fb9cafbc54f19ed1055705b464f6c` adds the final-PDF subtitle correction and submission handoff; this update adds the requested rubric audit and consolidates the docs.
 
-[PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) was squash-merged into `main` at `89d61f80901837415219d36444a6ea98f17e2d4b`. A fresh default clone at that SHA ran `npm ci` (103 packages), `npm run build` (TypeScript and Vite pass), opened twelve IDs in Chrome, and saved an internal note through refresh. The default repository URL and README startup now target `main`; a live hosted application is not claimed. The two-page PDF review copy has been regenerated with the main repository hyperlink and visually checked; it remains conspicuously DRAFT until the applicant supplies a playable recording.
+The fresh Chrome 157 wave began on `b67fa27c` (B1 clone usable in 10.053 seconds); B2–B6 were rerun on post-review repair commit `ba854413`. All twelve source cases were inspected, status/note saves survived refresh, navigation and related cases worked, genuine storage failure/recovery was exercised, and 1440/1024/390px captures were visually inspected. [Browser evidence](evidence/browser-acceptance.md#fresh-final-rubric-wave-and-focused-repair-readback) gives exact values and limits. The post-merge B7 default-main readback belongs in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1).
 
-## First principles: what completion means
-
-| Rubric outcome | Delivered behavior | Completion evidence |
+| Work | State | Owner / next action |
 |---|---|---|
-| Load the sample | Browser opens with the twelve supplied tickets; no account, prompt, upload or model API is needed. | Twelve distinct IDs, original facts preserved, no initial storage write. |
-| Explain priorities | Fixed October 5 scenario; house-rule deadlines and a reason per ticket. | Tom's October 6 claim boundary, separate Maya obligations, Grace's warehouse gate and other case distinctions. |
-| Retain edits | An operator changes status/adds an internal note; one browser-local edits document survives refresh. | Save/readback, unchanged source metadata and another ticket unchanged. |
-| One useful extra | Related records for Maya and the three-customer candidate firmware group. | Membership and both queue-row/related-link navigation observed in Chrome, including 390px draft cancellation/acceptance. |
-| Accessible delivery | Public default-branch repository with Node 24, `npm ci`, `npm run dev`. | Prior fresh clone/public-browser access record; main merge readback and default-clone startup. |
-| Required writing | Build notes, Maya, Wei and manager messages in SUBMISSION.md. | 150/200, 114/150, 99/120 and 99/120 words. Preserve approved text. |
-| Complete attachment | One document/PDF with tool link, writing and the applicant's own audio link. | Review PDF exists; personal audio and final access checks remain. |
+| Required app and useful extra | Fresh B1–B6 acceptance complete | Post-merge B7 default-main readback is tracked in issue #1. |
+| Direct rubric audit | Completed in [rubric-audit.md](rubric-audit.md) | Use its requirement IDs for findings and final acceptance. |
+| Submission writing | Complete: build 153, Maya 114, Wei 99, manager 100 words | [SUBMISSION.md](../SUBMISSION.md) remains the single source; build agency/tool name and manager's evidence wording were corrected after review. |
+| Documentation cleanup | Prepared in PR #10 | Retired conflicting draft; condensed spec/skills guidance; distinct status, audit, execution and owner guides. |
+| Applicant audio | Missing required content R8 | Applicant records naturally, <=120 seconds, and provides a file or playable URL. |
+| Complete attachment and final link checks | Pending R11/R12 | Agent inserts actual audio link, renders/checks the final PDF and verifies private playback. |
+| Main consolidation and final delivery | Pending PR #10 review/merge | Verify final main entry B7. Keep #5 open until the audio-bearing artifact exists and #1 for actual submission. |
+| Actual submission R13 | Not performed | Use the confirmed application route and explicit sending instruction. |
+| Four-hour compliance | Unknown | Record actual prior elapsed work and deadline; never claim a new clock. |
 
-The tool runs in an ordinary browser. Coding tools help build it; there is no runtime harness. Completing the assignment does not require closing all twelve customer cases. A saved status records the operator's position; it cannot establish a sent reply, filed claim, warehouse receipt, shipment or refund. Ticket-specific resolution conditions remain in [the case matrix](plan.md#what-would-resolve-each-case).
+## Run one bounded wave
 
-## Evidence and its limits
+The existing technical evidence stands and B1–B6 are now executed. Finish the bounded review, make only concrete corrections, consolidate PR #10, and run B7 on main. The applicant will record at the end; do not replace that input or delay independent work for it.
 
-- **Recorded by the implementing agent:** [Chrome acceptance](evidence/browser-acceptance.md) at `5eaa3b76`, including save/refresh, no-op and resolution guard, URL history, dirty navigation, offline save, revision conflict, unknown stored ID rejected before writing, raw backup/scoped reset, stale-backup refusal, real quota failure/retry, policy, keyboard and layout. [Issue #4's access record](https://github.com/Raghuboi/VCycene-mini-project/issues/4#issuecomment-6814848549) also records a fresh public clone and unauthenticated repository access.
-- **Observed in this wrap-up:** clean worktree at `d9ce27ac`; `npm ci` installed 105 packages in 9 seconds; builds before/after the anchor correction passed, including TypeScript. Corrected Vite build took 2.13 seconds. Twelve unique CSV IDs; bundled CSV byte-identical; rubric and source CSV unchanged. Both committed screenshots inspected. Written counts rechecked; PDF unchanged from the rendered, text-checked review copy.
-- **Inspected in this wrap-up:** separate bounded Spec/Standards reviews of the new delta, followed by one targeted confirmation of the one-line repair. No additional required feature or concrete source defect was found.
-- **Observed on the final application source:** [Focused Chrome result](evidence/browser-acceptance.md#focused-related-link-regression-on-the-final-application-source) on checkout `837b522a`: at 390px, T-101→related T-109 scrolled detail into view; cancelling discard kept T-109's exact draft, accepting selected visible T-101 with an empty draft and no storage write. Screenshots are linked in the record. The reported earlier browser paths apply to their recorded source; the only intervening application change was the related-link anchor.
+| Phase | Estimated agent time | Exit condition |
+|---|---:|---|
+| Freeze candidate and execute browser/vision B1–B6 | 25–35 min | Actual user journeys, all twelve policy cases, fresh captures and saved-value/failure readback recorded under the SHA. |
+| Repair demonstrated findings and consolidate candidate | 5–10 min if needed | Smallest fixes; affected paths rechecked; docs/links consistent. Skip app changes if no failure is found. |
+| Finalize audio-dependent document | 15–25 min after playable audio arrives | Real duration/content/access checked; final PDF rendered and every link opens privately. |
+| Final main readback B7 | Included in consolidation allowance when feasible | Main matches the accepted application tree; submitted default entry works and one edit survives refresh. |
 
-Supported scope remains one browser/origin and one active editing tab. Native unload prompts are browser-controlled; drafts are not autosaved. No multiuser/cross-tab atomicity or hosted service is claimed. No unit tests, mocks, new CI or dependency changes were introduced.
+The nominal range is 45–70 minutes of agent execution if repairs are needed, plus applicant recording/review time. It is an estimate, not permission to exceed the rubric's four-hour total. Count earlier planning and this audit conservatively. If the remaining allowance is smaller, prioritize the literal rubric deliverables and preserve a truthful checkpoint at the stop time. Do not call an extended learning/polish session compliant with the original cap.
 
-## Technical gate completed
+Use one writer and two bounded review lenses. Spec checks the rubric and policy; Standards checks affected state/data boundaries and real usability. Vision inspection belongs to the real browser pass. Pstack/Ponytail principles are concrete checks in [skills-and-review.md](skills-and-review.md); no new plugin setup or review tournament is needed.
 
-The bounded 390px related-case check passed on checkout `837b522a45bfb0991260f33982d92b290c9e940b` in Chrome 157. Exact URL, visible detail coordinates, cancelled/accepted discard behavior and unchanged storage were recorded in [browser acceptance](evidence/browser-acceptance.md#focused-related-link-regression-on-the-final-application-source). The corresponding screenshots are [T-109](evidence/related-109-390.png) and [T-101](evidence/related-101-390.png). Application code is frozen. Close #3 and #4 with this evidence, then finish the recording-dependent package. Do not rerun the full persistence pass without a source change or observed defect.
+## Keep each document authoritative for one job
 
-## Finish sequence after technical acceptance
+| File | Authority |
+|---|---|
+| `rubric.md`, `tickets.csv` | Original assignment and source facts; unchanged. |
+| `README.md` | Evaluator startup, app scope and supported storage limits. |
+| `SUBMISSION.md` | Sole approved submitted writing and eventual audio URL. |
+| `docs/rubric-audit.md` | Requirement/evaluation mapping, findings and B1–B7 acceptance definitions. |
+| `docs/completion.md` | Current status, owners, dependencies and GitHub disposition. |
+| `docs/codex-handoff.md` | Agent execution and finalization procedure. |
+| `docs/owner-runbook.md` | Applicant checklist, rehearsal/cue card and interview walkthrough. |
+| `docs/plan.md`, `GLOSSARY.md` | Accepted product/policy model, twelve-ticket reasoning and resolution conditions. |
+| `docs/state-and-verification.md` | State ownership, transitions and storage/navigation invariants. |
+| `docs/skills-and-review.md` | Active review principles and pinned provenance. |
+| `docs/evidence/browser-acceptance.md` and captures | Actual executed evidence, appended by source SHA. |
 
-The next input is the applicant's own natural audio, at most 120 seconds. It must not be generated or read from a script. No other product clarification is needed.
+The obsolete `docs/submission-drafts.md` had a conflicting 112-word Wei variant and stale pending-tool text. It is retired; Git history preserves it. The canonical 99-word Wei body is unchanged. The original build schedule and full dormant-skill inventory no longer direct active work.
 
-| Step | Owner | Estimate | Exit condition |
-|---|---|---|---|
-| Supply recording | Applicant | Applicant-controlled | Natural response and playable evaluator-accessible URL. Talking points are in SUBMISSION.md. |
-| Check audio and submission facts | Agent + applicant input | 3–5 min | Measure duration, play in a private window; record actual application route and elapsed assignment time. |
-| Finalize canonical text | Agent | 3–5 min | Insert audio URL in SUBMISSION.md; preserve all four approved written sections; use the verified default-branch repository link. |
-| Produce final attachment | Agent | 5–8 min | Run `uv run --with reportlab python scripts/build-submission-pdf.py --final` only after the applicant audio URL is inserted and verified; render every page, inspect layout/text/hyperlink annotations, and use the main link. The helper refuses a placeholder final. |
-| Verify final delivery | Agent | 4–7 min | Every final link opens privately; audio plays; document includes every rubric item. Record evidence and close #5/#1. |
-| Submit | Applicant | Applicant-controlled | Review the final document and submit through the rubric's applicable channel. PR #8 is already merged; no additional merge is required. |
+## Consolidate GitHub without losing evidence
 
-The four-hour rule concerns actual total assignment work, not this remaining estimate. Prior elapsed time is unknown; no compliance claim or clock reset is allowed. The audio and final document are incomplete until the actual recording is present and accessible.
+Keep PR #10 as the sole open candidate for this finalization. Keep #5 open until artifact readiness and #1 open until actual submission confirmation. Do not reopen closed #2–#4 merely to repeat acceptance; issue #1 tracks the newly requested wave and #5 owns the recording/final artifact.
 
-## GitHub ownership and stop rule
+| Ref / work item | Disposition |
+|---|---|
+| `main` | Authoritative evaluator entry. After review, consolidate only the accepted PR #10 changes and actual final submission material. |
+| `docs/finalization-bundle-2026-11-12` / PR #10 | Continue here; preserve newer work. Do not create a competing finalization branch or plan. |
+| `feat/monday-queue-accepted` | Historical PR #8 implementation/evidence. Main contains its squash-merged app. Retain until final delivery and evidence-link review are complete. |
+| `planning/monday-queue-2026-11-10` | Historical planning PR #6, closed as superseded. Do not merge it again. |
+| `feat/monday-queue-tool` | Superseded HTML PR #7, closed and unmerged. It is not part of the accepted React candidate. Do not merge it into main. |
 
-- **#2:** persistence/source preservation complete on recorded browser evidence; close as completed. The anchor repair does not change persistence.
-- **#3:** policy/grouping and narrow related-case navigation verified and closed.
-- **#4:** corrected browser gate, fresh repository entry, current build verified and closed. PR #8 merged into main. Default-clone startup is the remaining delivery readback.
-- **#5:** writing and reviewed PDF draft complete; blocked on personal audio, then final attachment/access checks.
-- **#1:** current map; close once all deliverables are complete. Accepted D1/D2/D4 remain settled.
+Branch deletion is optional housekeeping after delivery, not a rubric gate. Before an authorized deletion, record the exact head, compare unique content and check evidence links. Squash merges mean ancestry-only merged-branch checks are insufficient. Keep a branch if preservation or authorization is uncertain; do not delay the submission for this cleanup.
 
-Do not add features, install more skills, rewrite the approved messages, or create a second plan. Use the existing issues and PR. After the focused check passes, remaining changes are submission material only unless a concrete regression is found.
+Merge only the reviewed final candidate under the owner's instruction. Read back the merge SHA, check the default evaluator URL and mark readiness separately from actual submission. No force-push, history rewrite, automatic branch purge or application send is part of preparing this bundle.
+
+## Ready-to-submit condition
+
+R1–R12 have concrete evidence, the actual recording is <=120 seconds and plays privately, the final PDF contains every required item with no draft/editorial residue, and all final links work. Keep G1 timing uncertainty explicit if the historical facts remain unavailable. Close #5 when the complete accessible attachment exists. Keep #1 open for R13 until the applicant confirms actual submission. Never mark R13 complete without a real submission.
+
+The current review PDF remains a draft. No personal recording, final audio-bearing PDF or new live-browser result was fabricated for this bundle.

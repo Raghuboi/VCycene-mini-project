@@ -1,33 +1,64 @@
-# Final execution handoff
+# Execute the final rubric audit and submission
 
-Start with [completion.md](completion.md). This repository already contains the application and browser evidence; do not rebuild it or repeat the original planning phase. Use extra-high reasoning where the execution host supports it; that setting does not enlarge scope or the assignment budget.
+Use [rubric-audit.md](rubric-audit.md) as the acceptance checklist and [completion.md](completion.md) for current status. Read the original rubric first. This is the owner's requested final acceptance wave. It does not reopen product design or replace earlier evidence.
 
-## Objective
+## 1. Freeze the candidate and allowance
 
-Finish the rubric's recording-dependent deliverables. The evaluator opens the browser queue seeded from the supplied CSV. There is no runtime agent or external support integration, and the assignment does not require closing every customer case.
+1. Read AGENTS.md, rubric.md, SUBMISSION.md and the two linked documents. Use the owner's extra-high reasoning setting where supported; record the actual setting, not an assumption.
+2. Inspect main, PR #10's current head and dirty work. Main's audited baseline is `c15aebcfffd32a23ec72619cd9a2d115cdc677b1`. Preserve newer work. Use one implementation owner and the existing finalization branch.
+3. Record actual prior assignment work, current start and hard stop. The rubric says stop at four hours. Unknown historical time prevents a compliance claim; a fresh audit is not a fresh allowance.
+4. Identify the existing permitted browser and preview owner. If that browser cannot run a required check, record the specific capability gap. Do not bypass access controls or replace live results with screenshots from an old run.
 
-## Read and preserve
+If audio is already available, inspect it while the technical work proceeds. If not, the owner follows [owner-runbook.md](owner-runbook.md); finish independent work before waiting.
 
-1. Read AGENTS.md, rubric.md and completion.md. Use plan.md for the ticket/policy interpretation, state-and-verification.md for invariants, and skills-and-review.md for the bounded workflow.
-2. Inspect current branch, SHA and dirty work. PR #8 is merged into `main` at `89d61f80901837415219d36444a6ea98f17e2d4b`; preserve newer work. Planning PR #6 and the superseded HTML PR #7 are closed.
-3. Record actual prior elapsed time if supplied. Do not assert compliance with the four-hour cap while historical time is unknown.
+## 2. Run the browser and vision wave
 
-Accepted D1/D2/D4: one browser/origin and active editor, localStorage edits; related cases as the extra; new note on entering Resolved and dirty-discard confirmation. Do not ask again. Keep the current React/Vite/TypeScript/shadcn/Router/Query/Zod stack, no unit tests or mocks, and no first-party useState/useEffect for the established owners.
+Execute B1–B6 in [the rubric audit](rubric-audit.md#one-final-live-browser-and-vision-wave) on the frozen candidate. Follow real user actions with actual browser storage. Use isolated profiles for audit edits, corruption/quota checks and private access.
 
-## Technical acceptance complete
+Record the full SHA, browser/version, origin, viewport and time. B1 times fresh startup. B2 checks every ticket. B3 proves exact status/note persistence and source preservation. B4 checks navigation/draft ownership. B5 checks genuine failures and recovery. B6 checks 1440/1024/390 layouts, keyboard and accessible controls.
 
-Application source `6f26d0b006f89b1b36607765f5adb35ae47cfd77` passed the focused 390px related-link navigation/discard check in Chrome 157 on checkout `837b522a`. [Browser evidence and screenshots](evidence/browser-acceptance.md#focused-related-link-regression-on-the-final-application-source) record exact URL, visible detail, retained/discarded draft and unchanged storage. The full browser persistence/recovery acceptance remains separately attributed to source `5eaa3b76`; the only later application change was the related-link anchor. PR #8 was merged to `main`. Do not repeat completed implementation or add a test framework; verify only the default-branch evaluator entry after documentation reconciliation.
+Capture fresh queue, detail/editor and success/error states. Inspect the images with vision for unreadable reasons, clipping, hidden Save controls, misleading feedback and cramped navigation. Inspect the actual DOM/accessibility names for keyboard and semantic claims. A screenshot cannot prove a stored value survived refresh; read the persisted value independently.
 
-## Submission finish — after audio arrives
+Use one typecheck/production build for the frozen candidate when needed. Do not create unit tests, mocks, test-framework infrastructure or redundant CI. Temporary probes that drive the real browser may record results; do not turn them into an implementation-mirroring suite.
 
-The applicant must supply their own natural response, no more than two minutes. SUBMISSION.md contains talking points, not a script to read. Complete independent work first; do not loop waiting for the recording.
+Append only executed results to `docs/evidence/browser-acceptance.md` under the tested SHA. Preserve historical entries. Mark unavailable/failed checks explicitly. If a fast save completes before a navigation attempt, report that timing rather than claiming to have observed an interrupted pending save.
 
-Then follow completion.md's 15–25-minute sequence: check real duration/private playback, insert URL, preserve the four approved written sections, generate/render/check the final PDF, and open every final link in a private window. Keep the reviewed 114-word Maya body unchanged. Build/Wei/manager counts are 150/99/99. The existing two-page PDF is a draft, not the final attachment.
+## 3. Apply the bounded Pstack/Ponytail review
 
-Use the default-branch repository link after the verified merge. A live site is optional under the rubric. Close #5 and #1 only after complete content and access evidence exist.
+Use one Spec reader and one Standards reader. Spec checks R1–R13, the six evaluation criteria, dates, policy uncertainty and truthful written claims. Standards checks connected code for actual findings, durable writes, error handling, draft ownership, accessibility and removable duplication at the supported one-editor scope.
 
-## Handoff and stopping condition
+Apply prove-it-works to actual values/artifacts; minimize-reader-load to conflicting docs and hidden state; sequence-verifiable-units to each correction. Ponytail findings need a concrete case, consequence and smallest fix. No finding may rest on a personal styling preference or hypothetical multiuser load.
 
-Return the final revision, what works, actual verification, the finished attachment or exact remaining blocker, and factual timing. The quality bar is the rubric's complete observable outcomes within the accepted scope, not an unsupported universal “100%” claim.
+Repair correctness/data loss, policy mistakes, broken entry and inaccessible required actions first. Fix visual defects only when they affect a rubric outcome. Do not add features, new state owners, a backend, runtime model or deployment. Use one repair pass and rerun only affected journeys. If a required failure remains at the deadline, leave it open and report it.
 
-Do not send customer/team messages, submit the application, or publish a new site without a separate explicit instruction. PR #8 is already merged. Keep current state in issue bodies; Git history preserves old plans, so do not prepend new statuses above obsolete unchecked lists.
+## 4. Finish the actual recording and canonical submission
+
+The applicant supplies their own natural recording, <=120 seconds. Measure duration and listen in full. Check the failure acknowledgment, refund/history/manager uncertainty, warehouse payment gate and October 6 update. Confirm private-window playback of the real link. A local file needs an appropriate evaluator-accessible hosting destination before it can be linked; use the applicant's intended sharing scope.
+
+In SUBMISSION.md, replace the **entire body** of `## Voice response to Maya (two minutes or less)` with the verified HTTPS recording link. Remove placeholder and talking points. Preserve the reviewed build/Maya/Wei/manager bodies and their current 153/114/99/100 whitespace counts. Keep the main repository URL.
+
+Remove top-level draft/editorial instructions once content and access checks pass. If the final PDF displays raw authoring markup in tool instructions, correct that presentation without changing the approved message bodies. Do not invent a recipient, application route or timing claim.
+
+## 5. Generate and inspect the final attachment
+
+Use the corrected helper in this branch:
+
+```bash
+uv run --with reportlab python scripts/build-submission-pdf.py --final
+```
+
+Expected output is `output/pdf/VCycene-submission.pdf`. The helper's guard checks placeholder/HTTPS presence; it does not verify audio identity, natural delivery, duration or sharing access. Do not use a substitute URL to make final mode pass.
+
+Render every page with the available PDF tools. Check exact text, word limits, all sections, page breaks and actual hyperlink annotations. Require no DRAFT, Recording pending, APPLICANT ACTION REQUIRED, Talking points only or Application review copy residue. Open the PDF's actual repo and audio links in a private window and play the recording.
+
+Record source revision, PDF path/hash, duration, word counts, visual inspection and link outcomes in issue #5. A complete document may be ready before the owner selects the sending channel. Keep ready-to-submit separate from submitted.
+
+## 6. Consolidate main and GitHub
+
+Keep all finalization changes in PR #10. Check that rubric/CSV source and approved text did not drift, every relative doc link resolves, and SUBMISSION.md is the sole submitted-writing source. The old draft file is retired in this packet; do not restore its conflicting Wei version.
+
+Present the concrete final diff/artifact for the owner review step. Merge only under the applicable owner instruction; read back the actual merge SHA. Execute B7 against the default main entry, confirming its application tree matches the accepted candidate. A docs-only merge needs this delivery smoke, not another full B2–B6 cycle.
+
+Close #5 when the complete accessible attachment and required acceptance evidence exist. Keep R13 and #1 pending until the applicant confirms actual submission. Do not mark an unsent application submitted. Leave #2–#4 closed with their original results. PRs #6/#7 stay closed as superseded; #8/#9 stay merged. Follow completion.md's branch-disposition table. Do not merge the old HTML implementation or delete branches without checking preservation and authorization.
+
+Return the final main/candidate SHA, completed rubric items, actual observed checks, unresolved limitations, final PDF and actual time accounting. Send the application or messages only under an explicit instruction for that action. No autonomous review loop continues after the criteria are met.

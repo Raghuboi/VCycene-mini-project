@@ -19,9 +19,9 @@ Open `http://localhost:5173`. The README explains the single-browser storage sco
 
 ## Build notes (under 200 words)
 
-I used an AI coding assistant to build a React, TypeScript and Vite browser queue with TanStack Router and Query, Zod, shadcn-style controls, and the supplied CSV. The tool orders all twelve cases with a reason, keeps source records separate from internal notes, and saves status and note updates in this browser. Related cases are the extra feature.
+I directed Hermes Agent, with AI coding assistance, to build a React, TypeScript and Vite browser queue with TanStack Router and Query, Zod, shadcn-style controls, and the supplied CSV. The tool orders all twelve cases with a reason, keeps source records separate from internal notes, and saves status and note updates in this browser. Related cases are the extra feature.
 
-The AI's first mobile layout clipped the priority reasons behind a horizontally scrolling table. I caught it in a real Chrome screenshot at 390 pixels wide and changed narrow rows into complete cards. I also tested a status and note surviving refresh, Back/Forward, an offline save, corrupt-data backup and recovery, and a genuine storage-quota failure that retained the draft without claiming success.
+The AI's first mobile layout clipped the priority reasons behind a horizontally scrolling table. A real Chrome screenshot at 390 pixels wide exposed the problem, and narrow rows were changed into complete cards. Browser checks then confirmed a status and note surviving refresh, Back/Forward, an offline save, corrupt-data backup and recovery, and a genuine storage-quota failure that retained the draft without claiming success.
 
 Next I would add follow-up ownership and reminders, so warehouse, engineering, and fulfillment dependencies do not disappear into notes. The app does not send messages, issue refunds, or file claims.
 
@@ -53,7 +53,7 @@ No serial numbers or logs are supplied. By 3 p.m. today, please confirm whether 
 
 ## Message to manager, Monday end of day (under 120 words)
 
-Monday's queue review is complete: Tom's unfiled damage claim comes first, Maya's records concern the same unit, and three customers may share a 2.4.1 cycle issue. Customer and engineering messages are prepared as unsent drafts.
+Monday's queue review is complete: Tom's unfiled damage claim comes first, Maya's two records share a delivery date, and three customers may share a 2.4.1 cycle issue. Customer and engineering messages are prepared as unsent drafts.
 
 Pending actions: file Tom's claim today; obtain Wei's guidance, warehouse confirmation for Grace's returned unit, and fulfillment allocation/tracking for Hannah. These cases remain open.
 

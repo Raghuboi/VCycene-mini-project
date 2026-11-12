@@ -4,6 +4,7 @@ import { ticketStatusSchema } from "./status";
 
 /** The single durable document. Only operator edits live here; source facts never do. */
 export const EDITS_STORAGE_KEY = "vcycene.queue.edits";
+export const EDITS_BACKUP_PREFIX = `${EDITS_STORAGE_KEY}.backup.`;
 export const EDITS_VERSION = 1;
 
 export const internalNoteSchema = z.object({
@@ -148,10 +149,18 @@ export function clearEdits(expectedRaw: string): void {
     if (storage.getItem(EDITS_STORAGE_KEY) !== expectedRaw) {
       throw new QueueProblem("conflict", "The stored value changed after the backup was offered. Reload the current value before resetting.");
     }
+    // The checkbox cannot prove that the browser actually saved a downloaded file.
+    // Keep an independent, uniquely named local copy before deleting the active key.
+    // If quota or access blocks this write, leave the original untouched.
+    const backupKey = `${EDITS_BACKUP_PREFIX}${new Date().toISOString()}-${crypto.randomUUID()}`;
+    storage.setItem(backupKey, expectedRaw);
+    if (storage.getItem(EDITS_STORAGE_KEY) !== expectedRaw) {
+      throw new QueueProblem("conflict", "The stored value changed during backup. The current value was not reset.");
+    }
     storage.removeItem(EDITS_STORAGE_KEY);
   } catch (error) {
     if (error instanceof QueueProblem) throw error;
-    throw new QueueProblem("inaccessible", "The browser refused to remove the saved edits.", {
+    throw new QueueProblem("inaccessible", "The browser could not preserve a local backup and remove the saved edits. Free site storage and try again; the active value was not intentionally replaced.", {
       cause: error,
     });
   }

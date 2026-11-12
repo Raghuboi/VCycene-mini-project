@@ -68,7 +68,7 @@ On conflict, offer Reload saved version. Keep the draft until the operator expli
 
 Storage access/write failures must show a useful error, retain the draft, and leave the displayed committed snapshot unchanged. Offer a deliberate retry; never claim a save succeeded merely because the controls changed.
 
-For corrupt or unsupported stored data, retain the raw value and offer Retry. Recovery requires downloading a backup of that value, followed by a separate confirmation to reset this application’s edits. Never silently reset or clear unrelated origin storage. If the value cannot be read or backed up, keep reset unavailable. Before removal, compare the current raw value with the offered backup; refuse reset if it changed, preserving newer data and offering Retry. Publish the original queue only after the reset succeeds.
+For corrupt or unsupported stored data, retain the raw value and offer Retry. Recovery asks the operator to download the raw value and separately confirm reset; the app also writes a uniquely named browser-local backup before removing the active key. If that backup write fails, reset fails closed and keeps the active value. Never silently reset or clear unrelated origin storage. Before removal, compare the current raw value with the offered backup; refuse reset if it changed, preserving newer data and offering Retry. Publish the original queue only after the reset succeeds. Browser-local backups are not a substitute for the operator's downloaded copy.
 
 ## Explicit transitions
 
@@ -99,35 +99,9 @@ Use the blocker’s conditional before-unload handling for refresh/tab close. Br
 
 ## Verification and evidence
 
-No test files, unit tests, fabricated results, or mocks. Run typecheck and production build, then a bounded real-browser pass. Record observed results, relevant screenshots, and failures against the reviewed commit. This matrix defines acceptance, not current status; current results and the one focused follow-up are in [completion.md](completion.md).
+This document defines state invariants, not current pass/fail status. The [rubric audit](rubric-audit.md) maps each requirement and contains B1–B7 for the newly requested final browser wave. The [browser evidence record](evidence/browser-acceptance.md) preserves actual prior runs under their full source SHAs.
 
-### Core browser checks
-
-| Check | Evidence required |
-|---|---|
-| First open | Twelve source IDs; original text intact; no initial selection; all view. |
-| Priorities | Per-ticket reasons; fixed Oct 5 calculations; T-104 deadline, T-105 warehouse hold, and T-108 timely request handled correctly. |
-| Related cases | Maya’s two records retained; three distinct firmware candidates; exclusions explained. |
-| URL behavior | Selection, refresh, copied URL, Back/Forward; invalid parameters show Return to queue. |
-| Filter behavior | Active/resolved/all work; selected detail survives leaving the list filter. |
-| Persistence | Change status and append a unique note; save; refresh; both remain alongside original notes. |
-| Save semantics | No-op writes nothing; entering Resolved needs a new note; reopening retains history. |
-| Draft behavior | Input clears old Saved/error outcome; invalid save retains draft; discard cancellation retains draft. |
-| Save/selection race | Submit on A and immediately attempt B; only A changes; B receives no stale draft or outcome. |
-| Operator usability | Keyboard labels/focus and narrow layout inspected visually; reasons and save outcome readable. |
-| Evaluator access | Production link opens in a private window, or documented local startup meets the rubric’s five-minute limit. |
-
-### Bounded failure checks
-
-| Check | Evidence or honest limitation |
-|---|---|
-| Corrupt storage | In an isolated browser profile, corrupt only the application key; verify no overwrite, backup download, and confirmed recovery. |
-| Write failure | Induce a real storage permission/quota failure if practical; prove no false Saved and draft retention. If unavailable without mocks, mark **unverified: write-failure path not induced**. |
-| Offline local save | After initial load, disable network and save; local persistence must not pause for connectivity. |
-| Stale revision | Deliberately change the saved revision in an isolated profile before submit; verify conflict, draft preservation, cancelled reload, and confirmed reload recovery. This does not prove concurrent-tab safety. |
-| Unload warning | Exercise refresh with a dirty form in the target browser; record any browser limitation without claiming draft persistence. |
-
-Stop after these checks resolve the concrete risks. Repair and repeat the affected path, not an expanding test suite.
+Use the real interface and inspect the persisted result after refresh. Screenshots establish layout/copy; actual readback establishes durability. No unit tests, mocks, fabricated results or new test-framework files. Record current candidate, browser, actions, expected/observed results and limits. Repair only a concrete failure and recheck its affected path. A planned check is not a pass.
 
 ## Primary references
 
