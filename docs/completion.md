@@ -4,11 +4,9 @@ Updated 12 November 2026 (UTC). This is the execution entry point. The [specific
 
 ## Current result
 
-The required queue and related-case feature are implemented. The latest full browser record covers source `5eaa3b76d48228f857253d0083d71b1fd30503d6`; the subsequently audited head `d9ce27ac73151ba72c8b403ccbc05f198cb4da77` has identical application source. A bounded review found one navigation inconsistency: related-case links omitted the detail anchor already used by queue rows.
+The required queue and related-case feature are implemented and browser-verified. The full Chrome acceptance record covers source `5eaa3b76d48228f857253d0083d71b1fd30503d6`; the subsequent related-case anchor change at `6f26d0b006f89b1b36607765f5adb35ae47cfd77` passed the focused 390px navigation/discard check on checkout `837b522a45bfb0991260f33982d92b290c9e940b`. See [browser acceptance](evidence/browser-acceptance.md) and the two related-case captures. Application code is frozen unless a concrete regression appears.
 
-Corrected source: `6f26d0b006f89b1b36607765f5adb35ae47cfd77`. The only application change after the browser-verified source is `hash="ticket-detail"` on related-case links. It passed targeted source review and the production build. **Its three-action browser check below remains pending.** Do that before treating the current application as fully accepted. Do not repeat the full completed browser pass.
-
-[PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) is the delivery candidate. Main remains the original assignment. The explicit implementation-branch URL and README commands are the evaluator entry; merging and live hosting are not rubric requirements.
+[PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) is the delivery candidate. At this stage main remains the original assignment. The explicit implementation-branch URL and README commands are the evaluator entry; a requested merge will require updating the final document link and startup instructions.
 
 ## First principles: what completion means
 
@@ -17,7 +15,7 @@ Corrected source: `6f26d0b006f89b1b36607765f5adb35ae47cfd77`. The only applicati
 | Load the sample | Browser opens with the twelve supplied tickets; no account, prompt, upload or model API is needed. | Twelve distinct IDs, original facts preserved, no initial storage write. |
 | Explain priorities | Fixed October 5 scenario; house-rule deadlines and a reason per ticket. | Tom's October 6 claim boundary, separate Maya obligations, Grace's warehouse gate and other case distinctions. |
 | Retain edits | An operator changes status/adds an internal note; one browser-local edits document survives refresh. | Save/readback, unchanged source metadata and another ticket unchanged. |
-| One useful extra | Related records for Maya and the three-customer candidate firmware group. | Membership/navigation already observed; the new detail-anchor path needs the focused check. |
+| One useful extra | Related records for Maya and the three-customer candidate firmware group. | Membership and both queue-row/related-link navigation observed in Chrome, including 390px draft cancellation/acceptance. |
 | Accessible delivery | Public implementation branch with Node 24, `npm ci`, `npm run dev`. | Prior fresh clone/public-browser access record; current clean install and build. |
 | Required writing | Build notes, Maya, Wei and manager messages in SUBMISSION.md. | 150/200, 114/150, 99/120 and 99/120 words. Preserve approved text. |
 | Complete attachment | One document/PDF with tool link, writing and the applicant's own audio link. | Review PDF exists; personal audio and final access checks remain. |
@@ -29,19 +27,13 @@ The tool runs in an ordinary browser. Coding tools help build it; there is no ru
 - **Recorded by the implementing agent:** [Chrome acceptance](evidence/browser-acceptance.md) at `5eaa3b76`, including save/refresh, no-op and resolution guard, URL history, dirty navigation, offline save, revision conflict, unknown stored ID rejected before writing, raw backup/scoped reset, stale-backup refusal, real quota failure/retry, policy, keyboard and layout. [Issue #4's access record](https://github.com/Raghuboi/VCycene-mini-project/issues/4#issuecomment-6814848549) also records a fresh public clone and unauthenticated repository access.
 - **Observed in this wrap-up:** clean worktree at `d9ce27ac`; `npm ci` installed 105 packages in 9 seconds; builds before/after the anchor correction passed, including TypeScript. Corrected Vite build took 2.13 seconds. Twelve unique CSV IDs; bundled CSV byte-identical; rubric and source CSV unchanged. Both committed screenshots inspected. Written counts rechecked; PDF unchanged from the rendered, text-checked review copy.
 - **Inspected in this wrap-up:** separate bounded Spec/Standards reviews of the new delta, followed by one targeted confirmation of the one-line repair. No additional required feature or concrete source defect was found.
-- **Pending:** observed related-link visibility and dirty-cancellation behavior on `6f26d0b`. This audit did not run a browser: the earlier approved browser attempt was blocked by the environment/policy and was not bypassed. Source review/build are not browser evidence.
+- **Observed on the final application source:** [Focused Chrome result](evidence/browser-acceptance.md#focused-related-link-regression-on-the-final-application-source) on checkout `837b522a`: at 390px, T-101→related T-109 scrolled detail into view; cancelling discard kept T-109's exact draft, accepting selected visible T-101 with an empty draft and no storage write. Screenshots are linked in the record. The reported earlier browser paths apply to their recorded source; the only intervening application change was the related-link anchor.
 
 Supported scope remains one browser/origin and one active editing tab. Native unload prompts are browser-controlled; drafts are not autosaved. No multiuser/cross-tab atomicity or hosted service is claimed. No unit tests, mocks, new CI or dependency changes were introduced.
 
-## Next agent task: one focused check, 2–3 minutes
+## Technical gate completed
 
-Use an environment with a permitted working browser, the corrected source above, and README startup. Record the actual full checkout SHA; a later documentation-only commit may contain the same source.
-
-1. At 390px width, open T-101 and follow its related T-109 link. Confirm T-109 is selected in the URL and its detail is visible without scrolling through the queue.
-2. On T-109, type a unique unsaved note, follow related T-101, and cancel the discard confirmation. Confirm T-109 and the exact draft remain.
-3. Follow the link again and accept discard. Confirm T-101's detail is visible and it does not inherit the discarded note.
-
-Record browser, SHA, actions and results in #4 with a useful screenshot/readback. If these pass, close #3 and #4 and freeze application code. If a path fails, repair only that path and repeat it. If a browser is unavailable, preserve the pending result and give the exact capability blocker; do not substitute another full review or fabricate a pass.
+The bounded 390px related-case check passed on checkout `837b522a45bfb0991260f33982d92b290c9e940b` in Chrome 157. Exact URL, visible detail coordinates, cancelled/accepted discard behavior and unchanged storage were recorded in [browser acceptance](evidence/browser-acceptance.md#focused-related-link-regression-on-the-final-application-source). The corresponding screenshots are [T-109](evidence/related-109-390.png) and [T-101](evidence/related-101-390.png). Application code is frozen. Close #3 and #4 with this evidence, then finish the recording-dependent package. Do not rerun the full persistence pass without a source change or observed defect.
 
 ## Finish sequence after technical acceptance
 
@@ -61,8 +53,8 @@ The four-hour rule concerns actual total assignment work, not this remaining est
 ## GitHub ownership and stop rule
 
 - **#2:** persistence/source preservation complete on recorded browser evidence; close as completed. The anchor repair does not change persistence.
-- **#3:** policy/grouping complete; close after the focused related-navigation check in #4.
-- **#4:** current install/build complete; one focused browser check remains. Repository delivery is accepted; merge is not a gate.
+- **#3:** policy/grouping and narrow related-case navigation verified; close with the focused Chrome evidence.
+- **#4:** corrected browser gate, fresh repository entry, and current build verified; close with the full SHA and screenshots. Repository delivery is accepted; merge is a separate owner instruction.
 - **#5:** writing and reviewed PDF draft complete; blocked on personal audio, then final attachment/access checks.
 - **#1:** current map; close once all deliverables are complete. Accepted D1/D2/D4 remain settled.
 

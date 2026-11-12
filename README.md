@@ -86,6 +86,6 @@ The [browser acceptance record](docs/evidence/browser-acceptance.md) names the i
 
 A fresh wrap-up checkout installed 105 packages with `npm ci` in 9 seconds and passed the typecheck/production build. The bundled CSV is byte-identical to the twelve-row source; rubric and original tickets remain unchanged. The committed desktop/mobile captures were inspected.
 
-One subsequent change adds the same detail anchor to related-case links that queue rows already use. It passed targeted source review and the build. Its focused 390px navigation/discard check remains pending; [completion.md](docs/completion.md) gives the exact three actions and current evidence. Do not call that new path browser-verified until observed.
+The subsequent one-line related-case anchor change also passed its focused 390px Chrome navigation/discard check on checkout `837b522a`; [completion.md](docs/completion.md) and the browser record include exact results and screenshots. Application code is frozen pending only a concrete regression.
 
 The applicant recording and complete final PDF/access checks remain pending. The review PDF is a draft. There are no unit suites, mocks, or remote CI jobs. Repository startup is the rubric-permitted delivery; no live hosted app is claimed.
