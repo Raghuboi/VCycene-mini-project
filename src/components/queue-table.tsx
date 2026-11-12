@@ -27,11 +27,10 @@ export function QueueTable({
     <Table className="queue-table" role="table" aria-label="Prioritized tickets">
       <TableHeader role="rowgroup">
         <TableRow role="row" className="hover:bg-transparent">
-          <TableHead className="w-[16rem]">Ticket</TableHead>
-          <TableHead className="min-w-[16rem]">Issue</TableHead>
-          <TableHead className="min-w-[18rem]">Why it comes first</TableHead>
-          <TableHead className="w-[10rem]">Reply timing</TableHead>
-          <TableHead className="w-[10rem]">Status</TableHead>
+          <TableHead className="w-[13rem]">Ticket and issue</TableHead>
+          <TableHead className="min-w-[14rem]">Why it comes first</TableHead>
+          <TableHead className="w-[7rem]">Reply timing</TableHead>
+          <TableHead className="w-[8rem]">Status</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody role="rowgroup">
@@ -56,10 +55,8 @@ export function QueueTable({
                   {ticket.source.COUNTRY} · firmware {ticket.source.FIRMWARE}
                   {ticket.revision > 0 ? " · saved update" : ""}
                 </div>
-              </TableCell>
-              <TableCell role="cell">
                 <span className="text-[0.7rem] font-semibold uppercase text-muted-foreground sm:hidden">Issue</span>
-                <p className="line-clamp-2 text-foreground">{ticket.source.ISSUE}</p>
+                <p className="mt-1 line-clamp-2 text-foreground">{ticket.source.ISSUE}</p>
               </TableCell>
               <TableCell role="cell">
                 <span className="text-[0.7rem] font-semibold uppercase text-muted-foreground sm:hidden">Why it comes first</span>

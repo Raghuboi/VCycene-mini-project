@@ -78,7 +78,7 @@ function QueuePage() {
         </p>
       </header>
 
-      <div className="grid gap-4 py-4 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] lg:items-start">
+      <div className="grid gap-4 py-4 xl:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] xl:items-start">
         <section aria-label="Ticket queue" className="min-w-0 space-y-3">
           <nav aria-label="Queue view" className="flex flex-wrap items-center gap-1">
             {QUEUE_VIEWS.map((tab) => {
@@ -138,7 +138,7 @@ function QueuePage() {
           </p>
         </section>
 
-        <aside aria-label="Ticket detail" className="min-w-0 lg:sticky lg:top-4">
+        <aside aria-label="Ticket detail" className="min-w-0 xl:sticky xl:top-4">
           {selected ? (
             <TicketDetail key={selected.source.TICKET_ID} ticket={selected} tickets={tickets} view={view} />
           ) : search.ticket ? (

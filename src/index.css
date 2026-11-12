@@ -68,7 +68,7 @@
     padding: 0.25rem 1rem;
     white-space: normal;
   }
-  .queue-table td:nth-child(3) p {
+  .queue-table td:nth-child(2) p {
     display: block;
     overflow: visible;
   }
