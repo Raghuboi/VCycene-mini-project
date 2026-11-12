@@ -4,7 +4,7 @@
 
 The rubric requires twelve loaded tickets, explained priorities, editable status and notes that survive refresh, and one useful additional feature. It does not require a backend, agent runtime, shared editing, autosaved drafts, or external support actions. The user requires React/Vite, shadcn, TanStack Router/Query, a minimal state model, and no unit tests.
 
-The choices below are proposed implementation defaults. Build one browser application with TypeScript, Zod v4, a single code-based Router route, and the actual bundled CSV. Use shadcn layout fragments and native form primitives. Related cases remain the extra feature. No application implementation is authorized by this document alone.
+The owner accepted D1, D2 and D4 in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). The application in PR #8 implements this contract with TypeScript, Zod v4, one code-based Router route, the bundled CSV, shadcn-style native form primitives and related cases. D3's time/submission inputs remain unknown. This document defines the contract; README and the work-issue comments record actual observed behavior.
 
 ## One owner for each state
 

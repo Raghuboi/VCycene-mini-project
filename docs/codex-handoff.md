@@ -1,7 +1,6 @@
 # Codex handoff
 
-Use this after the owner answers the planning questions in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1).
-This packet currently authorizes planning and draft issues. It does not claim those product decisions are accepted or that an application has been built.
+The owner accepted D1, D2 and D4 in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). This was the implementation handoff; PR #8 and README now contain the built application and browser evidence. D3 remains unanswered. Retain this as historical execution guidance, not a claim that the applicant recording or submission is complete.
 
 ## Task
 

@@ -1,6 +1,6 @@
 # Monday queue build plan
 
-**Draft for discussion, updated 11 November 2026.** This is a specification and handoff, not a claim that the application exists. The owner asked to settle the specification before implementation.
+**Accepted product decisions, updated 11 November 2026.** D1, D2 and D4 were approved in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). The implemented application and current browser evidence are in [PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) and README. D3's prior elapsed time, hard stop, application route and applicant audio remain unknown; no time-compliance or completed-submission claim is made.
 Source baseline: [ace5735ebc65158b3cc8ea86c5a10ad3d0b6fc7c](https://github.com/Raghuboi/VCycene-mini-project/tree/ace5735ebc65158b3cc8ea86c5a10ad3d0b6fc7c).
 Read the unchanged [rubric](../rubric.md) and [sample CSV](../tickets.csv). The initial repository has those files and a gitignore, with no starter application.
 
@@ -20,12 +20,12 @@ The current discussion and answers belong in [the Wayfinder decision map](https:
 
 The owner selected React, Vite, shadcn/components and blocks, TanStack Router, TanStack Query, and Zod. TypeScript supports the explicit model. No unit tests or mocks. Avoid application-authored useState/useEffect unless a specific necessary exception is justified. The exact state owners and real verification steps are in [state and verification](state-and-verification.md).
 
-| ID | Proposed decision | Alternative and consequence |
+| ID | Decision | Alternative and consequence |
 |---|---|---|
-| D1 | Single-browser localStorage persistence, one active editing tab. Each evaluator starts with the original sample and sees their own saved edits. | Shared server persistence adds data ownership/deployment questions that the rubric does not require. A URL shares selection, not saved edits. |
-| D2 | Related-case context is the single extra feature. It links Maya's records and explains the candidate firmware group. | Owner/next-action/follow-up tracking is a useful alternative. Choose one. |
+| D1 — accepted | Single-browser localStorage persistence, one active editing tab. Each evaluator starts with the original sample and sees their own saved edits. | Shared server persistence adds data ownership/deployment questions that the rubric does not require. A URL shares selection, not saved edits. |
+| D2 — accepted | Related-case context is the single extra feature. It links Maya's records and explains the candidate firmware group. | Owner/next-action/follow-up tracking is a possible later addition, not a second extra here. |
 | D3 | Count actual assignment work, including planning; record remaining minutes and a hard stop. Prefer an existing hosting route, with a runnable repository fallback. | The rubric does not define exempt work categories. A longer learning exercise must be described with its actual duration. The owner must supply prior elapsed time, submission deadline/track, and a recording slot. |
-| D4 | Require a brief new note when entering Resolved. Confirm discarding unsaved edits when leaving a ticket; no automatic draft persistence. | Removing the guard makes closure less explicit; autosaved drafts create a second persistence lifecycle. Neither is required by the rubric. |
+| D4 — accepted | Require a brief new note when entering Resolved. Confirm discarding unsaved edits when leaving a ticket; no automatic draft persistence. | Removing the guard makes closure less explicit; autosaved drafts create a second persistence lifecycle. Neither is required by the rubric. |
 
 The owner also supplies the natural voice recording. No code or skill can replace that requirement.
 
