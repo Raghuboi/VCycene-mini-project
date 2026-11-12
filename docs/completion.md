@@ -1,6 +1,8 @@
 # Completion and verification
 
-**Audit: 11 November 2026, America/Toronto.** The application is implemented in [PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8). The remaining work is targeted browser verification and the applicant's submission package. Do not restart design or add features.
+**Current implementation evidence:** The corrected application was exercised in Chrome 157 on Windows at source `2d89b837be81b9a72932c95438f71fd630242a5a`; see [browser acceptance](evidence/browser-acceptance.md) and its desktop/mobile captures. The save-time unknown-ticket rejection, backup/reset, normal refresh persistence, real quota failure/retry, policy text, URL navigation, keyboard, and narrow layout all passed. Applicant-owned audio and the recording-dependent final PDF/application submission remain pending. The historical audit below preceded this corrected browser pass; its "pending" statements describe the earlier environment, not the current app gate.
+
+**Historical audit: 11 November 2026, America/Toronto.** At that point the remaining work was targeted browser verification and the applicant's submission package. Do not restart design or add features.
 
 ## Revision and evidence
 

@@ -1,0 +1,18 @@
+# Browser acceptance — Monday Queue
+
+Candidate source: `2d89b837be81b9a72932c95438f71fd630242a5a` on `feat/monday-queue-accepted`. Browser: local Chrome 157.0.8103.39 in isolated profiles, served from `http://127.0.0.1:5173/` on Windows. The browser probe scripts were disposable and are not application tests or committed fixtures. The source tickets and rubric are unchanged.
+
+| Journey | Observed result |
+|---|---|
+| First open | Twelve distinct source IDs, fixed Oct 5, no initial `vcycene.queue.edits` key. T-104 first, carrier claim window closes Oct 6. |
+| Save and independent readback | T-104 status and a unique internal note written; after page reload the same status and note remained. Original source note and last customer reply remained unchanged; T-101 had no edit. |
+| Non-write and guard | Unchanged form did not write. Entering Resolved without a new note showed failure and preserved draft. Reopen retained note history. |
+| Selection/navigation | Ticket selection in URL; Back/Forward restored selection; invalid view and unknown ticket ID showed URL error. Dirty navigation cancellation retained the draft; acceptance discarded it. Refresh with a dirty draft raised a native beforeunload dialog; cancel retained it, accepting discarded it. Browser prompts are not a durability guarantee. |
+| Filters and relationships | Active/Resolved filters worked and selected detail remained visible after leaving a filter. Maya's two records linked; the candidate firmware cohort identified three distinct customers, with non-cohort exclusions. |
+| Corrected policy | Maya detail instructs checking earlier request dates and seeking a manager exception only if needed. Grace's arrival is attributed to tracking, while warehouse receipt remains unconfirmed. Expanded house-rule panel includes manager-only exception authority. Oliver's purchase inquiry has no refund deadline warning. |
+| Stale revision | A deliberate revision change before submit produced conflict, retained the draft, and allowed cancelled then confirmed reload. This does not establish cross-tab atomicity. |
+| Schema-valid unknown stored ticket | After loading T-104, inserted an otherwise-valid edits document containing T-999. Submitting a new note reported failure; draft remained and raw localStorage bytes were unchanged. The rejected note/revision was not committed. Cancelled recovery retained the draft; confirmed recovery exposed backup. Downloaded bytes matched the raw value, and confirmed reset removed only the app key, leaving an unrelated sentinel intact and restoring twelve source tickets. |
+| Offline and real write refusal | After initial load, offline local save committed. A separate isolated context filled localStorage to its real quota; submission reported no Saved and retained the draft with unchanged app key. Removing the filler and deliberately retrying committed the note once. |
+| Narrow/keyboard | At 390px, readable ticket cards showed issue, reason, reply timing and status, with zero document overflow. Native select→textarea keyboard order worked. Chrome accessibility tree exposed a table, rows, cells and headers. At 1440px, ticket, reason, reply and status fit beside the detail pane. See [desktop](queue-desktop.png) and [mobile](queue-mobile.png) captures. |
+
+`npm run build` passed after the final layout change. The UI is a browser-local recording surface; it did not send a customer message, refund, shipment, or carrier claim. The repository is the rubric-permitted evaluator entry, not a live hosted application. Applicant-owned audio, final PDF link insertion, application route and elapsed-time compliance remain outside this browser acceptance result.

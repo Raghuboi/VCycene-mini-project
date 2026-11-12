@@ -82,7 +82,7 @@ Query, Zod 4, and Papa Parse for the CSV.
 
 ## Verification status
 
-See [the completion record](docs/completion.md) for the reviewed source, independent checks, remaining browser checks after corrections, and submission blockers. The browser results below were reported by the implementing agent at `6f0101a`; later corrections need their affected paths rerun before they inherit that evidence.
+See [browser acceptance](docs/evidence/browser-acceptance.md) for the corrected candidate's observed Chrome journeys, including the save-time validation regression and genuine quota failure. [Completion](docs/completion.md) distinguishes this current pass from the earlier audit's source-only evidence. The applicant recording and final submission remain pending.
 
 - `npm run build` passed (TypeScript check and Vite production bundle). The built HTML and JS returned HTTP
   200 through Vite preview.
