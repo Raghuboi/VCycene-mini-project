@@ -1,6 +1,7 @@
 # Codex handoff
 
 The owner accepted D1, D2 and D4 in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). This was the implementation handoff; PR #8 and README now contain the built application and browser evidence. D3 remains unanswered. Retain this as historical execution guidance, not a claim that the applicant recording or submission is complete.
+Start remaining work from [completion.md](completion.md). Verify the corrected candidate, complete the recording-dependent attachment, and update the existing issues; do not rebuild the application or reopen accepted decisions.
 
 ## Task
 

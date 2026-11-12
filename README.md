@@ -9,10 +9,14 @@ candidate group is shown with its exclusions explained.
 
 ## Run it
 
-Node 20.19+ (verified on Node 24.11.1, npm 11.6.2, Windows 11).
+Use Node 24 and npm. The implementation was built on Node 24.11.1/npm 11.6.2 on Windows; an independent clean install and build also passed on Node 24.22.1/npm 11.9.0 on Linux.
+
+The application is in PR #8 and has not yet been merged into `main`. Check out the implementation branch explicitly:
 
 ```bash
-npm install
+git clone --branch feat/monday-queue-accepted --single-branch https://github.com/Raghuboi/VCycene-mini-project.git
+cd VCycene-mini-project
+npm ci
 npm run dev        # http://localhost:5173
 ```
 
@@ -77,6 +81,8 @@ Query, Zod 4, and Papa Parse for the CSV.
 - Source import, policy, storage, and the merged snapshot stay in separate small modules under `src/lib`.
 
 ## Verification status
+
+See [the completion record](docs/completion.md) for the reviewed source, independent checks, remaining browser checks after corrections, and submission blockers. The browser results below were reported by the implementing agent at `6f0101a`; later corrections need their affected paths rerun before they inherit that evidence.
 
 - `npm run build` passed (TypeScript check and Vite production bundle). The built HTML and JS returned HTTP
   200 through Vite preview.

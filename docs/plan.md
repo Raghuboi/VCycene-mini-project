@@ -1,6 +1,7 @@
 # Monday queue build plan
 
 **Accepted product decisions, updated 11 November 2026.** D1, D2 and D4 were approved in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). The implemented application and current browser evidence are in [PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) and README. D3's prior elapsed time, hard stop, application route and applicant audio remain unknown; no time-compliance or completed-submission claim is made.
+Current remaining work, corrections, and evidence are tracked in [completion.md](completion.md). The sequence below is the original build plan, not a request to repeat completed implementation.
 Source baseline: [ace5735ebc65158b3cc8ea86c5a10ad3d0b6fc7c](https://github.com/Raghuboi/VCycene-mini-project/tree/ace5735ebc65158b3cc8ea86c5a10ad3d0b6fc7c).
 Read the unchanged [rubric](../rubric.md) and [sample CSV](../tickets.csv). The initial repository has those files and a gitignore, with no starter application.
 
@@ -38,7 +39,7 @@ These are explicit rubric requirements. Proposed implementation choices appear i
 | R1 | Load all twelve supplied tickets. | Fresh browser view shows all twelve unique IDs and original source facts. |
 | R2 | Show which tickets need attention first and why, using house rules. | Every row has a concrete reason; ticket analysis below is reflected in the UI. |
 | R3 | Change status, add a note, and preserve changes through refresh. | Save, reload, reopen, and inspect the exact saved values. |
-| R4 | Add one useful unrequested feature. | Related cases, if D2 is accepted, work through the ordinary UI. |
+| R4 | Add one useful unrequested feature. | The accepted related-case feature works through the ordinary UI. |
 | R5 | Live link if possible; otherwise repository startup under five minutes. | Private-window link check or timed fresh-start instructions. |
 | R6 | Build notes, at most 200 words. | Actual tools, one observed AI error and its correction, and the next useful addition. |
 | R7 | Maya written reply, at most 150 words. | Honest policy answer, named prior failure, specific acknowledgment/apology, clear next step. |
@@ -296,5 +297,5 @@ A runtime blocker should identify the missing capability, affected outcome, next
 - [Skills and review contract](skills-and-review.md): reviewed upstream files, pins, dependencies, and project overrides.
 - [Codex handoff](codex-handoff.md): bounded execution after the owner settles the plan.
 
-No application execution, hosting, recording, or final submission was performed to create this plan.
+The initial plan preceded implementation. PR #8 now contains the application; completion.md distinguishes reported prior browser evidence, current checks, and remaining submission work.
 

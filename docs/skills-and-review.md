@@ -3,7 +3,7 @@
 ## Scope and precedence
 
 This plan targets [VCycene-mini-project at ace5735e](https://github.com/Raghuboi/VCycene-mini-project/tree/ace5735e), whose starting material is the rubric and twelve supplied tickets.
-The selected stack is React, Vite, TypeScript, shadcn, TanStack Router/Query, and Zod. LocalStorage and the edit/closure rules remain proposals in issue #1. Use only needed layout fragments and components.
+The selected stack is React, Vite, TypeScript, shadcn, TanStack Router/Query, and Zod. LocalStorage and the edit/closure rules were accepted in issue #1. Use only needed layout fragments and components. Current remaining work and evidence are in [completion.md](completion.md).
 The application has no runtime model dependency. Coding-agent skills guide development; they are not the application's input interface or runtime.
 The rubric, explicit project decisions, and acceptance criteria override generic skill defaults.
 

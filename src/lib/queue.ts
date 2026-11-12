@@ -169,9 +169,11 @@ export function submitTicketUpdate(input: SaveInput): SaveResult {
     throw new QueueProblem("invalid", "The update would produce invalid saved data, so nothing was written.");
   }
 
+  // Validate ticket membership before the commit point; a rejected save must not write.
+  const snapshot = mergeSnapshot(tickets, validated.data, raw);
   writeEdits(validated.data);
 
-  return { snapshot: mergeSnapshot(tickets, validated.data), saved: true };
+  return { snapshot, saved: true };
 }
 
 /** Recovery path for unreadable saved data: remove only this application's key, then reload. */

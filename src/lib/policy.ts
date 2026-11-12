@@ -18,6 +18,7 @@ export const HOUSE_RULES = [
   "Refunds are available for 30 days after delivery; after that the warranty covers repair or replacement, not a refund.",
   "A carrier damage claim must be filed within 14 days of delivery.",
   "A refund is paid only after the warehouse confirms the returned unit has arrived.",
+  "Only a manager can approve exceptions to these rules.",
 ] as const;
 
 export const POLICY_ASSUMPTIONS = [
@@ -57,7 +58,7 @@ const TRIAGE: Record<string, TriageEntry> = {
     headline:
       "Third message from this customer. Two earlier tickets were closed with restart advice and the unit still stops mid-cycle after the update.",
     nextAction:
-      "Check with Wei before promising an engineering fix, and ask the manager whether an exception is available. Keep T-109 beside this record.",
+      "Check the earlier refund-request dates and ask Wei for supported guidance. Seek a manager exception if the history does not establish ordinary eligibility. Keep T-109 beside this record.",
     risk: "refund",
   },
   "T-109": {
@@ -81,7 +82,7 @@ const TRIAGE: Record<string, TriageEntry> = {
     rank: 5,
     band: "High",
     headline:
-      "The unit is back at the warehouse but receipt is unconfirmed, so the refund is stuck. Tracking says it arrived Sep 26.",
+      "Tracking reports arrival at the warehouse on Sep 26, but warehouse receipt is unconfirmed and the refund remains on hold.",
     nextAction:
       "Get warehouse confirmation of the returned unit. Payment waits on that confirmation; tracking text alone does not release it.",
     risk: "return",
@@ -215,7 +216,7 @@ export function assessTicket(ticket: SourceTicket, scenarioDay: number = SCENARI
       timing.push(
         left >= 0
           ? `Standard refund window closes ${formatDay(refundWindowClosesDay)} (${dayCount(left)} left).`
-          : `Standard refund window ended ${formatDay(refundWindowClosesDay)}; a refund now needs a manager-authorized exception.`,
+          : `Standard refund window ended ${formatDay(refundWindowClosesDay)}; check earlier request history, then seek a manager exception if needed.`,
       );
     }
   }

@@ -6,7 +6,16 @@ This document is not ready to send until the applicant's own recording link has 
 
 Repository: https://github.com/Raghuboi/VCycene-mini-project/tree/feat/monday-queue-accepted
 
-Run: With Node 20.19 or newer, run `npm ci` then `npm run dev` from the repository folder. Open `http://localhost:5173`. The README contains the same instructions and the single-browser storage scope.
+Run with Node 24 and npm. Clone the implementation branch explicitly; the app is not yet on `main`:
+
+```bash
+git clone --branch feat/monday-queue-accepted --single-branch https://github.com/Raghuboi/VCycene-mini-project.git
+cd VCycene-mini-project
+npm ci
+npm run dev
+```
+
+Open `http://localhost:5173`. The README explains the single-browser storage scope.
 
 ## Build notes (under 200 words)
 
