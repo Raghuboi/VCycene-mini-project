@@ -23,6 +23,7 @@ function RelatedTicketList({
           <Link
             to="/"
             search={{ ticket: ticket.TICKET_ID, view }}
+            hash="ticket-detail"
             className="font-mono text-xs font-semibold text-primary underline-offset-4 hover:underline"
           >
             {ticket.TICKET_ID}
