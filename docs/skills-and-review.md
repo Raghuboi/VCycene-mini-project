@@ -96,9 +96,9 @@ The final handoff states what works, how to run it, what was checked, and what r
 
 ## PR and review state
 
-PR #8 is the sole application/submission candidate. Planning PR #6 is included in its ancestry and closed; the HTML candidate #7 is closed as superseded. Continue on the current branch and use the existing issues. Do not create another planning or delivery PR solely to split this small completion task.
+PR #8 was the sole application candidate and is merged. Planning PR #6 and HTML candidate #7 are closed. Application code is frozen; follow the recording-dependent finish sequence in [completion.md](completion.md), and keep a documentation-only main-entry correction separate from new product scope.
 
-The bounded Spec/Standards review and targeted repair are complete for the current delta; [completion.md](completion.md) records the remaining browser observation. Documentation-only updates need content/link verification, not another full code-review panel. User review/merge remains separate from readiness, and the rubric permits branch-specific repository delivery.
+The bounded Spec/Standards review, targeted repair, and focused browser check are complete; [completion.md](completion.md) records the observed outcome. Documentation-only updates need content/link verification, not another full code-review panel. PR #8 was merged to main at `89d61f8`; the rubric's repository-delivery route is now the default clone.
 
 ## Complete Pstack inventory and disposition
 

@@ -11,10 +11,10 @@ candidate group is shown with its exclusions explained.
 
 Use Node 24 and npm. The implementation was built on Node 24.11.1/npm 11.6.2 on Windows; an independent clean install and build also passed on Node 24.22.1/npm 11.9.0 on Linux.
 
-The application is in PR #8 and has not yet been merged into `main`. Check out the implementation branch explicitly:
+The verified application is on `main`. A default clone now contains it:
 
 ```bash
-git clone --branch feat/monday-queue-accepted --single-branch https://github.com/Raghuboi/VCycene-mini-project.git
+git clone https://github.com/Raghuboi/VCycene-mini-project.git
 cd VCycene-mini-project
 npm ci
 npm run dev        # http://localhost:5173
@@ -82,7 +82,7 @@ Query, Zod 4, and Papa Parse for the CSV.
 
 ## Verification status
 
-The [browser acceptance record](docs/evidence/browser-acceptance.md) names the implementing agent's Chrome 157 journeys and source revision: twelve tickets, save/refresh with source facts intact, URL/history/filters, related cases, dirty navigation, resolution-note validation, conflict/recovery, offline save, a genuine quota failure, and desktop/390px layout. It also records the original limits; these are observed local workflows, not external support actions.
+A fresh default-branch clone at merge commit `89d61f8` ran `npm ci` (103 packages), passed `npm run build`, opened all twelve IDs in Chrome, and saved a note through refresh. The [browser acceptance record](docs/evidence/browser-acceptance.md) names the implementing agent's Chrome 157 journeys and source revision: twelve tickets, save/refresh with source facts intact, URL/history/filters, related cases, dirty navigation, resolution-note validation, conflict/recovery, offline save, a genuine quota failure, and desktop/390px layout. It also records the original limits; these are observed local workflows, not external support actions.
 
 A fresh wrap-up checkout installed 105 packages with `npm ci` in 9 seconds and passed the typecheck/production build. The bundled CSV is byte-identical to the twelve-row source; rubric and original tickets remain unchanged. The committed desktop/mobile captures were inspected.
 

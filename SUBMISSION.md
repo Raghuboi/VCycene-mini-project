@@ -4,12 +4,12 @@ This document is not ready to send until the applicant's own recording link has 
 
 ## Tool
 
-Repository: https://github.com/Raghuboi/VCycene-mini-project/tree/feat/monday-queue-accepted
+Repository: https://github.com/Raghuboi/VCycene-mini-project
 
-Run with Node 24 and npm. Clone the implementation branch explicitly; the app is not yet on `main`:
+Run with Node 24 and npm. The verified application is on `main`:
 
 ```bash
-git clone --branch feat/monday-queue-accepted --single-branch https://github.com/Raghuboi/VCycene-mini-project.git
+git clone https://github.com/Raghuboi/VCycene-mini-project.git
 cd VCycene-mini-project
 npm ci
 npm run dev
