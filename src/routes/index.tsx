@@ -138,7 +138,7 @@ function QueuePage() {
           </p>
         </section>
 
-        <aside aria-label="Ticket detail" className="min-w-0 xl:sticky xl:top-4">
+        <aside id="ticket-detail" aria-label="Ticket detail" className="min-w-0 scroll-mt-4 xl:sticky xl:top-4">
           {selected ? (
             <TicketDetail key={selected.source.TICKET_ID} ticket={selected} tickets={tickets} view={view} />
           ) : search.ticket ? (

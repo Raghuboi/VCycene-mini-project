@@ -10,7 +10,14 @@ export type QueueView = (typeof QUEUE_VIEWS)[number];
  */
 export const queueSearchSchema = z.strictObject({
   ticket: z.string().regex(/^T-\d{3}$/, "Ticket selections look like T-101.")
-    .refine((id) => requireSourceTickets().some((ticket) => ticket.TICKET_ID === id), "That ticket is not in the supplied queue.")
+    .refine((id) => {
+      try {
+        return requireSourceTickets().some((ticket) => ticket.TICKET_ID === id);
+      } catch {
+        // The queue query owns CSV load errors; do not turn a broken source into a URL error.
+        return true;
+      }
+    }, "That ticket is not in the supplied queue.")
     .optional(),
   view: z.enum(QUEUE_VIEWS).optional(),
 });

@@ -45,6 +45,7 @@ export function QueueTable({
                 <Link
                   to="/"
                   search={{ ticket: ticketId, view }}
+                  hash="ticket-detail"
                   aria-current={selected ? "true" : undefined}
                   className="font-mono text-xs font-semibold text-primary underline-offset-4 hover:underline"
                 >

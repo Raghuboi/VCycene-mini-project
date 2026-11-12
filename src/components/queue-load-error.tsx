@@ -29,7 +29,7 @@ export function QueueLoadError({ error, onRetry }: { error: unknown; onRetry: ()
   const problem = asQueueProblem(error);
 
   const reset = useMutation({
-    mutationFn: async () => resetStoredEdits(),
+    mutationFn: async () => resetStoredEdits(problem.raw ?? ""),
     networkMode: "always",
     retry: false,
     onSuccess: (snapshot) => {

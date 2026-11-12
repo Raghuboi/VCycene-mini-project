@@ -132,18 +132,18 @@ export function submitTicketUpdate(input: SaveInput): SaveResult {
   const currentStatus = current?.status ?? mapSourceStatus(source.STATUS);
   const currentRevision = current?.revision ?? 0;
 
+  if (command.expectedRevision !== currentRevision) {
+    throw new QueueProblem("conflict", "This ticket was saved again after you opened the editor.", {
+      committedRevision: currentRevision,
+    });
+  }
+
   if (command.status === currentStatus && command.note.length === 0) {
     return { snapshot: mergeSnapshot(tickets, document, raw), saved: false };
   }
 
   if (command.status === "resolved" && currentStatus !== "resolved" && command.note.length === 0) {
     throw new QueueProblem("invalid", "Add a short note when you set a ticket to Resolved.");
-  }
-
-  if (command.expectedRevision !== currentRevision) {
-    throw new QueueProblem("conflict", "This ticket was saved again after you opened the editor.", {
-      committedRevision: currentRevision,
-    });
   }
 
   const existingNotes = current?.notes ?? [];
@@ -177,10 +177,10 @@ export function submitTicketUpdate(input: SaveInput): SaveResult {
 }
 
 /** Recovery path for unreadable saved data: remove only this application's key, then reload. */
-export function resetStoredEdits(): QueueSnapshot {
+export function resetStoredEdits(expectedRaw: string): QueueSnapshot {
   // Validate the source and construct the replacement before deleting the only saved copy.
   const replacement = mergeSnapshot(requireSourceTickets(), createEmptyEdits());
-  clearEdits();
+  clearEdits(expectedRaw);
   return replacement;
 }
 

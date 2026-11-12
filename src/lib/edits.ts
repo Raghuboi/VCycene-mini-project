@@ -91,6 +91,9 @@ export function readEdits(): StoredEdits {
   }
 
   const version = isRecord(json) ? json.version : undefined;
+  if (version === undefined) {
+    throw new QueueProblem("corrupt", "Saved queue data has no version.", { raw });
+  }
   if (version !== EDITS_VERSION) {
     throw new QueueProblem(
       "unsupported",
@@ -139,11 +142,15 @@ export function writeEdits(document: EditsDocument): void {
 }
 
 /** Used only by the corrupt-data recovery flow, after the operator has a backup. */
-export function clearEdits(): void {
+export function clearEdits(expectedRaw: string): void {
   const storage = assertWritable();
   try {
+    if (storage.getItem(EDITS_STORAGE_KEY) !== expectedRaw) {
+      throw new QueueProblem("conflict", "The stored value changed after the backup was offered. Reload the current value before resetting.");
+    }
     storage.removeItem(EDITS_STORAGE_KEY);
   } catch (error) {
+    if (error instanceof QueueProblem) throw error;
     throw new QueueProblem("inaccessible", "The browser refused to remove the saved edits.", {
       cause: error,
     });
