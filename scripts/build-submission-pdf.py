@@ -80,7 +80,11 @@ def main() -> None:
 
     story: list[Flowable] = [
         para("VCycene Monday Queue", "title"),
-        para("Application review copy  |  Fictional scenario: Monday, October 5, 2026", "subtitle"),
+        para(
+            ("Application submission" if args.final else "Application review copy")
+            + "  |  Fictional scenario: Monday, October 5, 2026",
+            "subtitle",
+        ),
     ]
     if not args.final:
         story.append(para("DRAFT — NOT READY TO SUBMIT. Applicant recording and final access checks remain pending.", "warning"))

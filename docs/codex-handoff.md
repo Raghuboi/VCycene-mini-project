@@ -1,33 +1,37 @@
-# Final execution handoff
+# Finalization agent handoff
 
-Start with [completion.md](completion.md). This repository already contains the application and browser evidence; do not rebuild it or repeat the original planning phase. Use extra-high reasoning where the execution host supports it; that setting does not enlarge scope or the assignment budget.
+## Current task
 
-## Objective
+Finish the recording-dependent submission. Read [completion.md](completion.md), the [rubric](../rubric.md), and [SUBMISSION.md](../SUBMISSION.md). The application is merged, verified and frozen on main at audited baseline `c15aebcfffd32a23ec72619cd9a2d115cdc677b1`. PRs #8/#9 are merged; issues #2/#3/#4 are closed. The former related-link check and default-clone startup are complete. Do not repeat them without a source change or concrete defect.
 
-Finish the rubric's recording-dependent deliverables. The evaluator opens the browser queue seeded from the supplied CSV. There is no runtime agent or external support integration, and the assignment does not require closing every customer case.
+Use the owner's requested extra-high reasoning where supported. Inspect current HEAD/dirty work and preserve newer changes. Use the corrected PDF helper from this finalization bundle; it labels final output as Application submission. The bundled PDF remains a review draft.
 
-## Read and preserve
+## Required input and next action
 
-1. Read AGENTS.md, rubric.md and completion.md. Use plan.md for the ticket/policy interpretation, state-and-verification.md for invariants, and skills-and-review.md for the bounded workflow.
-2. Inspect current branch, SHA and dirty work. PR #8 is merged into `main` at `89d61f80901837415219d36444a6ea98f17e2d4b`; preserve newer work. Planning PR #6 and the superseded HTML PR #7 are closed.
-3. Record actual prior elapsed time if supplied. Do not assert compliance with the four-hour cap while historical time is unknown.
+The applicant must supply a natural recording in their own voice, at most 120 seconds, as a file or accessible playable URL. If only a file is supplied, agree the hosting/sharing destination before publishing it. Application route and actual prior time are factual inputs for sending/compliance, not prerequisites for preparing the document. Do not invent them.
 
-Accepted D1/D2/D4: one browser/origin and active editor, localStorage edits; related cases as the extra; new note on entering Resolved and dirty-discard confirmation. Do not ask again. Keep the current React/Vite/TypeScript/shadcn/Router/Query/Zod stack, no unit tests or mocks, and no first-party useState/useEffect for the established owners.
+If audio is absent, return the exact missing input and leave #1/#5 open. All independent preparation is complete. Do not build features, retry completed technical gates or generate a final attachment using a placeholder URL.
 
-## Technical acceptance complete
+When audio is available:
 
-Application source `6f26d0b006f89b1b36607765f5adb35ae47cfd77` passed the focused 390px related-link navigation/discard check in Chrome 157 on checkout `837b522a`. [Browser evidence and screenshots](evidence/browser-acceptance.md#focused-related-link-regression-on-the-final-application-source) record exact URL, visible detail, retained/discarded draft and unchanged storage. The full browser persistence/recovery acceptance remains separately attributed to source `5eaa3b76`; the only later application change was the related-link anchor. PR #8 was merged to `main`. Do not repeat completed implementation or add a test framework; verify only the default-branch evaluator entry after documentation reconciliation.
+1. Measure duration, listen in full, assess natural delivery and Maya-policy accuracy, and verify private-window playback of the real URL. Keep the fictional Oct 5 scenario and Oct 6 next-update commitment.
+2. In SUBMISSION.md, replace the **whole body** of the existing voice-response section with the verified HTTPS recording link. Remove both the placeholder and talking points. Preserve the approved 150-word build notes, 114-word Maya reply, 99-word Wei message and 99-word manager message. Remove document-level draft/editorial instructions once checks pass.
+3. Keep the default repository link, `https://github.com/Raghuboi/VCycene-mini-project`. Run:
 
-## Submission finish — after audio arrives
+```bash
+uv run --with reportlab python scripts/build-submission-pdf.py --final
+```
 
-The applicant must supply their own natural response, no more than two minutes. SUBMISSION.md contains talking points, not a script to read. Complete independent work first; do not loop waiting for the recording.
+4. Render `output/pdf/VCycene-submission.pdf`; inspect every page, exact approved text, word counts and hyperlink annotations. Require no draft/review-copy/pending/talking-point wording. The helper's URL guard is not proof of audio identity, duration or access.
+5. Open every final PDF link privately and play the recording from its actual link. Record source SHA, PDF hash/path, duration, counts and observed results in #5. Close #5/#1 only when the complete accessible attachment exists.
+6. Return the finished PDF and readiness status. The applicant chooses the rubric's application route and submits, or separately authorizes sending. Distinguish ready-to-submit from submitted.
 
-Then follow completion.md's 15–25-minute sequence: check real duration/private playback, insert URL, preserve the four approved written sections, generate/render/check the final PDF, and open every final link in a private window. Keep the reviewed 114-word Maya body unchanged. Build/Wei/manager counts are 150/99/99. The existing two-page PDF is a draft, not the final attachment.
+Estimate 15–25 minutes of agent finalization after a playable recording is available, excluding applicant recording time. Prior total assignment time is unknown; do not claim four-hour compliance or a new clock. Use the existing Windows/Linux PDF environment, not a new toolchain.
 
-Use the default-branch repository link after the verified merge. A live site is optional under the rubric. Close #5 and #1 only after complete content and access evidence exist.
+## Constraints and stopping point
 
-## Handoff and stopping condition
+Accepted D1/D2/D4, stack, no-unit/no-mock policy and approved writing remain unchanged. Apply the existing Pocock/Pstack/Ponytail contract: one owner, concrete acceptance, smallest necessary repair, and stop after evidence. No new review panels, skill installs, app refactors, runtime model, backend, live deployment or ticket auto-resolution.
 
-Return the final revision, what works, actual verification, the finished attachment or exact remaining blocker, and factual timing. The quality bar is the rubric's complete observable outcomes within the accepted scope, not an unsupported universal “100%” claim.
+The supplied log and current GitHub agree that technical acceptance is complete. Browser proof is already in [the evidence record](evidence/browser-acceptance.md); this packet is not a new browser run. Final PDF rendering/private audio access remain genuinely pending.
 
-Do not send customer/team messages, submit the application, or publish a new site without a separate explicit instruction. PR #8 is already merged. Keep current state in issue bodies; Git history preserves old plans, so do not prepend new statuses above obsolete unchecked lists.
+Do not send the application or customer/team messages, publish the supplied recording, or merge a new PR without a separate explicit instruction. Keep the raw session export out of public repository artifacts.
