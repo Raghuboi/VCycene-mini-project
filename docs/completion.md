@@ -6,7 +6,7 @@ Updated 12 November 2026 (UTC). This is the execution entry point. The [specific
 
 The required queue and related-case feature are implemented and browser-verified. The full Chrome acceptance record covers source `5eaa3b76d48228f857253d0083d71b1fd30503d6`; the subsequent related-case anchor change at `6f26d0b006f89b1b36607765f5adb35ae47cfd77` passed the focused 390px navigation/discard check on checkout `837b522a45bfb0991260f33982d92b290c9e940b`. See [browser acceptance](evidence/browser-acceptance.md) and the two related-case captures. Application code is frozen unless a concrete regression appears.
 
-[PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) is the delivery candidate. At this stage main remains the original assignment. The explicit implementation-branch URL and README commands are the evaluator entry; a requested merge will require updating the final document link and startup instructions.
+[PR #8](https://github.com/Raghuboi/VCycene-mini-project/pull/8) was squash-merged into `main` at `89d61f80901837415219d36444a6ea98f17e2d4b`. A fresh default clone at that SHA ran `npm ci` (103 packages), `npm run build` (TypeScript and Vite pass), opened twelve IDs in Chrome, and saved an internal note through refresh. The default repository URL and README startup now target `main`; a live hosted application is not claimed. The two-page PDF review copy has been regenerated with the main repository hyperlink and visually checked; it remains conspicuously DRAFT until the applicant supplies a playable recording.
 
 ## First principles: what completion means
 
@@ -16,7 +16,7 @@ The required queue and related-case feature are implemented and browser-verified
 | Explain priorities | Fixed October 5 scenario; house-rule deadlines and a reason per ticket. | Tom's October 6 claim boundary, separate Maya obligations, Grace's warehouse gate and other case distinctions. |
 | Retain edits | An operator changes status/adds an internal note; one browser-local edits document survives refresh. | Save/readback, unchanged source metadata and another ticket unchanged. |
 | One useful extra | Related records for Maya and the three-customer candidate firmware group. | Membership and both queue-row/related-link navigation observed in Chrome, including 390px draft cancellation/acceptance. |
-| Accessible delivery | Public implementation branch with Node 24, `npm ci`, `npm run dev`. | Prior fresh clone/public-browser access record; current clean install and build. |
+| Accessible delivery | Public default-branch repository with Node 24, `npm ci`, `npm run dev`. | Prior fresh clone/public-browser access record; main merge readback and default-clone startup. |
 | Required writing | Build notes, Maya, Wei and manager messages in SUBMISSION.md. | 150/200, 114/150, 99/120 and 99/120 words. Preserve approved text. |
 | Complete attachment | One document/PDF with tool link, writing and the applicant's own audio link. | Review PDF exists; personal audio and final access checks remain. |
 
@@ -43,18 +43,18 @@ The next input is the applicant's own natural audio, at most 120 seconds. It mus
 |---|---|---|---|
 | Supply recording | Applicant | Applicant-controlled | Natural response and playable evaluator-accessible URL. Talking points are in SUBMISSION.md. |
 | Check audio and submission facts | Agent + applicant input | 3–5 min | Measure duration, play in a private window; record actual application route and elapsed assignment time. |
-| Finalize canonical text | Agent | 3–5 min | Insert audio URL in SUBMISSION.md; preserve all four approved written sections; keep the implementation-branch link unless a reviewed merge changes the target. |
-| Produce final attachment | Agent | 5–8 min | Regenerate PDF from canonical text, render every page, inspect layout/text/hyperlink annotations, remove draft warnings only when required content is present. |
+| Finalize canonical text | Agent | 3–5 min | Insert audio URL in SUBMISSION.md; preserve all four approved written sections; use the verified default-branch repository link. |
+| Produce final attachment | Agent | 5–8 min | Run `uv run --with reportlab python scripts/build-submission-pdf.py --final` only after the applicant audio URL is inserted and verified; render every page, inspect layout/text/hyperlink annotations, and use the main link. The helper refuses a placeholder final. |
 | Verify final delivery | Agent | 4–7 min | Every final link opens privately; audio plays; document includes every rubric item. Record evidence and close #5/#1. |
-| Submit and optional merge | Applicant | Applicant-controlled | Review PR/document; submit through the rubric's applicable channel. Agent sends or merges only on a separate explicit instruction. |
+| Submit | Applicant | Applicant-controlled | Review the final document and submit through the rubric's applicable channel. PR #8 is already merged; no additional merge is required. |
 
 The four-hour rule concerns actual total assignment work, not this remaining estimate. Prior elapsed time is unknown; no compliance claim or clock reset is allowed. The audio and final document are incomplete until the actual recording is present and accessible.
 
 ## GitHub ownership and stop rule
 
 - **#2:** persistence/source preservation complete on recorded browser evidence; close as completed. The anchor repair does not change persistence.
-- **#3:** policy/grouping and narrow related-case navigation verified; close with the focused Chrome evidence.
-- **#4:** corrected browser gate, fresh repository entry, and current build verified; close with the full SHA and screenshots. Repository delivery is accepted; merge is a separate owner instruction.
+- **#3:** policy/grouping and narrow related-case navigation verified and closed.
+- **#4:** corrected browser gate, fresh repository entry, current build verified and closed. PR #8 merged into main. Default-clone startup is the remaining delivery readback.
 - **#5:** writing and reviewed PDF draft complete; blocked on personal audio, then final attachment/access checks.
 - **#1:** current map; close once all deliverables are complete. Accepted D1/D2/D4 remain settled.
 
