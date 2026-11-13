@@ -63,4 +63,4 @@ I'll own the follow-ups and keep customers updated while these dependencies rema
 
 ---
 
-Before submission: insert the applicant's audio URL, check its actual duration and private-window playback, verify this repository link and a fresh `npm ci` startup, convert this document to PDF, and upload it with the appropriate application. No draft messages have been sent.
+Before submission: insert the applicant's audio URL, check its actual duration and private-window playback, verify this repository link and a fresh `npm ci` startup, convert this document to PDF, and deliver it through the agreed application route. The fictional customer and team messages remain drafts.

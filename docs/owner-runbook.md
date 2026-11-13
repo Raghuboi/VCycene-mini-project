@@ -1,17 +1,21 @@
-# Owner walkthrough and recording guide
+# Recording and owner walkthrough
 
-The [original rubric](../rubric.md) asks for your own natural recording, not a script read aloud. The rehearsal text below helps you prepare. Close it before the final take and use the short cue card. Your approved written reply remains in [SUBMISSION.md](../SUBMISSION.md).
+The [original rubric](../rubric.md) requires your own natural voice response to Maya, no more than two minutes. Prepare with the example below, then close it and speak from the cue card. [SUBMISSION.md](../SUBMISSION.md) remains the approved written source.
 
-## Before the final wave
+## Record on your phone
 
-1. Record actual assignment time already spent, including planning and earlier work. Note the real deadline. The original limit is four hours; a new audit does not restart it.
-2. Confirm the application route: LinkedIn/Indeed listing, or the person who shared the original post. This selects the delivery channel, not the app architecture.
-3. Prepare a quiet recording environment. Record in your own voice. Provide the resulting file or a playable link with the intended evaluator access.
-4. Give the executing agent [codex-handoff.md](codex-handoff.md). The agent handles the browser wave, corrections, final PDF and evidence. Review the final PR and attachment when ready.
+1. Choose a quiet room. Rehearse once, then put the paragraph away. Record a short microphone check and listen to it.
+2. On iPhone, open Voice Memos, start recording, speak naturally, then stop and save. Rename the take `VCycene-Maya-Raghunath`.
+3. Listen to the entire take and check its actual duration. Aim for 75–100 seconds; the hard maximum is 120 seconds. Remove a long accidental silence or record another take if needed.
+4. Select the recording, open More, then Share and Save to Files. Upload that actual audio file to your intended Google Drive account.
+5. For this audio file, set General access to Anyone with the link and the role to Viewer. Copy the HTTPS link.
+6. Open that exact link in a private browser window and play it from start to finish. A request-access page or an owner-only preview is not sufficient.
 
-## Rehearse the call to Maya
+Apple documents [recording](https://support.apple.com/en-gb/guide/iphone/iph4d2a39a3b/ios) and [export to Files](https://support.apple.com/en-ca/guide/iphone/iph831c37815/ios). Google documents [link access and Viewer permissions](https://support.google.com/drive/answer/7166529?hl=en). Button placement can vary by OS version. The rubric accepts audio only; no camera, screen recording, Loom account, editing package, or background music is necessary.
 
-Read this as an example once or twice, then explain the same points in your own words:
+## Rehearsal example
+
+Read this once or twice, then explain the same points in your own words:
 
 > Hi Maya. I'm sorry we closed your earlier tickets with restart advice and then left your refund follow-up unanswered. You should not have had to keep chasing us.
 >
@@ -21,37 +25,37 @@ Read this as an example once or twice, then explain the same points in your own 
 >
 > I'll update you by the end of Tuesday, October 6, even if I'm still waiting for an answer. If a refund is approved, payment follows warehouse confirmation that the returned unit has arrived.
 
-The dates are part of the fictional October 5 scenario. Do not substitute today's date. Do not promise a refund, firmware fix, shipment or payout date that the supplied facts do not support.
+The dates belong to the fictional Monday, October 5 scenario. Keep them even when recording later. Do not promise refund approval, a confirmed firmware diagnosis, shipment, or payout date.
 
-## Use this cue card for the actual recording
+## Cue card for the actual take
 
 | Beat | Say in your own words |
 |---|---|
-| Own the failure | Restart advice, earlier closures, unanswered follow-up, and the effort Maya spent chasing support. |
-| Address the request | She wants a refund. Check earlier request dates; manager exception only if needed; no approval guarantee; warranty alternative. |
-| Give the next action | Ask engineering about the interrupted cycle. Do not claim a confirmed diagnosis. |
+| Own the failure | Restart-only closures, unanswered follow-up, and the effort Maya spent chasing support. |
+| Address the request | She wants a refund. Check earlier request dates; manager exception if needed; no approval guarantee; warranty alternative. |
+| Give the next action | Ask engineering about the interrupted cycle. |
 | Commit to the update | End of Tuesday, October 6, even if waiting. Any approved refund is paid after warehouse confirmation. |
 
-Aim for a comfortable take around 75–100 seconds, leaving room for pauses. The actual measured duration must be <=120 seconds. Listen once from start to finish. Check that your voice is clear, the answer sounds conversational, and you did not miss the next update. The rehearsal estimate is not proof of recording length.
+Keep the cue card beside the phone. The final take should sound like a calm call with Maya. A script or an estimated speaking time does not establish compliance.
 
-## Follow this five-minute tool walkthrough
+## Five-minute tool walkthrough
 
-Use a fresh disposable browser profile. These are demonstration steps; they do not perform support actions.
+Use a disposable browser profile. Demonstration notes must identify themselves as demonstrations.
 
-1. Open the queue. Say: "These are the twelve supplied tickets for Monday, October 5. The original source fields remain visible."
-2. Open T-104. Say: "Tom comes first because the carrier claim window is nearly closed. The app explains the deadline and next action. It does not claim the carrier filing happened."
-3. Open T-101 and its related T-109. Say: "These are Maya's linked records. The older unanswered follow-up remains an obligation. I would check earlier request dates before assuming a refund needs an exception."
-4. Show the candidate firmware group. Say: "Maya, Priya and Daniel have related cycle symptoms on 2.4.1. That is a reason to involve Wei, not a confirmed diagnosis. The Wi-Fi and 2.4.0 amber-light cases are excluded."
-5. Open T-105. Say: "Tracking reports arrival, but a refund still needs warehouse confirmation."
-6. On T-101, select Waiting on engineering and add `Walkthrough only: engineering guidance is pending; no customer message has been sent.` Save and refresh. Confirm the exact edit remains while the source fields are unchanged.
-7. Explain the AI correction from your build notes: a real narrow-screen screenshot exposed clipped priority reasons; the layout was corrected and checked. Do not claim you personally ran a tool you did not operate. Explain how you directed and reviewed the work.
+1. Open the queue: “These are the twelve supplied tickets for Monday, October 5. The original source facts remain visible.”
+2. Open T-104: “Tom comes first because the carrier claim window is nearly closed. The app explains the next action; it does not file the claim.”
+3. Open T-101 and related T-109: “These are separate records for Maya with a matching delivery date. The older unanswered request remains an obligation. I would check the earlier request history.”
+4. Show related firmware cases: “Maya, Priya and Daniel have related cycle symptoms on 2.4.1. That gives Wei a focused investigation. It is not a confirmed shared defect; the Wi-Fi and 2.4.0 cases are excluded.”
+5. Open T-105: “Tracking reports arrival. Payment still needs warehouse confirmation.”
+6. On T-104, choose Waiting on customer, add `Walkthrough only: follow-up is pending; no customer message has been sent.`, save, and refresh. Show the exact edit and unchanged source notes.
+7. Explain the actual AI correction: a 390px browser screenshot exposed clipped priority reasons; complete narrow cards fixed it. Describe how you directed and reviewed the work without claiming checks you did not personally operate.
 
-The interview may include a small live change. Know that policy reasons live in `src/lib/policy.ts`, save behavior in `src/lib/queue.ts`, and UI components in `src/components`. Practise locating a label/reason and checking its visible result on a disposable branch. Do not add a new feature to the submission for rehearsal.
+For a small live change, locate policy reasons in `src/lib/policy.ts`, persistence in `src/lib/queue.ts` and `src/lib/edits.ts`, navigation validation in `src/lib/search.ts`, and the native editor in `src/components/status-editor.tsx`. Make one requested change on a disposable branch, run the build, and show the affected behavior. Do not add a speculative feature for rehearsal.
 
-## Hand over the remaining inputs
+## Final owner actions
 
-Provide the recording file or playable URL, application route, and actual time/deadline information. The agent replaces the entire voice-section body, keeps your four approved written sections, and produces the final PDF. A raw local file alone does not satisfy the recording-link requirement.
+Supply the real recording or its privately playable link. Follow [the agent handoff](codex-handoff.md) for final PDF assembly and [the MacBook checklist](macos-checklist.md) for native checks. Review the concrete cleanup PR, then authorize the appropriate merge and delivery.
 
-When reviewing the final package, open the PDF's actual repo and audio links in a private window. Play the recording. Check the file has no draft/recording-pending/talking-point text. Confirm the app's startup steps still target main. Then review the final PR and authorize the appropriate merge/submission action when ready. After you submit, record the channel and confirmation so R13 and the final tracking issue can close.
+Before sending, open the actual final PDF, play its audio link privately, and confirm its repository link targets working main. The ready-to-send filename will be `output/pdf/VCycene-submission.pdf`. The draft review copy is not the complete assignment.
 
-The current review PDF must not be submitted as the complete assignment. Your ready-to-submit PDF will be `output/pdf/VCycene-submission.pdf` after the real recording and final checks exist.
+Use the agreed employer reply thread. Personal correspondence, calendar details, availability, and the submission deadline belong in the private owner handoff, outside this public repository. [Completion](completion.md) owns the current remaining work.
