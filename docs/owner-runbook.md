@@ -2,16 +2,20 @@
 
 The [original rubric](../rubric.md) requires your own natural voice response to Maya, no more than two minutes. Prepare with the example below, then close it and speak from the cue card. [SUBMISSION.md](../SUBMISSION.md) remains the approved written source.
 
-## Record on your phone
+## Record at the end — audio only
 
-1. Choose a quiet room. Rehearse once, then put the paragraph away. Record a short microphone check and listen to it.
-2. On iPhone, open Voice Memos, start recording, speak naturally, then stop and save. Rename the take `VCycene-Maya-Raghunath`.
-3. Listen to the entire take and check its actual duration. Aim for 75–100 seconds; the hard maximum is 120 seconds. Remove a long accidental silence or record another take if needed.
-4. Select the recording, open More, then Share and Save to Files. Upload that actual audio file to your intended Google Drive account.
-5. For this audio file, set General access to Anyone with the link and the role to Viewer. Copy the HTTPS link.
-6. Open that exact link in a private browser window and play it from start to finish. A request-access page or an owner-only preview is not sufficient.
+The [rubric](../rubric.md#part-2-the-customer-about-30-minutes) asks for your own natural phone-style voice reply, at most 120 seconds, shared as a link. It explicitly accepts audio alone. A video, webcam, screen capture, Loom account, or recording of the tool walkthrough is not required. The walkthrough happens live if you reach the first call.
 
-Apple documents [recording](https://support.apple.com/en-gb/guide/iphone/iph4d2a39a3b/ios) and [export to Files](https://support.apple.com/en-ca/guide/iphone/iph831c37815/ios). Google documents [link access and Viewer permissions](https://support.google.com/drive/answer/7166529?hl=en). Button placement can vary by OS version. The rubric accepts audio only; no camera, screen recording, Loom account, editing package, or background music is necessary.
+On this Windows 11 workstation, use **Sound Recorder** (installed) and the NexiGo microphone. The iPhone Voice Memos route below is a fallback if you prefer the phone or cannot get a clear desktop take.
+
+1. In Windows **Settings → System → Sound → Input**, select the actual NexiGo mic rather than a virtual input. Open its properties and use **Start test → Stop test → Play** to hear a short check. If prompted, enable Sound Recorder under **Settings → Privacy & security → Microphone**. [Microsoft's mic test](https://support.microsoft.com/en-us/windows/hardware/drivers/how-to-set-up-and-test-microphones-in-windows) and [Sound Recorder permissions](https://support.microsoft.com/en-us/windows/apps/sound-recorder-app-for-windows-faq).
+2. Choose a quiet room. Rehearse the four cues below, then close the example paragraph. In **Sound Recorder**, press **Ctrl+R** to start and **Esc** to stop/save. Aim for 75–100 seconds, comfortably below the hard 120-second limit. Rename the saved take. Right-click it and use **Share**; obtain an actual audio file for upload rather than assuming a particular recordings folder. If your Share menu cannot hand you a file to upload, use the iPhone export route below instead of hunting application-private storage. [Microsoft's recording/sharing steps](https://support.microsoft.com/en-us/windows/apps/sound-recorder-app-for-windows-faq).
+3. Alternatively, on iPhone use **Voice Memos → record → stop → More → Share → Save to Files**. Apple says the default export is `.m4a`; upload the actual exported file through the Google Drive app or the web. [Apple's export instructions](https://support.apple.com/guide/iphone/export-a-voice-memos-recording-to-files-iph831c37815/ios); [Google's mobile upload steps](https://support.google.com/drive/answer/2424368).
+4. Listen to the complete take and measure the actual file, not the rehearsal estimate. `ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "C:/path/to/recording.m4a"` prints seconds; it is installed on this workstation. Accept only a duration no greater than 120.000 seconds and a clear, natural response that includes the October 6 update.
+5. At [drive.google.com](https://drive.google.com/), upload the file, then set **Share → General access → Anyone with the link → Viewer** and copy its HTTPS URL. A work/school account may restrict external access. [Google's sharing instructions](https://support.google.com/drive/answer/2494822).
+6. Open the exact copied link in a new signed-out/private browser window and **play it from start to finish**. A request-access page, sign-in wall, or download-only result is not a verified playable link. Google explicitly lists MP3 and WAV among Drive preview formats, but not M4A; that does not prove M4A will fail. If your actual M4A does not play in the private window, use a documented-preview format such as MP3 or WAV and repeat the check. [Google's format list](https://support.google.com/drive/answer/37603).
+
+The link, not just a local file, belongs under the voice heading in [SUBMISSION.md](../SUBMISSION.md). The final PDF must contain that link; click its repository and audio links again from the PDF in a fresh private window. Do not send the draft PDF. The fictional October 5/6 dates stay fixed even if you record on a later real date.
 
 ## Rehearsal example
 
