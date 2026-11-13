@@ -260,7 +260,7 @@ const FIRMWARE_COHORT = ["T-101", "T-102", "T-103"] as const;
 
 const NOT_IN_COHORT: Record<string, string> = {
   "T-109":
-    "Same customer and unit as T-101. It adds history, not a fourth affected customer, so the cohort keeps three distinct people.",
+    "Same customer and delivery date as T-101. This follow-up adds history, not a fourth affected customer, so the cohort keeps three distinct people.",
   "T-106":
     "Firmware 2.4.1 but the report is Wi-Fi setup, not an interrupted cycle. A matching version is not a matching symptom.",
   "T-112":
@@ -294,7 +294,7 @@ export function relatedCasesFor(
     related.push({
       kind: "same-customer",
       title: "Same customer, matching delivery date",
-      explanation: `${ticket.CUSTOMER} also has the separate ${sameCustomer.map((entry) => entry.TICKET_ID).join(" and ")} record for the unit delivered ${delivered}. Both records stay visible; linking does not close, merge, or resolve either one, and a newer message does not answer the older one.`,
+      explanation: `${ticket.CUSTOMER} also has the separate ${sameCustomer.map((entry) => entry.TICKET_ID).join(" and ")} record with the same delivery date, ${delivered}. Both records stay visible; linking does not close, merge, or resolve either one, and a newer message does not answer the older one.`,
       tickets: [ticket, ...sameCustomer],
     });
   }

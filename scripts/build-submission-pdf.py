@@ -10,6 +10,7 @@ import html
 import re
 from collections.abc import Iterator
 
+import reportlab
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle
@@ -29,17 +30,11 @@ def section(name: str) -> str:
 
 
 def fonts() -> tuple[str, str]:
-    options = [
-        (Path("C:/Windows/Fonts/arial.ttf"), Path("C:/Windows/Fonts/arialbd.ttf")),
-        (Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"), Path("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")),
-    ]
-    for regular, bold in options:
-        if regular.is_file() and bold.is_file():
-            pdfmetrics.registerFont(TTFont("Submission", str(regular)))
-            pdfmetrics.registerFont(TTFont("Submission-Bold", str(bold)))
-            pdfmetrics.registerFontFamily("Submission", normal="Submission", bold="Submission-Bold")
-            return "Submission", "Submission-Bold"
-    raise RuntimeError("Arial or DejaVu Sans TTF fonts are needed to render the approved text")
+    font_dir = Path(reportlab.__file__).resolve().parent / "fonts"
+    pdfmetrics.registerFont(TTFont("Submission", str(font_dir / "Vera.ttf")))
+    pdfmetrics.registerFont(TTFont("Submission-Bold", str(font_dir / "VeraBd.ttf")))
+    pdfmetrics.registerFontFamily("Submission", normal="Submission", bold="Submission-Bold")
+    return "Submission", "Submission-Bold"
 
 
 def main() -> None:

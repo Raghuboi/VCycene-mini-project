@@ -4,17 +4,12 @@ import { useRef, type FormEvent } from "react";
 
 import { asQueueProblem } from "../lib/edits";
 import { QUEUE_QUERY_KEY, loadSnapshot, submitTicketUpdate, type CommittedTicket, type SaveInput } from "../lib/queue";
+import { queueSearchSchema } from "../lib/search";
 import { STATUS_LABELS, TICKET_STATUSES, type TicketStatus } from "../lib/status";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { NativeSelect } from "./ui/native-select";
 import { Textarea } from "./ui/textarea";
-
-function ticketOfSearch(search: unknown): string | undefined {
-  if (typeof search !== "object" || search === null) return undefined;
-  const value = (search as Record<string, unknown>).ticket;
-  return typeof value === "string" ? value : undefined;
-}
 
 function isDirty(form: HTMLFormElement | null, committedStatus: TicketStatus): boolean {
   if (!form) return false;
@@ -54,10 +49,12 @@ export function StatusEditor({ ticket }: { ticket: CommittedTicket }) {
       const form = formRef.current;
       if (!form) return false;
 
-      const sameTicket =
+      const nextSearch = queueSearchSchema.safeParse(next.search);
+      const preservesEditor =
         next.pathname === current.pathname &&
-        ticketOfSearch(next.search) === ticketOfSearch(current.search);
-      if (sameTicket) return false;
+        nextSearch.success &&
+        nextSearch.data.ticket === ticket.source.TICKET_ID;
+      if (preservesEditor) return false;
 
       if (save.isPending) return true;
       if (!isDirty(form, ticket.status)) return false;
