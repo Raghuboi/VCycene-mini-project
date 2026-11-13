@@ -14,7 +14,7 @@ npm --version
 git rev-parse HEAD
 ```
 
-Use the current candidate from [completion](completion.md), or main after the reviewed merge. Do not accidentally check the historical PR #10 branch.
+Use the current default-branch `main` from [completion](completion.md), not an old candidate branch. Record its exact SHA.
 
 ## Run from a fresh clone
 
@@ -27,7 +27,7 @@ npm ci
 npm run dev
 ```
 
-For the unmerged correction, check out `docs/submission-closeout-2026-11-13` before starting the app. Record the tested SHA. Open the localhost address printed by Vite. Keep the same hostname and port throughout; localhost and 127.0.0.1 are different origins with different saved data.
+The history correction is merged; do not check out its old branch. Open the localhost address printed by Vite. Keep the same hostname and port throughout; localhost and 127.0.0.1 are different origins with different saved data.
 
 ## Observe the real behavior
 
@@ -58,4 +58,4 @@ After the real recording exists, follow [the artifact handoff](codex-handoff.md)
 
 ## Record the result
 
-Add a short result to the closeout PR: source SHA, macOS/chip, browser versions, commands, checks passed/failed/unrun, and relevant screenshots without private tabs. Fix only a concrete failure and repeat its affected path. Do not report a Safari pass from Linux source review or historical Chrome captures.
+Record a short result in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1): source SHA, macOS/chip, browser versions, commands, checks passed/failed/unrun, and relevant screenshots without private tabs. Fix only a concrete failure and repeat its affected path. Do not report a Safari pass from source review or Windows Chrome captures.

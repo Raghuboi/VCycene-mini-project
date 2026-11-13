@@ -1,16 +1,16 @@
 # Finish the submission
 
-Read [completion.md](completion.md), the [original rubric](../rubric.md), and [SUBMISSION.md](../SUBMISSION.md). B1–B7 browser acceptance is recorded. This handoff finishes the focused November 13 correction check, applicant recording and final document.
+Read [completion.md](completion.md), the [original rubric](../rubric.md), and [SUBMISSION.md](../SUBMISSION.md). B1–B7 and the later focused correction check are recorded. This handoff begins only when the applicant supplies their real recording; it finishes the recording-dependent document.
 
 ## Reconcile new evidence once
 
-Inspect the current main SHA, the cleanup PR, and any dirty work. Preserve newer changes. If the applicant supplies a new session transcript, compare its commits and observed outcomes with the [browser record](evidence/browser-acceptance.md). Record only new facts. Keep the raw transcript private.
+Inspect current main and any dirty work before editing. Preserve newer changes. PR #11 is merged and its focused/post-merge results are in [the closeout record](evidence/closeout-2026-11-13.md) and [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1). If the applicant supplies a newer transcript, reconcile only genuinely new facts and keep the raw export private.
 
 A transcript does not itself prove a recording exists or that the complete document was sent. Use the actual artifact or delivery confirmation. Record historical time only if evidence establishes it.
 
-## Verify the narrow application correction
+## Application correction already verified
 
-The source review found that invalid same-ticket history could bypass the dirty-form guard. Commit `a64300b61f612c326c0a48a4749ecd210c6ebe97` validates destination search before allowing that shortcut. Source follow-up and the build pass; the [focused browser check](rubric-audit.md#focused-check-for-the-november-13-correction) remains required. Record cancellation, acceptance/no-write and valid-filter draft retention on the candidate. The [MacBook checklist](macos-checklist.md) can cover this in the same pass. Keep the PR in draft until this observation exists.
+PR #11 fixed the invalid same-ticket history shortcut, source copy and portable PDF fonts. Isolated Windows Chrome confirmed cancel/accept/no-write and valid-filter draft retention, then a fresh public main clone saved a note through refresh. Do not repeat this work for the final PDF unless the source changes. The [MacBook checklist](macos-checklist.md) remains an optional native check, not a claimed Safari pass.
 
 ## Verify the real recording
 
@@ -44,13 +44,9 @@ Render every page and inspect the images. Check the text, word counts, page brea
 
 Open the repository and audio links taken from the final PDF in a private browser window. Play the audio. Record source SHA, actual duration, PDF SHA-256, page count, visual result, and link result in issue #5. The review PDF remains a draft until this work is complete.
 
-## Finish the cleanup and delivery
+## Publish the actual artifact and deliver
 
-Use the current cleanup branch named in completion.md; PR #10 is historical and already merged. Inspect the final diff. The original rubric, both CSV copies, approved writing, and dependency lockfile must remain intact unless a concrete reviewed requirement necessitates a change.
-
-For the November 13 copy correction, inspect T-101/T-109 text at normal and narrow width: matching customer/delivery date, no shared-serial assertion or clipped copy. Source/build evidence must not be reported as a Safari run.
-
-Present the concrete candidate and artifact for review. Merge only under the applicable owner instruction after the focused correction check. Read back main and compare the relevant file trees. Check the evaluator entry and a save/refresh if application source changed. A documentation/PDF-only merge requires affected artifact checks, not another full B1–B6 wave.
+The original rubric, both CSV copies, reviewed writing and dependency lockfile remain authoritative. When audio exists, review the small canonical-source/PDF diff; do not reopen the merged app correction. Publish the ready artifact only under the owner's instruction and read back the exact public final PDF. A documentation/PDF-only update needs rendered-page, URI and access checks, not another full browser wave.
 
 Close #5 when the complete accessible attachment exists. Close #1 only after actual delivery confirmation. Keep #2–#4 closed and preserve historical evidence refs.
 

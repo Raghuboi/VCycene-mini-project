@@ -58,7 +58,7 @@ For a small live change, locate policy reasons in `src/lib/policy.ts`, persisten
 
 ## Final owner actions
 
-Supply the real recording or its privately playable link. Follow [the agent handoff](codex-handoff.md) for final PDF assembly and [the MacBook checklist](macos-checklist.md) for native checks. Review the concrete cleanup PR, then authorize the appropriate merge and delivery.
+Supply the real recording or its privately playable link. The independently verified app correction is merged. Follow [the artifact handoff](codex-handoff.md) for the final PDF, and the optional [MacBook checklist](macos-checklist.md) for native checks. Review the actual final attachment and authorize delivery separately.
 
 Before sending, open the actual final PDF, play its audio link privately, and confirm its repository link targets working main. The ready-to-send filename will be `output/pdf/VCycene-submission.pdf`. The draft review copy is not the complete assignment.
 
