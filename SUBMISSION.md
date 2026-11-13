@@ -45,7 +45,7 @@ Talking points only: acknowledge the failed support history, recognize the refun
 
 ## Message to Wei (under 120 words)
 
-Wei, possible 2.4.1 cycle issue across three customers: Maya (T-101) stops halfway after updating; Priya (T-103) stops after an hour after updating; Daniel (T-102) pauses mid-cycle with an amber light, onset unspecified. Maya received restart advice twice; T-109 is her follow-up, not another affected unit.
+Wei, possible 2.4.1 cycle issue across three customers: Maya (T-101) stops halfway after updating; Priya (T-103) stops after an hour after updating; Daniel (T-102) pauses mid-cycle with an amber light, onset unspecified. Maya received restart advice twice; T-109 is her follow-up, not a fourth customer.
 
 Samir's Wi-Fi setup issue and Sofia's amber light on 2.4.0 are separate.
 

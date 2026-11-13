@@ -1,6 +1,6 @@
 # Audit against the original rubric
 
-Updated November 13, 2026. The [original rubric](../rubric.md) is authoritative. Main `c56a9c9d27a88aa00a3307ac3299409852b9a566` has recorded B1–B7 browser evidence. The November 13 correction `a64300b61f612c326c0a48a4749ecd210c6ebe97` has source review and a passing build; its invalid-history navigation path still needs a focused live check.
+Updated November 13, 2026. The [original rubric](../rubric.md) is authoritative. Main `c56a9c9d27a88aa00a3307ac3299409852b9a566` has recorded B1–B7 browser evidence. The November 13 correction has source review, a passing build, and a focused Chrome readback on `86c12aaa4dd3ba3ad565173dcbbbd329eb3c341d`.
 
 [Completion](completion.md) owns current work status. [Browser acceptance](evidence/browser-acceptance.md) preserves executed runs and images. [The closeout audit](evidence/closeout-2026-11-13.md) records findings, corrections and verification limits.
 
@@ -10,7 +10,7 @@ Updated November 13, 2026. The [original rubric](../rubric.md) is authoritative.
 |---|---|---|
 | R1 | Load the twelve sample tickets. | B1/B2/B7 observed twelve distinct IDs, original fields and no initialization write. Complete on the recorded sources. |
 | R2 | Prioritize and explain why using the house rules. | B2 compared all twelve cases with the CSV and case-specific reasons/actions. [Case matrix](plan.md#policy-assumptions-and-ticket-analysis). Complete; matching delivery date does not prove unit identity. |
-| R3 | Change status, append a note, retain both after refresh. | B3/B5/B7 show exact readback and honest storage failures. A later source review found an unsaved-draft history edge case; corrected source awaits the focused check below. |
+| R3 | Change status, append a note, retain both after refresh. | B3/B5/B7 show exact readback and honest storage failures. A later source review found an unsaved-draft history edge case; the focused cancel/accept/filter Chrome check on corrected source passed. |
 | R4 | One useful unrequested feature. | Related customer records and a three-customer candidate firmware cohort; B4/B6 observed navigation and narrow-screen usability. Complete on the recorded sources. |
 | R5 | Live link if possible; otherwise repo startup in under five minutes. | Repository route is permitted. B1 candidate entry took 10.053 s; B7 fresh default-main entry took 10.804 s in the recorded Windows/Chrome environment. Those timings are observations, not guarantees for every network. |
 | R6 | Build notes <=200 words: tools, actual AI mistake/how caught, next addition/why. | 153 words. Tools, mobile clipping and screenshot correction, then follow-up ownership/reminders. Complete. |
@@ -30,7 +30,7 @@ The four approved written bodies remain the canonical text in [SUBMISSION.md](..
 
 | Criterion | Direct assessment |
 |---|---|
-| The tool works | Recorded first-open, priorities, editing and persistence pass. Finish the new narrow navigation regression before accepting that correction. |
+| The tool works | Recorded first-open, priorities, editing and persistence pass; the narrower invalid-history regression passed on the correction source. |
 | Priorities | Reasons use the house rules and distinguish urgent deadlines from blocked remedies. |
 | Working with AI | Build notes identify a real mistake, how it was detected and the correction. |
 | The customer | Maya's written reply names the failed support history and gives an honest path and next update. Her required natural-voice response is still missing. |
@@ -56,11 +56,11 @@ Delivery-day-zero, inclusive boundary/cutoff hours and business-day calendar are
 
 B1 covered fresh startup; B2 all twelve policies; B3 persistence/no-op/closure/reopen; B4 URL/filter/related navigation; B5 real quota, conflict, corrupt-data backup/reset and offline save; B6 desktop/narrow layouts, focus and accessible controls; B7 fresh merged-main entry and save/refresh. Exact source SHAs, observed values, captures and limitations are in [browser acceptance](evidence/browser-acceptance.md).
 
-Those runs did not cover an invalid same-ticket URL reached by a multi-entry history jump. They also did not establish an in-flight save-navigation observation. Do not convert a source check into either runtime claim.
+Those earlier runs did not cover an invalid same-ticket URL reached by a multi-entry history jump. The [focused November 13 Chrome readback](evidence/closeout-2026-11-13.md#focused-live-browser-readback) covers that path. No in-flight save-navigation observation was made; do not infer one from this check.
 
 ## Focused check for the November 13 correction
 
-Use the candidate source, a disposable profile, and genuine browser navigation:
+The following was executed on `86c12aaa4dd3ba3ad565173dcbbbd329eb3c341d` in an isolated Chrome 157 profile; see [actual values and captures](evidence/closeout-2026-11-13.md#focused-live-browser-readback). To reproduce, use the candidate source, a disposable profile, and genuine browser navigation:
 
 1. Open `/?ticket=T-101&view=bad`. Choose Return to queue, then select T-101.
 2. Change status and type a uniquely labelled unsaved note. Record the exact draft and existing raw app storage value.
@@ -69,6 +69,6 @@ Use the candidate source, a disposable profile, and genuine browser navigation:
 5. Return to T-101, create a fresh draft, and change a valid All/Active/Resolved filter while retaining the selected ticket. No discard prompt; the exact draft remains.
 6. Inspect T-101/T-109 related text at normal and narrow width. It says matching customer/delivery date, without claiming a shared physical unit or clipping the revised text.
 
-Record source, browser, actions, actual result and a relevant screenshot. The [MacBook checklist](macos-checklist.md) adds Safari/Chrome portability observations. If browser access is blocked, keep the check pending and use a permitted owner environment; do not bypass access controls or count a build as acceptance.
+The [MacBook checklist](macos-checklist.md) adds native Safari/Chrome portability observations, still unrun here. If browser access is blocked on that machine, record the gap; do not count a build as native acceptance.
 
 The remaining audio and artifact steps live only in [codex-handoff.md](codex-handoff.md).

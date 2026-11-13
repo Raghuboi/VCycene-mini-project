@@ -16,7 +16,7 @@ The November 13 cleanup uses `docs/submission-closeout-2026-11-13`. Correction c
 
 | Item | Owner | Done when |
 |---|---|---|
-| Focused correction acceptance | Operator with permitted browser | The [invalid-history regression](rubric-audit.md#focused-check-for-the-november-13-correction) preserves exact drafts on cancellation, performs no write on discard, and preserves drafts during valid filtering. |
+| Focused correction acceptance | Completed on isolated Windows Chrome 157 at `86c12aaa`; see [exact readback](evidence/closeout-2026-11-13.md#focused-live-browser-readback) | Cancel retained URL/status/note/raw storage; accept opened the invalid-link error without a write; valid same-ticket filters retained the draft without a prompt. |
 | R8: natural Maya recording | Applicant | Actual own-voice audio is <=120 seconds and its shared HTTPS link plays without evaluator sign-in. |
 | R11: complete document | Agent after audio | Canonical writing and verified audio link appear in one final PDF with no draft instructions. |
 | R12: final access | Applicant/agent with permitted browser | The actual PDF's repository and audio links open privately, and the recording plays. |
@@ -28,8 +28,8 @@ The MacBook check is an owner-requested portability check, not an extra employer
 
 ## Finish in this order
 
-1. Complete the focused correction check. The [MacBook checklist](macos-checklist.md) can cover it during the portability pass.
-2. Follow the [owner recording guide](owner-runbook.md) and supply the actual file or playable link; recording can proceed while the code review finishes.
+1. On the actual Mac, use the [MacBook checklist](macos-checklist.md) to establish native startup/Safari behavior; the Windows Chrome correction check is already recorded.
+2. Follow the [owner recording guide](owner-runbook.md) and supply the actual file or playable link; recording can proceed after independent closeout.
 3. Follow the [agent handoff](codex-handoff.md) for the final artifact and reviewed merge. Preserve newer work and merge only under the owner's instruction.
 4. Complete delivery. Close #5 for attachment readiness and #1 for actual delivery confirmation.
 
