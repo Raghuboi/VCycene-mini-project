@@ -4,7 +4,7 @@
 
 The rubric requires twelve loaded tickets, explained priorities, editable status and notes that survive refresh, and one useful additional feature. It does not require a backend, agent runtime, shared editing, autosaved drafts, or external support actions. The user requires React/Vite, shadcn, TanStack Router/Query, a minimal state model, and no unit tests.
 
-The owner accepted D1, D2 and D4 in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). The application in PR #8 implements this contract with TypeScript, Zod v4, one code-based Router route, the bundled CSV, shadcn-style native form primitives and related cases. D3's time/submission inputs remain unknown. This document defines the contract. [Completion](completion.md) records current status; [browser acceptance](evidence/browser-acceptance.md) binds observed journeys to their source revision.
+The owner accepted D1, D2 and D4 in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). The application implements this contract with TypeScript, Zod v4, one code-based Router route, the bundled CSV, shadcn-style native form primitives and related cases. Historical elapsed work remains unknown. This document defines the contract. [Completion](completion.md) records current delivery status; [browser acceptance](evidence/browser-acceptance.md) binds observed journeys to their source revision.
 
 ## One owner for each state
 
@@ -93,13 +93,13 @@ Editing status never changes source last-reply metadata or proves that a message
 
 ## Unsaved navigation
 
-Use Router’s blocker with a native discard confirmation. Its callback inspects the form’s current values and committed defaults through the DOM ref. Block while a save is pending; otherwise warn before a navigation that would discard a dirty form. Browser Back/Forward must follow the same rule. A list-only filter change can proceed when the same editor remains mounted.
+Use Router’s blocker with a native discard confirmation. Its callback inspects the form’s current values and committed defaults through the DOM ref. Block departures while a save is pending; otherwise warn before a navigation that would discard a dirty form. Browser Back/Forward must follow the same rule. Permit a same-editor shortcut only when the destination pathname matches, the complete destination search passes queueSearchSchema, and its selected ticket matches the current editor. A valid list-only filter change can proceed. Matching a raw ticket parameter alone is insufficient: invalid search can replace the route with an error and unmount the draft.
 
 Use the blocker’s conditional before-unload handling for refresh/tab close. Browsers control the warning text and may suppress the prompt in some circumstances; unsaved drafts have no durability guarantee. Do not advertise autosave. The current blocker API is marked experimental: pin the resolved dependency version and verify its behavior in the actual browser.
 
 ## Verification and evidence
 
-This document defines state invariants, not current pass/fail status. The [rubric audit](rubric-audit.md) maps each requirement and contains B1–B7 for the newly requested final browser wave. The [browser evidence record](evidence/browser-acceptance.md) preserves actual prior runs under their full source SHAs.
+This document defines state invariants, not current pass/fail status. The [rubric audit](rubric-audit.md) maps requirements and the remaining focused regression. The [browser evidence record](evidence/browser-acceptance.md) preserves executed B1–B7 runs under their full source SHAs.
 
 Use the real interface and inspect the persisted result after refresh. Screenshots establish layout/copy; actual readback establishes durability. No unit tests, mocks, fabricated results or new test-framework files. Record current candidate, browser, actions, expected/observed results and limits. Repair only a concrete failure and recheck its affected path. A planned check is not a pass.
 

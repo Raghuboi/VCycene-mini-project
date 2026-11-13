@@ -36,3 +36,13 @@ Fresh-start baseline `b67fa27cb697acfd539ac8fa7ef80f32b5e87e00`, then post-revie
 | B7 | Post-merge default-main readback is tracked in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1). This pre-merge evidence file does not assert that result. |
 
 The recording, final PDF, private audio playback, actual application channel and historical four-hour budget are not proved by these checks. No customer or team message was sent.
+
+## B7 merged-main readback
+
+Recorded November 12, 2026 after PR #10 merged; reconciled November 13 against the implementing session and [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1). This addition preserves the pre-merge table above as historical evidence.
+
+Main source: `c56a9c9d27a88aa00a3307ac3299409852b9a566`. Windows, Chrome 157.0.8103.39, isolated context. A fresh public default-main clone ran `npm ci`, started Vite, and opened twelve tickets with no initial edit key. A T-104 note survived refresh. Time to a usable queue was 10,804 ms. Its `src/`, `package.json`, `package-lock.json` and `index.html` tree matched browser-reviewed repair commit `ba854413c761897e480a2a30e444d97d523a50b1`.
+
+An unauthenticated Chrome context opened the public repository, README and draft PDF with HTTP 200. Downloaded draft bytes matched SHA-256 `7f639dd7c891a8b7f38d2ed7b037d7ce09af12b50048d43e4bb18bbfd89023f2`. This is the historical draft before the November 13 font correction; it does not verify a final audio-bearing PDF or recording playback.
+
+The later [November 13 audit](closeout-2026-11-13.md) records a separate source correction and its pending focused regression. Existing captures are not relabelled as evidence for that changed path or for Safari.

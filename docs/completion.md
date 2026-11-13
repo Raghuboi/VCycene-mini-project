@@ -1,76 +1,56 @@
-# Finalization status and work plan
+# Completion status
 
-Updated 12 November 2026, America/Toronto. The [original rubric](../rubric.md) is the completion authority. The owner requested one final audit/polish wave, GitHub/document consolidation, and a personal walkthrough/recording guide. [Rubric audit](rubric-audit.md) directly addresses every requirement and the six evaluation criteria.
+Updated November 13, 2026, America/Winnipeg. The [original rubric](../rubric.md) defines completion.
 
-## Current state
+## What is complete
 
-The application is merged and has recorded browser acceptance. Main is `c15aebcfffd32a23ec72619cd9a2d115cdc677b1`. PRs #8/#9 are merged; issues #2/#3/#4 are closed. PR #10 is the sole open finalization candidate. Its earlier head `41870b890c8fb9cafbc54f19ed1055705b464f6c` adds the final-PDF subtitle correction and submission handoff; this update adds the requested rubric audit and consolidates the docs.
+PRs #8, #9, and #10 are merged. The audited main baseline is `c56a9c9d27a88aa00a3307ac3299409852b9a566`. Issues #2, #3, and #4 are closed.
 
-The fresh Chrome 157 wave began on `b67fa27c` (B1 clone usable in 10.053 seconds); B2–B6 were rerun on post-review repair commit `ba854413`. All twelve source cases were inspected, status/note saves survived refresh, navigation and related cases worked, genuine storage failure/recovery was exercised, and 1440/1024/390px captures were visually inspected. [Browser evidence](evidence/browser-acceptance.md#fresh-final-rubric-wave-and-focused-repair-readback) gives exact values and limits. The post-merge B7 default-main readback belongs in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1).
+The implementing agent completed B1–B6 on the recorded candidate and repair sources. B7 then checked a fresh default-main clone, twelve tickets, an exact edit surviving refresh, and unauthenticated repository access. [Browser evidence](evidence/browser-acceptance.md) and [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1) identify those results.
 
-| Work | State | Owner / next action |
+The repository and written responses have been shared for review. That is separate from delivery of the complete audio-bearing PDF. The approved writing in [SUBMISSION.md](../SUBMISSION.md) remains 153/200 build words, 114/150 Maya words, 99/120 Wei words, and 100/120 manager words.
+
+The November 13 cleanup uses `docs/submission-closeout-2026-11-13`. Correction commit `a64300b61f612c326c0a48a4749ecd210c6ebe97` protects drafts when history leads to an invalid same-ticket URL, corrects two same-unit claims, and makes PDF fonts portable. The changed application builds and the two-page draft PDF was visually inspected. [Audit findings and checks](evidence/closeout-2026-11-13.md) separate this work from the earlier browser run.
+
+## What remains
+
+| Item | Owner | Done when |
 |---|---|---|
-| Required app and useful extra | Fresh B1–B6 acceptance complete | Post-merge B7 default-main readback is tracked in issue #1. |
-| Direct rubric audit | Completed in [rubric-audit.md](rubric-audit.md) | Use its requirement IDs for findings and final acceptance. |
-| Submission writing | Complete: build 153, Maya 114, Wei 99, manager 100 words | [SUBMISSION.md](../SUBMISSION.md) remains the single source; build agency/tool name and manager's evidence wording were corrected after review. |
-| Documentation cleanup | Prepared in PR #10 | Retired conflicting draft; condensed spec/skills guidance; distinct status, audit, execution and owner guides. |
-| Applicant audio | Missing required content R8 | Applicant records naturally, <=120 seconds, and provides a file or playable URL. |
-| Complete attachment and final link checks | Pending R11/R12 | Agent inserts actual audio link, renders/checks the final PDF and verifies private playback. |
-| Main consolidation and final delivery | Pending PR #10 review/merge | Verify final main entry B7. Keep #5 open until the audio-bearing artifact exists and #1 for actual submission. |
-| Actual submission R13 | Not performed | Use the confirmed application route and explicit sending instruction. |
-| Four-hour compliance | Unknown | Record actual prior elapsed work and deadline; never claim a new clock. |
+| Focused correction acceptance | Completed on isolated Windows Chrome 157 at `86c12aaa`; see [exact readback](evidence/closeout-2026-11-13.md#focused-live-browser-readback) | Cancel retained URL/status/note/raw storage; accept opened the invalid-link error without a write; valid same-ticket filters retained the draft without a prompt. |
+| R8: natural Maya recording | Applicant | Actual own-voice audio is <=120 seconds and its shared HTTPS link plays without evaluator sign-in. |
+| R11: complete document | Agent after audio | Canonical writing and verified audio link appear in one final PDF with no draft instructions. |
+| R12: final access | Applicant/agent with permitted browser | The actual PDF's repository and audio links open privately, and the recording plays. |
+| R13: complete delivery | Applicant or explicitly authorized sender | The final PDF is sent through the confirmed route and actual confirmation is recorded. |
+| Closeout review | Owner | The concrete cleanup PR is reviewed, authorized changes are merged, and main readback is recorded. |
+| MacBook assurance | Operator on a Mac | The [short macOS check](macos-checklist.md) records the actual machine, browser, source, and results. |
 
-## Run one bounded wave
+The MacBook check is an owner-requested portability check, not an extra employer deliverable. Historical assignment time remains unknown. Do not claim compliance with the four-hour cap.
 
-The existing technical evidence stands and B1–B6 are now executed. Finish the bounded review, make only concrete corrections, consolidate PR #10, and run B7 on main. The applicant will record at the end; do not replace that input or delay independent work for it.
+## Finish in this order
 
-| Phase | Estimated agent time | Exit condition |
-|---|---:|---|
-| Freeze candidate and execute browser/vision B1–B6 | 25–35 min | Actual user journeys, all twelve policy cases, fresh captures and saved-value/failure readback recorded under the SHA. |
-| Repair demonstrated findings and consolidate candidate | 5–10 min if needed | Smallest fixes; affected paths rechecked; docs/links consistent. Skip app changes if no failure is found. |
-| Finalize audio-dependent document | 15–25 min after playable audio arrives | Real duration/content/access checked; final PDF rendered and every link opens privately. |
-| Final main readback B7 | Included in consolidation allowance when feasible | Main matches the accepted application tree; submitted default entry works and one edit survives refresh. |
+1. On the actual Mac, use the [MacBook checklist](macos-checklist.md) to establish native startup/Safari behavior; the Windows Chrome correction check is already recorded.
+2. Follow the [owner recording guide](owner-runbook.md) and supply the actual file or playable link; recording can proceed after independent closeout.
+3. Follow the [agent handoff](codex-handoff.md) for the final artifact and reviewed merge. Preserve newer work and merge only under the owner's instruction.
+4. Complete delivery. Close #5 for attachment readiness and #1 for actual delivery confirmation.
 
-The nominal range is 45–70 minutes of agent execution if repairs are needed, plus applicant recording/review time. It is an estimate, not permission to exceed the rubric's four-hour total. Count earlier planning and this audit conservatively. If the remaining allowance is smaller, prioritize the literal rubric deliverables and preserve a truthful checkpoint at the stop time. Do not call an extended learning/polish session compliant with the original cap.
+Allow about 10 minutes for recording/review, 10–15 minutes for the focused Mac/browser check, and 10–15 minutes for artifact work after a usable link arrives. These are remaining-action estimates, not a new exercise allowance. The supplied transcript confirms B7 and contains no later application commit, audio or final PDF. No further broad audit is needed unless new source reveals a concrete failure.
 
-Use one writer and two bounded review lenses. Spec checks the rubric and policy; Standards checks affected state/data boundaries and real usability. Vision inspection belongs to the real browser pass. Pstack/Ponytail principles are concrete checks in [skills-and-review.md](skills-and-review.md); no new plugin setup or review tournament is needed.
+## GitHub disposition
 
-## Keep each document authoritative for one job
-
-| File | Authority |
+| Ref or issue | Disposition |
 |---|---|
-| `rubric.md`, `tickets.csv` | Original assignment and source facts; unchanged. |
-| `README.md` | Evaluator startup, app scope and supported storage limits. |
-| `SUBMISSION.md` | Sole approved submitted writing and eventual audio URL. |
-| `docs/rubric-audit.md` | Requirement/evaluation mapping, findings and B1–B7 acceptance definitions. |
-| `docs/completion.md` | Current status, owners, dependencies and GitHub disposition. |
-| `docs/codex-handoff.md` | Agent execution and finalization procedure. |
-| `docs/owner-runbook.md` | Applicant checklist, rehearsal/cue card and interview walkthrough. |
-| `docs/plan.md`, `GLOSSARY.md` | Accepted product/policy model, twelve-ticket reasoning and resolution conditions. |
-| `docs/state-and-verification.md` | State ownership, transitions and storage/navigation invariants. |
-| `docs/skills-and-review.md` | Active review principles and pinned provenance. |
-| `docs/evidence/browser-acceptance.md` and captures | Actual executed evidence, appended by source SHA. |
+| `main` | Evaluator entry; current audited baseline is c56a9c9. |
+| `docs/submission-closeout-2026-11-13` | Current bounded cleanup candidate. |
+| `docs/finalization-bundle-2026-11-12` | PR #10 is merged. Retain as historical evidence. |
+| `feat/monday-queue-accepted` | PR #8 is merged; older evidence links use this ref. |
+| `planning/monday-queue-2026-11-10` | PR #6 is closed as superseded. |
+| `feat/monday-queue-tool` | PR #7 is closed and unmerged. Do not merge the superseded HTML version. |
+| Issues #2–#4 | Technical acceptance remains closed. |
+| Issue #5 | Open until the final accessible attachment exists. |
+| Issue #1 | Open until the complete submission is delivered. |
 
-The obsolete `docs/submission-drafts.md` had a conflicting 112-word Wei variant and stale pending-tool text. It is retired; Git history preserves it. The canonical 99-word Wei body is unchanged. The original build schedule and full dormant-skill inventory no longer direct active work.
+Branch deletion is optional after delivery and evidence-link review. Do not force-push, rewrite history, or purge preserved refs as part of this cleanup.
 
-## Consolidate GitHub without losing evidence
+## Document ownership
 
-Keep PR #10 as the sole open candidate for this finalization. Keep #5 open until artifact readiness and #1 open until actual submission confirmation. Do not reopen closed #2–#4 merely to repeat acceptance; issue #1 tracks the newly requested wave and #5 owns the recording/final artifact.
-
-| Ref / work item | Disposition |
-|---|---|
-| `main` | Authoritative evaluator entry. After review, consolidate only the accepted PR #10 changes and actual final submission material. |
-| `docs/finalization-bundle-2026-11-12` / PR #10 | Continue here; preserve newer work. Do not create a competing finalization branch or plan. |
-| `feat/monday-queue-accepted` | Historical PR #8 implementation/evidence. Main contains its squash-merged app. Retain until final delivery and evidence-link review are complete. |
-| `planning/monday-queue-2026-11-10` | Historical planning PR #6, closed as superseded. Do not merge it again. |
-| `feat/monday-queue-tool` | Superseded HTML PR #7, closed and unmerged. It is not part of the accepted React candidate. Do not merge it into main. |
-
-Branch deletion is optional housekeeping after delivery, not a rubric gate. Before an authorized deletion, record the exact head, compare unique content and check evidence links. Squash merges mean ancestry-only merged-branch checks are insufficient. Keep a branch if preservation or authorization is uncertain; do not delay the submission for this cleanup.
-
-Merge only the reviewed final candidate under the owner's instruction. Read back the merge SHA, check the default evaluator URL and mark readiness separately from actual submission. No force-push, history rewrite, automatic branch purge or application send is part of preparing this bundle.
-
-## Ready-to-submit condition
-
-R1–R12 have concrete evidence, the actual recording is <=120 seconds and plays privately, the final PDF contains every required item with no draft/editorial residue, and all final links work. Keep G1 timing uncertainty explicit if the historical facts remain unavailable. Close #5 when the complete accessible attachment exists. Keep #1 open for R13 until the applicant confirms actual submission. Never mark R13 complete without a real submission.
-
-The current review PDF remains a draft. No personal recording, final audio-bearing PDF or new live-browser result was fabricated for this bundle.
+README owns startup and scope. SUBMISSION owns submitted writing. This file owns current work status. Rubric-audit owns acceptance. Codex-handoff owns final artifact steps. Owner-runbook owns recording and demonstration. Plan and state-and-verification own the accepted product model. Evidence files preserve executed results.

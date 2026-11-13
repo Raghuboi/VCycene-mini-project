@@ -17,7 +17,7 @@ The scenario is Monday, October 5, 2026. Completing the exercise means deliverin
 | State owners | Router owns selection/view; Query owns loaded snapshot/save lifecycle; native form controls own drafts; pure functions derive policy; CSS owns layout. |
 | Verification | No unit tests or mocks. Use the real interface, screenshots, refresh and independent storage readback. Type/build checks supplement that evidence. |
 
-D1/D2/D4 were accepted in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). D3 is factual information still needed for time/submission reporting: actual prior elapsed work, deadline and application route. The personal recording is a separate required deliverable. These open facts do not reopen accepted architecture.
+D1/D2/D4 were accepted in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1#issuecomment-6809142063). Historical elapsed work remains unknown. Current delivery status belongs in [completion.md](completion.md); private correspondence stays outside this public repository. The personal recording is a separate required deliverable. These open facts do not reopen accepted architecture.
 
 ## Operator and data contract
 
@@ -44,7 +44,7 @@ The rubric states that all people, tickets, and rules are invented.
 |---|---|---|
 | T-104, Tom | First. Delivered Sep 22, age 13 days. Carrier claim unfiled; modeled day-14 boundary is Oct 6. Customer reply due Sep 25. | Act on claim today and reply. Photos are mentioned in text; actual attachment files are absent. Do not display an invented image or filing confirmation. |
 | T-101, Maya | High. Third contact; two restart-only closures; interrupted cycle after update. Standard 30-day boundary was Sep 24; latest message is due Oct 5. | Coordinate with T-109. Check earlier request timing, investigate with Wei, and request manager decision if an exception is needed. No unauthorized refund promise. |
-| T-109, Maya | High, same customer/unit concern. Sep 30 follow-up was due Oct 1 and remains unanswered in source data. | Preserve the older unanswered concern. A newer message on T-101 does not erase it. Keep both records. |
+| T-109, Maya | High, matching customer and delivery date. Sep 30 follow-up was due Oct 1 and remains unanswered in source data. | Preserve the older unanswered concern. A newer message on T-101 does not erase it. Keep both records; no serial number establishes a shared unit. |
 | T-110, Hannah | High. Replacement promised Sep 26, nine calendar days before scenario date; still unallocated. Latest reply is from support. | Chase fulfillment for allocation and tracking, then give a truthful update. Do not call this a new inbound-SLA breach or claim shipment. |
 | T-105, Grace | High. Returned unit reportedly arrived Sep 26, but warehouse confirmation is absent. Request opened Sep 18, delivery day 17; tracking arrival was day 25. | Obtain warehouse confirmation before refund payment. Today's age of 34 days does not invalidate the already underway timely return. |
 | T-108, Andre | Overdue return request. Sep 29 inbound was due Sep 30. Requested on delivery day 19; scenario age is 25; modeled 30-day boundary is Oct 10. | Advance the return-label process promptly. Do not invent a rule that payout or warehouse arrival must occur before Oct 10. Preserve the timely request. |
@@ -99,6 +99,6 @@ These are recommended support judgments, not additional employer mandates. The s
 
 [SUBMISSION.md](../SUBMISSION.md) is the sole source for the approved build notes, Maya reply, Wei message and manager update. The retired `docs/submission-drafts.md` contained an older Wei variant; its history remains in Git.
 
-The [owner runbook](owner-runbook.md) covers rehearsal, natural recording and the evaluator walkthrough. The [agent handoff](codex-handoff.md) covers the final browser wave, artifact verification and GitHub consolidation. Only the complete document/PDF and its required links go to the evaluator.
+The [owner runbook](owner-runbook.md) covers rehearsal, natural recording and the evaluator walkthrough. The [agent handoff](codex-handoff.md) covers recording-dependent artifact verification and GitHub completion. Only the complete document/PDF and its required links go to the evaluator.
 
 The default repository on main is the selected delivery route. Live hosting is optional under the rubric. The original three-hour plan and four-hour hard stop still apply to actual assignment work; a new audit is not a new clock.
