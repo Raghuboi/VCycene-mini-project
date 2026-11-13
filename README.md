@@ -48,7 +48,7 @@ Unreadable data is retained. Recovery offers a raw backup download and a separat
 
 ## Verification
 
-The [browser acceptance record](docs/evidence/browser-acceptance.md) covers all twelve cases, save and refresh, URL history, related cases, dirty drafts, resolution notes, quota failure, stale edits, recovery, offline saves, and 1440/1024/390px layouts. It identifies the Windows Chrome source revisions. The merged-main readback at `c56a9c9` is recorded in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1).
+The [browser acceptance record](docs/evidence/browser-acceptance.md) covers all twelve cases, save and refresh, URL history, related cases, dirty drafts, resolution notes, quota failure, stale edits, recovery, offline saves, and 1440/1024/390px layouts. It identifies the Windows Chrome source revisions. [Issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1) records the historical `c56a9c9` merged-main run and the later PR #11 main readback; [the closeout record](docs/evidence/closeout-2026-11-13.md#focused-live-browser-readback) covers the invalid-history fix.
 
 The [November 13 audit](docs/evidence/closeout-2026-11-13.md) records the focused Windows Chrome history check, source, documentation, shell, and PDF checks. None is a macOS or Safari execution result. There is no unit/mock suite or remote CI workflow.
 

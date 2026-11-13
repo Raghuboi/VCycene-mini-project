@@ -1,6 +1,6 @@
 # Audit against the original rubric
 
-Updated November 13, 2026. The [original rubric](../rubric.md) is authoritative. Main `c56a9c9d27a88aa00a3307ac3299409852b9a566` has recorded B1–B7 browser evidence. The November 13 correction has source review, a passing build, and a focused Chrome readback on `86c12aaa4dd3ba3ad565173dcbbbd329eb3c341d`.
+Updated November 13, 2026. The [original rubric](../rubric.md) is authoritative. Historical main `c56a9c9d27a88aa00a3307ac3299409852b9a566` has recorded B1–B7 browser evidence. PR #11 merged the November 13 correction to main at `4827a28ae1ab4323e858df67369039d465e335bf`; it has source review, a passing build, a focused Chrome readback on `86c12aaa4dd3ba3ad565173dcbbbd329eb3c341d`, and a fresh merged-main readback in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1).
 
 [Completion](completion.md) owns current work status. [Browser acceptance](evidence/browser-acceptance.md) preserves executed runs and images. [The closeout audit](evidence/closeout-2026-11-13.md) records findings, corrections and verification limits.
 
