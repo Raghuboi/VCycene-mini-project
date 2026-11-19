@@ -54,7 +54,7 @@ The [November 13 audit](docs/evidence/closeout-2026-11-13.md) records the focuse
 
 ## Submission and project reference
 
-[SUBMISSION.md](SUBMISSION.md) is the single source for the build notes and customer/team writing. The applicant's own recording and final PDF access checks remain open. The committed PDF is explicitly a review draft.
+[SUBMISSION.md](SUBMISSION.md) is the single source for the build notes and customer/team writing. The [two-page audio-linked PDF](output/pdf/VCycene-submission.pdf) is the selected attachment; the older [review PDF](output/pdf/VCycene-submission-draft.pdf) is not. [Completion](docs/completion.md) separates verified access, the applicant's remaining spoken-content check, and actual delivery.
 
 | Read this | For |
 |---|---|
@@ -62,7 +62,7 @@ The [November 13 audit](docs/evidence/closeout-2026-11-13.md) records the focuse
 | [Rubric audit](docs/rubric-audit.md) | Requirement-by-requirement evidence |
 | [Current completion](docs/completion.md) | Remaining actions and GitHub status |
 | [Owner guide](docs/owner-runbook.md) | Windows/iPhone audio recording and tool walkthrough |
-| [Agent handoff](docs/codex-handoff.md) | Finish the recording-dependent attachment |
+| [Agent handoff](docs/codex-handoff.md) | Verify the selected recording and delivery state |
 | [Product specification](docs/plan.md) and [state contract](docs/state-and-verification.md) | Policy, architecture, and saved-state behavior |
 
 The app uses React, Vite, TypeScript, TanStack Router and Query, Zod, Papa Parse, and shadcn-style controls. No backend or runtime model is required.

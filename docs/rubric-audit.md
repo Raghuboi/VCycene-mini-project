@@ -1,8 +1,8 @@
 # Audit against the original rubric
 
-Updated November 13, 2026. The [original rubric](../rubric.md) is authoritative. Historical main `c56a9c9d27a88aa00a3307ac3299409852b9a566` has recorded B1–B7 browser evidence. PR #11 merged the November 13 correction to main at `4827a28ae1ab4323e858df67369039d465e335bf`; it has source review, a passing build, a focused Chrome readback on `86c12aaa4dd3ba3ad565173dcbbbd329eb3c341d`, and a fresh merged-main readback in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1).
+Updated November 19, 2026. The [original rubric](../rubric.md) is authoritative. Historical main `c56a9c9d27a88aa00a3307ac3299409852b9a566` has recorded B1–B7 browser evidence. PR #11 merged the November 13 correction to main at `4827a28ae1ab4323e858df67369039d465e335bf`; it has source review, a passing build, a focused Chrome readback on `86c12aaa4dd3ba3ad565173dcbbbd329eb3c341d`, and a fresh merged-main readback in [issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1).
 
-[Completion](completion.md) owns current work status. [Browser acceptance](evidence/browser-acceptance.md) preserves executed runs and images. [The closeout audit](evidence/closeout-2026-11-13.md) records findings, corrections and verification limits.
+[Completion](completion.md) owns current work status. [Browser acceptance](evidence/browser-acceptance.md) preserves executed runs and images. [The closeout audit](evidence/closeout-2026-11-13.md) records application findings and corrections; [the finalization evidence](evidence/submission-finalization-2026-11-19.md) records the selected audio/PDF checks and limits.
 
 ## Explicit requirements
 
@@ -15,16 +15,16 @@ Updated November 13, 2026. The [original rubric](../rubric.md) is authoritative.
 | R5 | Live link if possible; otherwise repo startup in under five minutes. | Repository route is permitted. B1 candidate entry took 10.053 s; B7 fresh default-main entry took 10.804 s in the recorded Windows/Chrome environment. Those timings are observations, not guarantees for every network. |
 | R6 | Build notes <=200 words: tools, actual AI mistake/how caught, next addition/why. | 153 words. Tools, mobile clipping and screenshot correction, then follow-up ownership/reminders. Complete. |
 | R7 | Maya writing <=150 words. | 114 words. Named support failure, honest remedy/history path, manager authority, warranty, warehouse gate and October 6 update. Complete. |
-| R8 | Applicant naturally speaks for <=120 seconds; accessible audio link; no script reading. | Actual own-voice recording and playable URL are absent. Mandatory content remains open. |
+| R8 | Applicant naturally speaks for <=120 seconds; accessible audio link; no script reading. | Applicant-supplied original is 65.455 seconds; on November 18 the derived MP3 played to completion signed out and an anonymous download matched the local hash. Mandatory content remains open: an ASR ambiguity at 50–57 seconds needs the applicant's listening judgment. Natural delivery/no-script reading was not independently certified by ASR. |
 | R9 | Wei <=120 words, actionable without a follow-up question. | 99 words. Cases, symptoms, version, uncertainty, exclusions, missing evidence, requested guidance and response time. Complete within supplied facts. |
 | R10 | Manager <=120 words: done, blocked/on whom, one decision. | 100 words. Triage/drafts completed, real dependencies pending, one conditional refund-exception decision. Complete. |
-| R11 | One document/PDF with repository, build notes, Maya/audio, Wei and manager. | Canonical writing and a two-page draft exist. Final audio-bearing PDF remains open. |
-| R12 | Every final link opens privately before sending. | Earlier public repo access is recorded. Actual final-PDF links and audio playback must still be checked. |
+| R11 | One document/PDF with repository, build notes, Maya/audio, Wei and manager. | The two-page [final PDF](../output/pdf/VCycene-submission.pdf) contains all sections and the selected recording URL; no draft/placeholder text. Current selected-take artifact complete, subject to replacement if the applicant chooses a retake. |
+| R12 | Every final link opens privately before sending. | Both exact PDF URI annotations returned HTTP 200 in a fresh signed-out Chrome context on November 19; the audio preview exposed Play/1:05. Full signed-out playback occurred November 18. Recheck if the selected link or sharing changes. |
 | R13 | Deliver through the specified application/poster route. | Repository and written responses have been shared; complete PDF/recording delivery remains pending through the agreed employer reply thread. Preliminary sharing does not close this requirement. |
 | G1 | About three hours; stop at four. | Historical total assignment time is not established. Do not restart the clock or claim compliance. |
 | G2 | Check AI-produced work. | Real source corrections, recorded browser readback and inspected screenshots support this. Explain the actual work and its limits. |
 
-The four approved written bodies remain the canonical text in [SUBMISSION.md](../SUBMISSION.md). No numeric grade is invented. R8/R11/R12 prevent complete artifact readiness; R13 requires actual delivery confirmation.
+The four approved written bodies remain the canonical text in [SUBMISSION.md](../SUBMISSION.md). No numeric grade is invented. The R8 spoken-word check remains with the applicant; R13 requires actual delivery confirmation. R11/R12 are proved for the currently selected take.
 
 ## Six evaluation criteria
 
@@ -33,7 +33,7 @@ The four approved written bodies remain the canonical text in [SUBMISSION.md](..
 | The tool works | Recorded first-open, priorities, editing and persistence pass; the narrower invalid-history regression passed on the correction source. |
 | Priorities | Reasons use the house rules and distinguish urgent deadlines from blocked remedies. |
 | Working with AI | Build notes identify a real mistake, how it was detected and the correction. |
-| The customer | Maya's written reply names the failed support history and gives an honest path and next update. Her required natural-voice response is still missing. |
+| The customer | Maya's written reply names the failed support history and gives an honest path and next update. Her recording is present and accessible; one phrase in it remains to be judged by the applicant's ear. |
 | The team | Wei has a bounded actionable request; the manager has dependencies and one decision. |
 | Judgment | Related cases and time pressure are explicit; Maya is not double-counted and amber-light cases are not all treated as one defect. |
 
@@ -71,4 +71,4 @@ The following was executed on `86c12aaa4dd3ba3ad565173dcbbbd329eb3c341d` in an i
 
 The [MacBook checklist](macos-checklist.md) adds native Safari/Chrome portability observations, still unrun here. If browser access is blocked on that machine, record the gap; do not count a build as native acceptance.
 
-The remaining audio and artifact steps live only in [codex-handoff.md](codex-handoff.md).
+Current audio/artifact and delivery disposition is in [completion.md](completion.md) and [codex-handoff.md](codex-handoff.md).
