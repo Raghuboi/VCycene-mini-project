@@ -6,7 +6,7 @@ The [original rubric](../rubric.md) requires your own natural voice response to 
 
 The [rubric](../rubric.md#part-2-the-customer-about-30-minutes) asks for your own natural phone-style voice reply, at most 120 seconds, shared as a link. It explicitly accepts audio alone. A video, webcam, screen capture, Loom account, or recording of the tool walkthrough is not required. The walkthrough happens live if you reach the first call.
 
-Current take: your 65.455-second recording is already hosted at https://drive.google.com/file/d/19zwdwrv262LbntB8ivbSeCkGIo71-nn4/view?usp=sharing and the selected PDF is linked from [completion](completion.md). Listen to 50–57 seconds: automated transcription heard “I'll transfer you” rather than the intended “I'll update you.” Keep the take if the promise is clear; use the steps below only for a natural replacement if it is wrong or materially unclear. The bracketed transcript review copy is not an employer attachment.
+Your selected recording and PDF are linked from [completion](completion.md), which owns the remaining spoken-content check. Use the recording steps below only for a natural replacement if you judge the current promise wrong or materially unclear. The bracketed transcript review copy is not an employer attachment.
 
 On this Windows 11 workstation, use **Sound Recorder** (installed) and the NexiGo microphone. The iPhone Voice Memos route below is a fallback if you prefer the phone or cannot get a clear desktop take.
 

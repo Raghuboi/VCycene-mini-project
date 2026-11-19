@@ -12,15 +12,15 @@ The repository and written responses have been shared for review. That is separa
 
 PR #11's correction protects drafts when history leads to an invalid same-ticket URL, avoids two unsupported same-unit claims, and uses ReportLab-bundled PDF fonts. The focused Chrome check passed on its application source; a fresh public merged-main clone opened twelve rows and saved a note through refresh in 9.143 seconds. The regenerated two-page draft and public repository/PDF links were inspected. [Audit findings and checks](evidence/closeout-2026-11-13.md) and [post-merge readback](https://github.com/Raghuboi/VCycene-mini-project/issues/1) preserve exact provenance. Wei's precision phrase is corrected; the four writing sections remain within their 153/114/99/100 word counts.
 
-The applicant supplied a 65.455-second original recording. Its derived MP3 played to the end in a signed-out browser and an anonymous download matched its local hash. The [two-page final PDF](../output/pdf/VCycene-submission.pdf) contains that audio link and the public repository link; both annotations opened signed out. Its two pages were rendered and inspected. [The November 19 artifact record](evidence/submission-finalization-2026-11-19.md) distinguishes these new checks from the historical application evidence.
+The applicant supplied a 65.455-second original recording. On November 18 its derived MP3 played to the end in a signed-out browser and an anonymous download matched its local hash. The [two-page audio-linked PDF](../output/pdf/VCycene-submission.pdf) contains that link and the public repository link; on November 19 both annotations opened signed out, but full playback was not repeated. Both pages were rendered and inspected. [The November 19 artifact record](evidence/submission-finalization-2026-11-19.md) separates these checks from historical application evidence.
 
 ## What remains
 
 | Item | Owner | Done when |
 |---|---|---|
-| R8: spoken-content review | Applicant | Listen to 50–57 seconds of the existing take and confirm the intended October 6 update is clear; the automated transcription heard “transfer” rather than “update.” Retake naturally only if needed. |
+| R8: mandatory spoken-content review | Applicant | Listen to 50–57 seconds of the existing take and confirm the intended October 6 update is clear; the automated transcription heard “transfer” rather than “update.” Retake naturally only if needed. |
 | R11: complete document | Complete on current selected take | Canonical writing and the actual audio link appear in the final PDF without draft instructions. Rebuild only if the selected take changes. |
-| R12: final access | Complete on current selected take | Both exact PDF links opened signed out and the audio played to completion. Recheck if the link or sharing changes. |
+| R12: final access | Complete on current selected take | Both exact PDF links opened signed out on November 19; the same MP3 was played to completion on November 18. Recheck if the link or sharing changes. |
 | R13: complete delivery | Applicant or explicitly authorized sender | The final PDF is sent through the confirmed route and actual confirmation is recorded. |
 | Optional MacBook assurance | Operator on a Mac, if available | The [short macOS check](macos-checklist.md) records the actual machine, browser, source, and results. Not run on this Windows host. |
 

@@ -54,7 +54,7 @@ The [November 13 audit](docs/evidence/closeout-2026-11-13.md) records the focuse
 
 ## Submission and project reference
 
-[SUBMISSION.md](SUBMISSION.md) is the single source for the build notes and customer/team writing. The [two-page submission PDF](output/pdf/VCycene-submission.pdf) includes the applicant-supplied recording link. Its repository and audio links opened signed out; the recording played to completion. The employer reply is still an unsent draft, and one spoken-word check remains with the applicant before delivery. The older [review PDF](output/pdf/VCycene-submission-draft.pdf) is not the submission.
+[SUBMISSION.md](SUBMISSION.md) is the single source for the build notes and customer/team writing. The [two-page audio-linked PDF](output/pdf/VCycene-submission.pdf) is the selected attachment; the older [review PDF](output/pdf/VCycene-submission-draft.pdf) is not. [Completion](docs/completion.md) separates verified access, the applicant's remaining spoken-content check, and actual delivery.
 
 | Read this | For |
 |---|---|

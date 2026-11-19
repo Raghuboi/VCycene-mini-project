@@ -1,6 +1,6 @@
 # Verify and deliver the selected submission
 
-Read [completion.md](completion.md), the [original rubric](../rubric.md), and [SUBMISSION.md](../SUBMISSION.md). B1–B7 and the later focused correction check are recorded. The applicant's 65.455-second original recording has been supplied. The selected MP3 is publicly playable at https://drive.google.com/file/d/19zwdwrv262LbntB8ivbSeCkGIo71-nn4/view?usp=sharing and the [final PDF](../output/pdf/VCycene-submission.pdf) has been inspected. The one remaining content question is the spoken phrase at 50–57 seconds; delivery remains unsent. See [current evidence](evidence/submission-finalization-2026-11-19.md).
+Read [completion.md](completion.md), the [original rubric](../rubric.md), and [SUBMISSION.md](../SUBMISSION.md). B1–B7 and the later focused correction check are recorded. The selected recording and [audio-linked PDF](../output/pdf/VCycene-submission.pdf) exist; [current evidence](evidence/submission-finalization-2026-11-19.md) records their checks. Follow completion status for the applicant's remaining content decision and actual delivery.
 
 ## Reconcile new evidence once
 
