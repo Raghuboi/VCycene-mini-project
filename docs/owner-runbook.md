@@ -6,6 +6,8 @@ The [original rubric](../rubric.md) requires your own natural voice response to 
 
 The [rubric](../rubric.md#part-2-the-customer-about-30-minutes) asks for your own natural phone-style voice reply, at most 120 seconds, shared as a link. It explicitly accepts audio alone. A video, webcam, screen capture, Loom account, or recording of the tool walkthrough is not required. The walkthrough happens live if you reach the first call.
 
+Current take: your 65.455-second recording is already hosted at https://drive.google.com/file/d/19zwdwrv262LbntB8ivbSeCkGIo71-nn4/view?usp=sharing and the selected PDF is linked from [completion](completion.md). Listen to 50–57 seconds: automated transcription heard “I'll transfer you” rather than the intended “I'll update you.” Keep the take if the promise is clear; use the steps below only for a natural replacement if it is wrong or materially unclear. The bracketed transcript review copy is not an employer attachment.
+
 On this Windows 11 workstation, use **Sound Recorder** (installed) and the NexiGo microphone. The iPhone Voice Memos route below is a fallback if you prefer the phone or cannot get a clear desktop take.
 
 1. In Windows **Settings → System → Sound → Input**, select the actual NexiGo mic rather than a virtual input. Open its properties and use **Start test → Stop test → Play** to hear a short check. If prompted, enable Sound Recorder under **Settings → Privacy & security → Microphone**. [Microsoft's mic test](https://support.microsoft.com/en-us/windows/hardware/drivers/how-to-set-up-and-test-microphones-in-windows) and [Sound Recorder permissions](https://support.microsoft.com/en-us/windows/apps/sound-recorder-app-for-windows-faq).
@@ -58,8 +60,8 @@ For a small live change, locate policy reasons in `src/lib/policy.ts`, persisten
 
 ## Final owner actions
 
-Supply the real recording or its privately playable link. The independently verified app correction is merged. Follow [the artifact handoff](codex-handoff.md) for the final PDF, and the optional [MacBook checklist](macos-checklist.md) for native checks. Review the actual final attachment and authorize delivery separately.
+The selected recording link and final PDF are present. Check the one phrase above, then review the exact attachment and authorize delivery separately. Follow [the artifact handoff](codex-handoff.md) if you replace the take; the [MacBook checklist](macos-checklist.md) remains optional.
 
-Before sending, open the actual final PDF, play its audio link privately, and confirm its repository link targets working main. The ready-to-send filename will be `output/pdf/VCycene-submission.pdf`. The draft review copy is not the complete assignment.
+Before sending, open the actual final PDF, play its audio link privately, and confirm its repository link targets working main. The selected attachment is `output/pdf/VCycene-submission.pdf`. The older draft review copy is not the complete assignment.
 
 Use the agreed employer reply thread. Personal correspondence, calendar details, availability, and the submission deadline belong in the private owner handoff, outside this public repository. [Completion](completion.md) owns the current remaining work.
