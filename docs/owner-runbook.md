@@ -1,10 +1,14 @@
 # Recording and owner walkthrough
 
+The current PDF and recording were delivered and acknowledged. Use the recording steps below only if preparing an explicitly approved replacement. See [completion](completion.md) for current status.
+
 The [original rubric](../rubric.md) requires your own natural voice response to Maya, no more than two minutes. Prepare with the example below, then close it and speak from the cue card. [SUBMISSION.md](../SUBMISSION.md) remains the approved written source.
 
 ## Record at the end — audio only
 
 The [rubric](../rubric.md#part-2-the-customer-about-30-minutes) asks for your own natural phone-style voice reply, at most 120 seconds, shared as a link. It explicitly accepts audio alone. A video, webcam, screen capture, Loom account, or recording of the tool walkthrough is not required. The walkthrough happens live if you reach the first call.
+
+Your selected recording and PDF are linked from [completion](completion.md), which owns the remaining spoken-content check. Use the recording steps below only for a natural replacement if you judge the current promise wrong or materially unclear. The bracketed transcript review copy is not an employer attachment.
 
 On this Windows 11 workstation, use **Sound Recorder** (installed) and the NexiGo microphone. The iPhone Voice Memos route below is a fallback if you prefer the phone or cannot get a clear desktop take.
 
@@ -58,8 +62,8 @@ For a small live change, locate policy reasons in `src/lib/policy.ts`, persisten
 
 ## Final owner actions
 
-Supply the real recording or its privately playable link. The independently verified app correction is merged. Follow [the artifact handoff](codex-handoff.md) for the final PDF, and the optional [MacBook checklist](macos-checklist.md) for native checks. Review the actual final attachment and authorize delivery separately.
+The selected recording link and final PDF are present. Check the one phrase above, then review the exact attachment and authorize delivery separately. Follow [the artifact handoff](codex-handoff.md) if you replace the take; the [MacBook checklist](macos-checklist.md) remains optional.
 
-Before sending, open the actual final PDF, play its audio link privately, and confirm its repository link targets working main. The ready-to-send filename will be `output/pdf/VCycene-submission.pdf`. The draft review copy is not the complete assignment.
+Before sending, open the actual final PDF, play its audio link privately, and confirm its repository link targets working main. The selected attachment is `output/pdf/VCycene-submission.pdf`. The older draft review copy is not the complete assignment.
 
 Use the agreed employer reply thread. Personal correspondence, calendar details, availability, and the submission deadline belong in the private owner handoff, outside this public repository. [Completion](completion.md) owns the current remaining work.

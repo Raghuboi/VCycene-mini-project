@@ -1,6 +1,6 @@
-# Finish the submission
+# Verify and deliver the selected submission
 
-Read [completion.md](completion.md), the [original rubric](../rubric.md), and [SUBMISSION.md](../SUBMISSION.md). B1–B7 and the later focused correction check are recorded. This handoff begins only when the applicant supplies their real recording; it finishes the recording-dependent document.
+The final PDF and recording were delivered and acknowledged. This is the historical verification workflow, not an instruction to resend. See [completion.md](completion.md) for current status and the [finalization evidence](evidence/submission-finalization-2026-11-19.md) for the November 19 checks.
 
 ## Reconcile new evidence once
 
@@ -14,7 +14,7 @@ PR #11 fixed the invalid same-ticket history shortcut, source copy and portable 
 
 ## Verify the real recording
 
-The applicant supplies their own natural recording of no more than 120 seconds. Listen from start to finish and measure its duration. Confirm:
+The selected applicant-supplied recording is below 120 seconds and its link has passed signed-out playback. A human listener still needs to judge the 50–57-second promise; repeated ASR heard “transfer” where the written reply promises an “update.” Do not present ASR as listening or force a retake without that decision. For a replacement take, listen from start to finish and measure its duration. Confirm:
 
 - It names the failed restart-only closures and unanswered follow-up.
 - It addresses the refund request, earlier contact history, and manager approval if needed.
@@ -22,11 +22,11 @@ The applicant supplies their own natural recording of no more than 120 seconds. 
 - It promises an update by the end of Tuesday, October 6, in the fictional scenario.
 - It places any refund payment after warehouse confirmation.
 
-If the applicant supplies only a file, use the applicant's intended hosting destination and sharing scope. Verify the real HTTPS link in a private browser window and play the recording. A local path, a placeholder URL, and a sign-in-only link do not satisfy R8.
+If the applicant chooses a replacement file, use the intended hosting destination and sharing scope and repeat the private-window playback check. A local path, placeholder URL, or sign-in-only link does not satisfy R8.
 
 ## Update the canonical document
 
-Replace the entire body of `## Voice response to Maya (two minutes or less)` in SUBMISSION.md with only the verified HTTPS URL. Remove its placeholder and talking points.
+The current `SUBMISSION.md` already contains only the selected HTTPS URL under `## Voice response to Maya (two minutes or less)`. If the selected take changes, replace that URL everywhere and remove any stale link.
 
 Preserve the four reviewed writing sections and recount them: build 153/200, Maya 114/150, Wei 99/120, manager 100/120. Keep the main repository URL. Remove document-level draft/editorial text after the content and access checks pass.
 
@@ -40,13 +40,13 @@ uv run --with reportlab python scripts/build-submission-pdf.py --final
 
 The output is `output/pdf/VCycene-submission.pdf`. The guard requires a URL-only voice section; it cannot establish the speaker, delivery style, duration, or playback. Do not insert a substitute URL to pass it.
 
-Render every page and inspect the images. Check the text, word counts, page breaks, and actual hyperlink annotations. The final artifact must have no DRAFT, Recording pending, APPLICANT ACTION REQUIRED, Talking points only, or Application review copy residue.
+Render every page and inspect the images. Check the text, word counts, page breaks, and actual hyperlink annotations. The final artifact must have no DRAFT, Recording pending, APPLICANT ACTION REQUIRED, Talking points only, or Application review copy residue. The current two-page artifact passed this check; repeat after any replacement.
 
-Open the repository and audio links taken from the final PDF in a private browser window. Play the audio. Record source SHA, actual duration, PDF SHA-256, page count, visual result, and link result in issue #5. The review PDF remains a draft until this work is complete.
+Open the repository and audio links taken from the final PDF in a private browser window. Play the audio. Record source SHA, actual duration, PDF SHA-256, page count, visual result, and link result in issue #5. The older review PDF remains a draft; do not attach it instead of the current final artifact.
 
 ## Publish the actual artifact and deliver
 
-The original rubric, both CSV copies, reviewed writing and dependency lockfile remain authoritative. When audio exists, review the small canonical-source/PDF diff; do not reopen the merged app correction. Publish the ready artifact only under the owner's instruction and read back the exact public final PDF. A documentation/PDF-only update needs rendered-page, URI and access checks, not another full browser wave.
+The original rubric, both CSV copies, reviewed writing and dependency lockfile remain authoritative. The audio and final PDF now exist; review the small canonical-source/PDF diff without reopening the merged app correction. Publish the ready artifact only under the owner's instruction and read back the exact public final PDF. A documentation/PDF-only update needs rendered-page, URI and access checks, not another full browser wave.
 
 Close #5 when the complete accessible attachment exists. Close #1 only after actual delivery confirmation. Keep #2–#4 closed and preserve historical evidence refs.
 

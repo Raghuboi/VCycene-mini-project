@@ -4,16 +4,16 @@ A browser support queue for twelve fictional LILA tickets at a fixed October 5, 
 
 ## Run the queue
 
-Use Node.js 24 with npm. To run this polished branch from Windows PowerShell:
+Use Node.js 24 with npm. To run the queue from Windows PowerShell:
 
 ```powershell
-git clone --branch demo/lila-support-queue https://github.com/Raghuboi/VCycene-mini-project.git
+git clone https://github.com/Raghuboi/VCycene-mini-project.git
 cd VCycene-mini-project
 npm.cmd ci
 npm.cmd run dev
 ```
 
-In other shells, use `npm ci` and `npm run dev` instead. If you already have the repository, fetch `origin` and check out `demo/lila-support-queue` before starting. Open the local URL Vite prints. Return to the same scheme, host, and port to see saved edits. Opening `index.html` directly is not supported.
+In other shells, use `npm ci` and `npm run dev` instead. If you already have the repository, update `main` before starting. Open the local URL Vite prints. Return to the same scheme, host, and port to see saved edits. Opening `index.html` directly is not supported.
 
 To check types and create the production build:
 
@@ -49,7 +49,7 @@ Unreadable data is retained. Recovery offers a raw backup download and a separat
 
 ## Verification
 
-On November 24, 2026, the [polished app revision `bdf9357`](https://github.com/Raghuboi/VCycene-mini-project/commit/bdf93570bfb408c797393bd32548d613e372e77b) passed a production build and Windows Chrome checks for the exact ticket order, reply-deadline sorting, related navigation without storage writes, resolution-note validation, and exact status/note persistence after reload. No uncaught page errors were observed. The README-only closeout does not change that runtime.
+On November 24, 2026, the [polished app revision `bdf9357`](https://github.com/Raghuboi/VCycene-mini-project/commit/bdf93570bfb408c797393bd32548d613e372e77b) passed a production build and Windows Chrome checks for the exact ticket order, reply-deadline sorting, related navigation without storage writes, resolution-note validation, and exact status/note persistence after reload. No uncaught page errors were observed. The submission and documentation reconciliation does not change that runtime.
 
 The [browser acceptance record](docs/evidence/browser-acceptance.md) covers all twelve cases, save and refresh, URL history, related cases, dirty drafts, resolution notes, quota failure, stale edits, recovery, offline saves, and 1440/1024/390px layouts. It identifies the Windows Chrome source revisions. [Issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1) records the historical `c56a9c9` merged-main run and the later PR #11 main readback; [the closeout record](docs/evidence/closeout-2026-11-13.md#focused-live-browser-readback) covers the invalid-history fix.
 
@@ -57,7 +57,7 @@ The [November 13 audit](docs/evidence/closeout-2026-11-13.md) records the focuse
 
 ## Submission and project reference
 
-The final PDF and voice recording were delivered and acknowledged. The [final submission source](https://github.com/Raghuboi/VCycene-mini-project/blob/9c6d3246656b9e9518393645113da1bac9eb78b2/SUBMISSION.md) contains the build notes and customer/team writing. The [final PDF with the recording link](https://github.com/Raghuboi/VCycene-mini-project/blob/9c6d3246656b9e9518393645113da1bac9eb78b2/output/pdf/VCycene-submission.pdf) is preserved in [separate draft PR #13](https://github.com/Raghuboi/VCycene-mini-project/pull/13), not merged to `main`. The older review PDF on `main` is historical.
+The final PDF and voice recording were delivered and acknowledged. The [final submission source](SUBMISSION.md) contains the build notes and customer/team writing. The [final PDF](output/pdf/VCycene-submission.pdf) includes the recording link. The older review PDF is retained as a historical artifact.
 
 | Read this | For |
 |---|---|

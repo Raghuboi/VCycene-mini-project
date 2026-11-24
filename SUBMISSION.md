@@ -1,6 +1,6 @@
-# VCycene Monday Queue — submission draft
+# VCycene Monday Queue — submission
 
-This document is not ready to send until the applicant's own recording link has been inserted and checked in a private window. All tickets and policies below are fictional; the operating date is Monday, October 5, 2026.
+All tickets and policies below are fictional; the operating date is Monday, October 5, 2026.
 
 ## Tool
 
@@ -39,9 +39,7 @@ I'll update you by the end of Tuesday, October 6, even if I'm still waiting for 
 
 ## Voice response to Maya (two minutes or less)
 
-APPLICANT ACTION REQUIRED: Record your own natural spoken response, upload it with evaluator-accessible link sharing, and replace this line with the playable URL. This is a submission draft, not the completed recording.
-
-Talking points only: acknowledge the failed support history, recognize the refund request, explain the honest remedy path, and commit to the next update. Do not read a script.
+https://drive.google.com/file/d/19zwdwrv262LbntB8ivbSeCkGIo71-nn4/view?usp=sharing
 
 ## Message to Wei (under 120 words)
 
@@ -60,7 +58,3 @@ Pending actions: file Tom's claim today; obtain Wei's guidance, warehouse confir
 Decision needed: if Maya's earlier contact history does not establish an in-window request, may I offer a full refund exception? Payment would still wait for warehouse confirmation.
 
 I'll own the follow-ups and keep customers updated while these dependencies remain outstanding.
-
----
-
-Before submission: insert the applicant's audio URL, check its actual duration and private-window playback, verify this repository link and a fresh `npm ci` startup, convert this document to PDF, and deliver it through the agreed application route. The fictional customer and team messages remain drafts.
