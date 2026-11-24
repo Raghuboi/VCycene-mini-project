@@ -28,12 +28,13 @@ const actions = [
 
 export function DamageClaimEmailActions() {
   const unavailable = actions.filter((action) => !action.href);
+  const hasDraft = unavailable.length < actions.length;
 
   return (
     <div className="mt-3 space-y-2">
       <div className="flex flex-wrap gap-2">
         {actions.map(({ label, href }) => href ? (
-          <a key={label} className={buttonVariants({ variant: "outline", size: "sm" })} href={href}>
+          <a key={label} className={buttonVariants({ variant: "outline", size: "sm" })} href={href} aria-describedby="claim-email-help">
             {label}
           </a>
         ) : (
@@ -44,8 +45,8 @@ export function DamageClaimEmailActions() {
       </div>
       <p id="claim-email-help" className="text-xs text-muted-foreground">
         {unavailable.length > 0 && unavailable.map(({ missing }) => missing).join(" ")}
-        {unavailable.length < actions.length && (
-          <>{unavailable.length > 0 && " "}Opens your mail app. Check the From address and send there.</>
+        {hasDraft && (
+          <>{unavailable.length > 0 && " "}Uses your browser’s configured mail handler. Check the From address before sending.</>
         )}
       </p>
     </div>

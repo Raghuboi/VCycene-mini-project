@@ -17,6 +17,12 @@ VITE_T104_CUSTOMER_EMAIL=
 
 A blank or invalid address disables only its own action and shows an explanation. Vite embeds `VITE_` values in browser code.[3] The ignore rule prevents accidentally staging the file, not exposure in a built app. Do not put credentials here, commit actual recipients, or publish/share a bundle containing real recipient addresses. For an isolated demo, use approved tester-controlled or reserved example addresses and do not send.
 
+## If a click opens nothing
+
+- If the controls are disabled, supply the verified addresses in `.env.local`, restart the dev server or rebuild the production preview, and confirm the controls are now links.
+- If the controls are already links, check `chrome://settings/handlers` in the same Chrome profile. Select an allowed webmail handler, or set your desktop email client as the `MAILTO` default in Windows Settings → Apps → Default apps. Being signed in to webmail alone does not select it as the handler. See [Google Chrome protocol-handler help](https://support.google.com/chrome/answer/114662?hl=en) and [Windows Default Apps](https://support.microsoft.com/en-us/windows/change-default-apps-in-windows-e5d82cad-17d1-c53b-3505-f10a32e1894d).
+- Save any ticket changes before testing a link. Chrome can run the page's unsaved-change guard as part of the handoff; canceling that prompt preserves the draft and can stop the handoff. The app does not bypass this protection.
+
 ## Acceptance criteria and verification steps
 
 | Acceptance criterion | Verification |

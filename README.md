@@ -39,6 +39,8 @@ The preview normally uses http://localhost:4173. Its saved edits are separate fr
 
 **Resolved** requires a new note. Reopening a case preserves its history. Status changes record an operator's judgment; the app does not send customer messages, file claims, ship units, or pay refunds.
 
+T-104 also has two email draft links. See [recipient and mail handler setup](docs/t104-email-compose.md). Nothing is sent by the queue.
+
 ## Saved data and supported scope
 
 Edits stay in one browser profile and origin under the `vcycene.queue.edits` localStorage key. This is not a shared team database. The supported workflow has one active editing tab. A copied URL shares the selected ticket, filter and sort, not another browser's notes.
