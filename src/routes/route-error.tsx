@@ -26,12 +26,12 @@ export function QueueRouteError({ error }: { error: unknown }) {
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col justify-center gap-4 px-4 py-16">
-      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Monday queue</p>
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">LILA Support Queue</p>
       <h1 className="text-xl font-semibold">{title}</h1>
       <p className="text-sm text-muted-foreground">
         Ticket selections look like <code className="font-mono">?ticket=T-104</code> and the view is{" "}
         <code className="font-mono">all</code>, <code className="font-mono">active</code>, or{" "}
-        <code className="font-mono">resolved</code>. Nothing was changed.
+        <code className="font-mono">resolved</code>. Use the queue's Sort by control to change the order. Nothing was changed.
       </p>
       {detail ? (
         <p className="rounded-md border border-border bg-muted/60 px-3 py-2 font-mono text-xs text-muted-foreground">

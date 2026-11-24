@@ -19,29 +19,37 @@ function isDirty(form: HTMLFormElement | null, committedStatus: TicketStatus): b
   return status !== committedStatus || (typeof note === "string" && note.trim().length > 0);
 }
 
+type EditorAction = { kind: "save"; input: SaveInput } | { kind: "reload" };
+
+const RECOVERY_HINT: Partial<Record<ReturnType<typeof asQueueProblem>["kind"], string>> = {
+  "write-failed": "Your draft is still in the form. Free some browser storage, then save again.",
+  inaccessible: "Your draft is still in the form. Check this site's browser storage permissions, then retry.",
+  conflict: "Your draft is still here. Reload to see the version currently in this browser.",
+};
+
 export function StatusEditor({ ticket }: { ticket: CommittedTicket }) {
   const queryClient = useQueryClient();
   const formRef = useRef<HTMLFormElement>(null);
 
-  const save = useMutation({
-    mutationFn: async (input: SaveInput) => submitTicketUpdate(input),
+  const action = useMutation({
+    mutationFn: async (command: EditorAction) => command.kind === "save"
+      ? { kind: "save" as const, ...submitTicketUpdate(command.input) }
+      : { kind: "reload" as const, snapshot: loadSnapshot() },
     networkMode: "always",
     retry: false,
     // Publishing on the hook keeps the snapshot update even if the triggering component re-renders.
     onSuccess: (result) => {
+      if (result.kind === "reload") formRef.current?.reset();
       queryClient.setQueryData(QUEUE_QUERY_KEY, result.snapshot);
     },
   });
 
-  const reload = useMutation({
-    mutationFn: async () => loadSnapshot(),
-    networkMode: "always",
-    retry: false,
-    onSuccess: (snapshot) => {
-      queryClient.setQueryData(QUEUE_QUERY_KEY, snapshot);
-      save.reset();
-    },
-  });
+  const pending = action.isPending;
+  const reloading = action.variables?.kind === "reload";
+  const problem = action.isError ? asQueueProblem(action.error) : null;
+  const canReload = reloading || problem?.kind === "conflict";
+  const canBackUp = problem?.kind === "corrupt" || problem?.kind === "unsupported";
+  const recoveryHint = problem && (RECOVERY_HINT[problem.kind] ?? (reloading ? "Your draft is still in the form." : null));
 
   useBlocker({
     withResolver: false,
@@ -56,7 +64,7 @@ export function StatusEditor({ ticket }: { ticket: CommittedTicket }) {
         nextSearch.data.ticket === ticket.source.TICKET_ID;
       if (preservesEditor) return false;
 
-      if (save.isPending) return true;
+      if (pending) return true;
       if (!isDirty(form, ticket.status)) return false;
 
       return !window.confirm(
@@ -65,32 +73,37 @@ export function StatusEditor({ ticket }: { ticket: CommittedTicket }) {
     },
     enableBeforeUnload: () => {
       const form = formRef.current;
-      return form !== null && (save.isPending || isDirty(form, ticket.status));
+      return form !== null && (pending || isDirty(form, ticket.status));
     },
   });
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (save.isPending) return;
+    if (pending) return;
 
-    save.mutate({
-      ticketId: ticket.source.TICKET_ID,
-      expectedRevision: ticket.revision,
-      form: new FormData(event.currentTarget),
+    action.mutate({
+      kind: "save",
+      input: {
+        ticketId: ticket.source.TICKET_ID,
+        expectedRevision: ticket.revision,
+        form: new FormData(event.currentTarget),
+      },
     });
   }
 
   function handleReload() {
+    if (pending) return;
     const confirmed = window.confirm(
-      "Discard your draft and reload the saved version of this ticket?",
+      "Copy your draft and any currently displayed saved notes you want to keep. Discard the draft and load this browser's current version?",
     );
     if (!confirmed) return;
-    reload.mutate();
+    action.mutate({ kind: "reload" });
   }
 
-  const pending = save.isPending;
-  const problem = save.isError ? asQueueProblem(save.error) : null;
-  const canReload = problem?.kind === "conflict";
+  function clearDraftFeedback() {
+    // Editing cannot clear a storage problem or refresh a stale revision.
+    if (action.isSuccess || (!reloading && problem?.kind === "invalid")) action.reset();
+  }
 
   function openStorageRecovery() {
     if (!window.confirm("Saved queue data became unreadable. Copy your unsaved note elsewhere first. Opening backup and reset will discard this draft. Continue?")) return;
@@ -113,7 +126,8 @@ export function StatusEditor({ ticket }: { ticket: CommittedTicket }) {
               id="status"
               name="status"
               defaultValue={ticket.status}
-              onChange={() => save.reset()}
+              aria-describedby="status-help"
+              onChange={clearDraftFeedback}
             >
               {TICKET_STATUSES.map((status) => (
                 <option key={status} value={status}>
@@ -121,35 +135,36 @@ export function StatusEditor({ ticket }: { ticket: CommittedTicket }) {
                 </option>
               ))}
             </NativeSelect>
-            <p className="text-xs text-muted-foreground">
-              A status is your recorded position, not a completed action. Resolved needs a short new note.
+            <p id="status-help" className="text-xs text-muted-foreground">
+              To resolve, add a note explaining what was done.
             </p>
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="note">New internal note</Label>
+            <Label htmlFor="note">Internal note</Label>
             <Textarea
               id="note"
               name="note"
-              rows={3}
+              rows={2}
               defaultValue=""
               maxLength={1000}
-              placeholder="What you did, what you need next, or whom you are waiting on"
-              onInput={() => save.reset()}
+              placeholder="E.g. Waiting for the warehouse to confirm receipt"
+              aria-describedby="note-help"
+              aria-invalid={!reloading && problem?.kind === "invalid" ? true : undefined}
+              onInput={clearDraftFeedback}
             />
-            <p className="text-xs text-muted-foreground">
-              Internal only. Saving a note does not reply to the customer, file a claim, confirm a
-              warehouse receipt, or pay a refund.
+            <p id="note-help" className="text-xs text-muted-foreground">
+              This saves to your browser only. Take the next step outside the queue.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
             <Button type="submit" disabled={pending}>
-              {pending ? "Saving…" : "Save update"}
+              {pending && !reloading ? "Saving…" : "Save update"}
             </Button>
             {pending ? (
-              <span className="text-xs text-muted-foreground">
-                Saving to this browser. Ticket navigation is blocked until it finishes.
+              <span role="status" className="text-xs text-muted-foreground">
+                {reloading ? "Loading the saved version…" : "Saving to this browser…"}
               </span>
             ) : null}
           </div>
@@ -158,46 +173,22 @@ export function StatusEditor({ ticket }: { ticket: CommittedTicket }) {
 
       {problem ? (
         <div role="alert" className="rounded-md border border-destructive/40 bg-destructive/5 px-3 py-2 text-sm">
-          <p className="font-medium text-destructive">The update was not saved</p>
+          <p className="font-medium text-destructive">{reloading ? "Could not reload the saved version" : "The update was not saved"}</p>
           <p className="mt-1 text-foreground">{problem.message}</p>
-          {problem.kind === "conflict" ? (
-            <p className="mt-1 text-xs text-muted-foreground">
-              The stored copy has newer saved values than the one you opened, so this was not written over
-              them. Your draft is still in the form.
-            </p>
-          ) : null}
-          {problem.kind === "write-failed" || problem.kind === "inaccessible" ? (
-            <p className="mt-1 text-xs text-muted-foreground">
-              Your draft is still in the form. Save again after freeing browser storage for this site.
-            </p>
-          ) : null}
-          {canReload ? (
-            <div className="mt-2">
-              <Button variant="outline" size="sm" onClick={handleReload} disabled={reload.isPending}>
-                {reload.isPending ? "Reloading…" : "Reload saved version"}
-              </Button>
+          {recoveryHint ? <p className="mt-1 text-xs text-muted-foreground">{recoveryHint}</p> : null}
+          {canReload || canBackUp ? (
+            <div className="mt-2 flex flex-wrap gap-2">
+              {canReload ? <Button variant="outline" size="sm" onClick={handleReload}>Reload saved version</Button> : null}
+              {canBackUp ? <Button variant="outline" size="sm" onClick={openStorageRecovery}>Open backup and reset options</Button> : null}
             </div>
-          ) : null}
-          {problem.kind === "corrupt" || problem.kind === "unsupported" ? (
-            <div className="mt-2">
-              <Button variant="outline" size="sm" onClick={openStorageRecovery}>
-                Open backup and reset options
-              </Button>
-            </div>
-          ) : null}
-          {reload.isError ? (
-            <p className="mt-2 text-xs text-destructive">
-              Could not reload the saved version: {asQueueProblem(reload.error).message} Your draft is
-              untouched.
-            </p>
           ) : null}
         </div>
       ) : null}
 
-      {save.isSuccess ? (
+      {action.isSuccess ? (
         <p role="status" className="text-sm font-medium text-success">
-          {save.data.saved
-            ? "Saved. This update is stored in this browser and survives a refresh."
+          {action.data.kind === "reload" ? "Loaded the latest saved version." : action.data.saved
+            ? "Saved. This update is stored in this browser."
             : "Nothing changed, so nothing was saved."}
         </p>
       ) : null}

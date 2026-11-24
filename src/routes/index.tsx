@@ -1,10 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link, createRoute } from "@tanstack/react-router";
+import { Link, createRoute, useNavigate } from "@tanstack/react-router";
 
 import { QueueLoadError } from "../components/queue-load-error";
 import { QueueTable, type QueueRow } from "../components/queue-table";
 import { TicketDetail } from "../components/ticket-detail";
+import { buttonVariants } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
+import { Label } from "../components/ui/label";
+import { NativeSelect } from "../components/ui/native-select";
 import { formatDayWithYear } from "../lib/dates";
 import {
   HOUSE_RULES,
@@ -14,7 +17,8 @@ import {
   assessTicket,
 } from "../lib/policy";
 import { queueQueryOptions } from "../lib/queue";
-import { QUEUE_VIEWS, queueSearchSchema, viewOf, type QueueView } from "../lib/search";
+import { QUEUE_SORTS, QUEUE_VIEWS, queueSearchSchema, viewOf, type QueueSort, type QueueView } from "../lib/search";
+import { cn } from "../lib/utils";
 import { rootRoute } from "./__root";
 import { QueueRouteError } from "./route-error";
 
@@ -22,6 +26,12 @@ const TAB_LABELS: Record<QueueView, string> = {
   all: "All tickets",
   active: "Active",
   resolved: "Resolved",
+};
+
+const SORT_LABELS: Record<QueueSort, string> = {
+  priority: "Priority",
+  "reply-deadline": "Customer reply deadline",
+  newest: "Newest opened",
 };
 
 export const indexRoute = createRoute({
@@ -32,8 +42,17 @@ export const indexRoute = createRoute({
   component: QueuePage,
 });
 
-function sortRows(rows: QueueRow[]): QueueRow[] {
+function sortRows(rows: QueueRow[], sort: QueueSort): QueueRow[] {
   return rows.sort((left, right) => {
+    if (sort === "reply-deadline") {
+      const a = left.assessment.facts.replyDueDay ?? Number.POSITIVE_INFINITY;
+      const b = right.assessment.facts.replyDueDay ?? Number.POSITIVE_INFINITY;
+      if (a !== b) return a - b;
+    } else if (sort === "newest") {
+      const byOpened = right.ticket.source.OPENED.localeCompare(left.ticket.source.OPENED);
+      if (byOpened !== 0) return byOpened;
+    }
+    // Alternate sorts use the original reviewed order to break ties.
     if (left.assessment.rank !== right.assessment.rank) {
       return left.assessment.rank - right.assessment.rank;
     }
@@ -46,7 +65,9 @@ function sortRows(rows: QueueRow[]): QueueRow[] {
 
 function QueuePage() {
   const search = indexRoute.useSearch();
+  const navigate = useNavigate({ from: indexRoute.fullPath });
   const view = viewOf(search);
+  const sort = search.sort ?? "priority";
   const queue = useQuery(queueQueryOptions);
 
   if (queue.isError) {
@@ -54,7 +75,7 @@ function QueuePage() {
   }
 
   const tickets = queue.data?.tickets ?? [];
-  const rows = sortRows(tickets.map((ticket) => ({ ticket, assessment: assessTicket(ticket.source) })));
+  const rows = sortRows(tickets.map((ticket) => ({ ticket, assessment: assessTicket(ticket.source) })), sort);
   const activeCount = rows.filter((row) => row.ticket.status !== "resolved").length;
   const resolvedCount = rows.length - activeCount;
   const visibleRows =
@@ -68,41 +89,59 @@ function QueuePage() {
   return (
     <main className="mx-auto w-full max-w-[100rem] px-4 pb-12">
       <header className="flex flex-col gap-1 border-b border-border py-6">
-        <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-          LILA support · taking over the queue
-        </p>
-        <h1 className="text-2xl font-semibold tracking-tight">Monday queue</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">LILA Support Queue</h1>
         <p className="text-sm text-muted-foreground">
-          {formatDayWithYear(SCENARIO_DAY)} · {queue.isPending ? "loading twelve tickets" : `${rows.length} tickets`} ·{" "}
-          {activeCount} active, {resolvedCount} resolved · saved statuses and notes stay in this browser
+          Exercise snapshot: {formatDayWithYear(SCENARIO_DAY)} · Statuses and notes stay in this browser.
         </p>
       </header>
 
       <div className="grid gap-4 py-4 xl:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] xl:items-start">
-        <section aria-label="Ticket queue" className="min-w-0 space-y-3">
-          <nav aria-label="Queue view" className="flex flex-wrap items-center gap-1">
-            {QUEUE_VIEWS.map((tab) => {
-              const current = tab === view;
-              const count = tab === "all" ? rows.length : tab === "active" ? activeCount : resolvedCount;
-              return (
-                <Link
-                  key={tab}
-                  to="/"
-                  search={{ view: tab, ticket: search.ticket }}
-                  aria-current={current ? "page" : undefined}
-                  className={[
-                    "inline-flex h-8 items-center gap-1.5 rounded-md px-3 text-sm",
-                    current ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted",
-                  ].join(" ")}
-                >
-                  {TAB_LABELS[tab]}
-                  <span className={current ? "text-primary-foreground/80" : "text-muted-foreground/80"}>
-                    {queue.isPending ? "–" : count}
-                  </span>
-                </Link>
-              );
-            })}
-          </nav>
+        <section id="ticket-list" tabIndex={-1} aria-label="Ticket queue" className="min-w-0 scroll-mt-4 space-y-3">
+          <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-3">
+            <nav aria-label="Queue view" className="flex flex-wrap items-center gap-1">
+              {QUEUE_VIEWS.map((tab) => {
+                const current = tab === view;
+                const count = tab === "all" ? rows.length : tab === "active" ? activeCount : resolvedCount;
+                return (
+                  <Link
+                    key={tab}
+                    to="/"
+                    search={(previous) => ({ ...previous, view: tab })}
+                    aria-current={current ? "page" : undefined}
+                    className={cn(
+                      buttonVariants({ variant: current ? "default" : "ghost" }),
+                      "min-h-10 gap-1.5 px-2.5 sm:min-h-9",
+                      !current && "text-muted-foreground",
+                    )}
+                  >
+                    {TAB_LABELS[tab]}
+                    <span className="tabular-nums">{queue.isPending ? "–" : count}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+            <div className="flex w-full items-center gap-2 sm:w-auto">
+              <Label htmlFor="queue-sort" className="shrink-0">Sort by</Label>
+              <NativeSelect
+                id="queue-sort"
+                className="h-10 sm:h-9"
+                value={sort}
+                disabled={queue.isPending}
+                onChange={(event) => {
+                  const next = QUEUE_SORTS.find((entry) => entry === event.target.value);
+                  if (!next) return;
+                  void navigate({
+                    search: (previous) => ({ ...previous, sort: next === "priority" ? undefined : next }),
+                    hash: true,
+                    hashScrollIntoView: false,
+                    resetScroll: false,
+                  });
+                }}
+              >
+                {QUEUE_SORTS.map((entry) => <option key={entry} value={entry}>{SORT_LABELS[entry]}</option>)}
+              </NativeSelect>
+            </div>
+          </div>
 
           {queue.isPending ? (
             <div className="h-72 animate-pulse rounded-lg border border-border bg-muted/40" aria-busy="true" />
@@ -112,15 +151,15 @@ function QueuePage() {
                 <CardTitle>No tickets in this view</CardTitle>
                 <CardDescription>
                   {view === "resolved"
-                    ? "Nothing has been resolved yet in this browser. Saved statuses decide this list."
-                    : "Every ticket is currently resolved. Nothing is waiting."}
+                    ? "Tickets appear here after you save them as Resolved."
+                    : "All tickets are marked Resolved in this browser."}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Link
                   to="/"
-                  search={{ view: "all", ticket: search.ticket }}
-                  className="text-sm text-primary underline underline-offset-4"
+                  search={(previous) => ({ ...previous, view: "all" })}
+                  className={buttonVariants({ variant: "outline" })}
                 >
                   Show all tickets
                 </Link>
@@ -128,17 +167,12 @@ function QueuePage() {
             </Card>
           ) : (
             <Card className="overflow-hidden">
-              <QueueTable rows={visibleRows} selectedId={search.ticket} view={view} />
+              <QueueTable rows={visibleRows} selectedId={search.ticket} />
             </Card>
           )}
-
-          <p className="text-xs text-muted-foreground">
-            Ordered by deadline pressure, broken commitments, and unanswered replies — each row states its
-            reason. A selected ticket stays open when the list filter changes.
-          </p>
         </section>
 
-        <aside id="ticket-detail" aria-label="Ticket detail" className="min-w-0 scroll-mt-4 xl:sticky xl:top-4">
+        <aside id="ticket-detail" aria-label="Ticket detail" className="min-w-0 scroll-mt-4">
           {queue.isPending ? (
             <Card>
               <CardHeader>
@@ -147,45 +181,18 @@ function QueuePage() {
               </CardHeader>
             </Card>
           ) : selected ? (
-            <TicketDetail key={selected.source.TICKET_ID} ticket={selected} tickets={tickets} view={view} />
-          ) : search.ticket ? (
-            <Card>
-              <CardHeader>
-                <CardTitle>That ticket is not in the loaded queue</CardTitle>
-                <CardDescription>
-                  {search.ticket} is not one of the twelve supplied records, so nothing is selected for you
-                  instead.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-wrap gap-3">
-                <Link
-                  to="/"
-                  search={{ view }}
-                  className="inline-flex h-9 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground"
-                >
-                  Return to queue
-                </Link>
-              </CardContent>
-            </Card>
+            <>
+              <a href="#ticket-list" className="mb-2 inline-flex min-h-10 items-center text-sm font-medium text-primary underline underline-offset-4 xl:hidden">
+                Back to ticket list
+              </a>
+              <TicketDetail key={selected.source.TICKET_ID} ticket={selected} tickets={tickets} />
+            </>
           ) : (
             <Card>
               <CardHeader>
                 <CardTitle>No ticket selected</CardTitle>
-                <CardDescription>
-                  Choose a ticket to read its source facts, the reason for its position, related cases, and to
-                  record a status or an internal note.
-                </CardDescription>
+                <CardDescription>Open a ticket to see the priority, next step and notes.</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-2 text-sm text-muted-foreground">
-                <p>
-                  The twelve records come from the supplied spreadsheet. Their facts never change in this
-                  tool.
-                </p>
-                <p>
-                  Statuses and notes you save are kept in this browser only, and nothing here contacts a
-                  customer, a carrier, or the warehouse.
-                </p>
-              </CardContent>
             </Card>
           )}
         </aside>

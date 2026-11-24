@@ -1,26 +1,24 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import type { ReactNode } from "react";
 
 import { BandBadge, StatusBadge } from "./status-badge";
 import { StatusEditor } from "./status-editor";
 import { RelatedCases } from "./related-cases";
-import { formatDay, formatDayWithYear, formatStamp, parseCalendarDate } from "../lib/dates";
-import { assessTicket, SCENARIO_DATE_ISO, SCENARIO_DAY } from "../lib/policy";
+import { formatDayWithYear, formatStamp, parseCalendarDate } from "../lib/dates";
+import { assessTicket } from "../lib/policy";
 import type { CommittedTicket } from "../lib/queue";
-import type { QueueView } from "../lib/search";
-import { STATUS_LABELS } from "../lib/status";
 
 function focusSelectedTitle(node: HTMLHeadingElement | null) {
   // The ticket pane is below the queue on narrow screens. A URL/hash scroll
   // alone leaves keyboard and screen-reader focus on the old queue link.
-  node?.focus({ preventScroll: true });
+  if (window.location.hash === "#ticket-detail") node?.focus({ preventScroll: true });
 }
 
-function Fact({ label, children }: { label: string; children: ReactNode }) {
+function SourceFact({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div>
-      <dt className="text-[0.7rem] font-medium tracking-wide text-muted-foreground uppercase">{label}</dt>
-      <dd className="mt-0.5 text-sm text-foreground">{children}</dd>
+    <div className="grid grid-cols-[7rem_minmax(0,1fr)] gap-2 py-1">
+      <dt className="text-muted-foreground">{label}</dt>
+      <dd className="text-foreground">{children}</dd>
     </div>
   );
 }
@@ -28,15 +26,13 @@ function Fact({ label, children }: { label: string; children: ReactNode }) {
 export function TicketDetail({
   ticket,
   tickets,
-  view,
 }: {
   ticket: CommittedTicket;
   tickets: readonly CommittedTicket[];
-  view: QueueView;
 }) {
   const assessment = assessTicket(ticket.source);
   const source = ticket.source;
-  const deliveredDay = assessment.facts.deliveredDay;
+  const sourceDate = (iso: string) => formatDayWithYear(parseCalendarDate(iso));
 
   return (
     <div className="space-y-4">
@@ -45,7 +41,7 @@ export function TicketDetail({
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
               <p className="font-mono text-xs text-muted-foreground">{source.TICKET_ID}</p>
-              <CardTitle className="text-base" tabIndex={-1} ref={focusSelectedTitle}>
+              <CardTitle className="text-base focus-visible:ring-offset-0" tabIndex={-1} ref={focusSelectedTitle}>
                 {source.CUSTOMER} <span className="font-normal text-muted-foreground">· {source.COUNTRY}</span>
               </CardTitle>
             </div>
@@ -58,107 +54,64 @@ export function TicketDetail({
         </CardHeader>
         <CardContent className="space-y-3">
           <div>
-            <h3 className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-              Why this ticket comes here
-            </h3>
+            <h3 className="text-sm font-semibold">Why it was prioritized</h3>
             <p className="mt-1 text-sm text-foreground">{assessment.headline}</p>
-            <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
-              {assessment.timing.map((line) => (
-                <li key={line} className="flex gap-2">
-                  <span aria-hidden="true">·</span>
-                  <span>{line}</span>
-                </li>
-              ))}
+            <ul className="mt-2 list-disc space-y-1 pl-4 text-xs text-muted-foreground">
+              {assessment.timing.map((line) => <li key={line}>{line}</li>)}
             </ul>
           </div>
-          <div className="rounded-md border border-border/70 bg-muted/40 px-3 py-2">
-            <h3 className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-              Suggested next step
-            </h3>
-            <p className="mt-1 text-sm text-foreground">{assessment.nextAction}</p>
-            <p className="mt-1 text-[0.7rem] text-muted-foreground">
-              A recommendation for a person. This tool contacts nobody and performs no support action.
-            </p>
+          <div className="border-t border-border pt-3">
+            <h3 className="text-sm font-semibold">{ticket.status === "resolved" ? "Original next step" : "Next step"}</h3>
+            <p className="mt-1 text-pretty text-sm text-foreground">{assessment.nextAction}</p>
           </div>
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
-          <CardTitle>Source record — unchanged</CardTitle>
-          <CardDescription>
-            Copied from the supplied spreadsheet. Editing a status or note never rewrites these fields.
-          </CardDescription>
+          <CardTitle id="ticket-update">Record an update</CardTitle>
         </CardHeader>
-        <CardContent>
-          <dl className="grid gap-3 sm:grid-cols-2">
-            <Fact label="Opened">{formatDayWithYear(parseCalendarDate(source.OPENED))}</Fact>
-            <Fact label="Delivered">
-              {formatDayWithYear(deliveredDay)}{" "}
-              <span className="text-xs text-muted-foreground">
-                ({assessment.facts.ageDays} days before {formatDay(SCENARIO_DAY)})
-              </span>
-            </Fact>
-            <Fact label="Country">{source.COUNTRY}</Fact>
-            <Fact label="Firmware">{source.FIRMWARE}</Fact>
-            <Fact label="Status in source">
-              {source.STATUS}{" "}
-              <span className="text-xs text-muted-foreground">
-                (recorded here as {STATUS_LABELS[ticket.sourceStatus]})
-              </span>
-            </Fact>
-            <Fact label="Last message">
-              {source.LAST_REPLY_FROM === "customer" ? "From the customer" : "From support"} on{" "}
-              {formatDayWithYear(parseCalendarDate(source.LAST_REPLY_DATE))}
-            </Fact>
-            <Fact label="Reply deadline">
-              {assessment.facts.replyDueDay === null
-                ? "Not applicable — the last message was ours"
-                : `${formatDay(assessment.facts.replyDueDay)} under the 1-business-day rule`}
-            </Fact>
-            <Fact label="Source note">{source.NOTES.length > 0 ? source.NOTES : "None in the source."}</Fact>
-          </dl>
-          <p className="mt-3 border-t border-border/70 pt-2 text-[0.7rem] text-muted-foreground">
-            Scenario date {SCENARIO_DATE_ISO}. Deadlines are initial snapshot annotations calculated with
-            the stated assumptions, not live timers.
-          </p>
+        <CardContent className="space-y-4">
+          <StatusEditor ticket={ticket} />
+          <section aria-labelledby="saved-notes" className="space-y-2 border-t border-border pt-3">
+            <h3 id="saved-notes" className="text-sm font-semibold">Saved notes</h3>
+            {ticket.notes.length === 0 ? (
+              <p className="text-sm text-muted-foreground">No saved notes yet.</p>
+            ) : (
+              <ol className="divide-y divide-border">
+                {ticket.notes.map((note, index) => (
+                  <li key={`${note.createdAt}-${index}`} className="py-2 first:pt-0">
+                    <time dateTime={note.createdAt} className="text-xs text-muted-foreground">{formatStamp(note.createdAt)}</time>
+                    <p className="mt-0.5 text-sm break-words text-foreground">{note.text}</p>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </section>
         </CardContent>
       </Card>
 
-      <RelatedCases ticket={ticket} tickets={tickets} view={view} />
+      <RelatedCases ticket={ticket} tickets={tickets} />
 
       <Card>
         <CardHeader>
-          <CardTitle>Saved notes</CardTitle>
-          <CardDescription>
-            Stored in this browser with real timestamps. The source note above is never modified.
-          </CardDescription>
+          <CardTitle>Source record</CardTitle>
+          <p className="text-sm text-foreground"><span className="font-medium">Original note: </span>{source.NOTES || "None."}</p>
         </CardHeader>
         <CardContent>
-          {ticket.notes.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No saved notes for this ticket yet.</p>
-          ) : (
-            <ol className="space-y-2">
-              {ticket.notes.map((note, index) => (
-                <li key={`${note.createdAt}-${index}`} className="rounded-md border border-border/70 px-3 py-2">
-                  <p className="text-[0.7rem] text-muted-foreground">{formatStamp(note.createdAt)}</p>
-                  <p className="mt-0.5 text-sm text-foreground">{note.text}</p>
-                </li>
-              ))}
-            </ol>
-          )}
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Record an update</CardTitle>
-          <CardDescription>
-            Change the status, add an internal note, or both. Only a saved update is kept.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <StatusEditor key={source.TICKET_ID} ticket={ticket} />
+          <details>
+            <summary className="w-fit cursor-pointer text-sm font-medium text-primary">Original ticket fields</summary>
+            <dl className="mt-2 divide-y divide-border text-sm">
+              <SourceFact label="Opened">{sourceDate(source.OPENED)}</SourceFact>
+              <SourceFact label="Delivered">{sourceDate(source.DELIVERED)}</SourceFact>
+              <SourceFact label="Country">{source.COUNTRY}</SourceFact>
+              <SourceFact label="Firmware">{source.FIRMWARE}</SourceFact>
+              <SourceFact label="Original status">{source.STATUS}</SourceFact>
+              <SourceFact label="Last message">
+                {source.LAST_REPLY_FROM === "customer" ? "Customer" : "Support"}, {sourceDate(source.LAST_REPLY_DATE)}
+              </SourceFact>
+            </dl>
+          </details>
         </CardContent>
       </Card>
     </div>

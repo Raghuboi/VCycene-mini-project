@@ -3,13 +3,17 @@ import { requireSourceTickets } from "./source";
 
 export const QUEUE_VIEWS = ["all", "active", "resolved"] as const;
 export type QueueView = (typeof QUEUE_VIEWS)[number];
+export const QUEUE_SORTS = ["priority", "reply-deadline", "newest"] as const;
+export type QueueSort = (typeof QUEUE_SORTS)[number];
 
 /**
- * Selection and list view only. No draft, note, status, or priority value may live in the URL.
+ * The URL owns selection, view, and sort preferences, never ticket facts or drafts.
  * Strict, so a stray parameter is a clear error instead of silently ignored state.
  */
+const TICKET_FORMAT_HINT = "Ticket selections look like T-101.";
+
 export const queueSearchSchema = z.strictObject({
-  ticket: z.string().regex(/^T-\d{3}$/, "Ticket selections look like T-101.")
+  ticket: z.string({ error: TICKET_FORMAT_HINT }).regex(/^T-\d{3}$/, TICKET_FORMAT_HINT)
     .refine((id) => {
       try {
         return requireSourceTickets().some((ticket) => ticket.TICKET_ID === id);
@@ -20,6 +24,7 @@ export const queueSearchSchema = z.strictObject({
     }, "That ticket is not in the supplied queue.")
     .optional(),
   view: z.enum(QUEUE_VIEWS).optional(),
+  sort: z.enum(QUEUE_SORTS).optional(),
 });
 
 export type QueueSearch = z.infer<typeof queueSearchSchema>;

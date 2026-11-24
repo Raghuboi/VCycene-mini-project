@@ -14,7 +14,7 @@ The owner accepted D1, D2 and D4 in [issue #1](https://github.com/Raghuboi/VCyce
 | Saved statuses and appended notes | One versioned localStorage edits document | Durable authority; store edits only. |
 | Published queue snapshot | One Query cache key | Validated CSV plus saved edits; never a second persistence store. |
 | Load and save lifecycle | Query query/mutation results | Use existing pending/error/success states, without parallel booleans. |
-| Selected ticket and list view | Router search parameters | Selection and filtering are navigable state. |
+| Selected ticket, list view, and sort | Router search parameters | Selection, filtering, and list order are navigable state. |
 | Unsaved status and note | Native form controls | Read through FormData on submission; never serialize into the URL. |
 | Dirty condition | Comparison of form values with committed defaults | Inspect when navigation is attempted; no separately synchronized flag. |
 | Priorities, reasons, related cases | Pure calculations | Derive from source facts, committed edits, and the scenario date. |
@@ -27,9 +27,9 @@ Keep one small storage module, one domain module, the route, and the components 
 
 ## Navigation contract
 
-Search parameters are optional `ticket` and `view=all|active|resolved`; view defaults to all. Initially, no ticket is selected. Validate them with Zod v4 directly in Router. A supplied ticket must match a known source ID. Invalid ticket/view values produce a clear URL error and a Return to queue action; do not silently select another ticket.
+Search parameters are optional `ticket`, `view=all|active|resolved`, and `sort=priority|reply-deadline|newest`. View defaults to all, sort defaults to reviewed priority, and initially no ticket is selected. Validate them with Zod v4 directly in Router. A supplied ticket must match a known source ID. Invalid values show a URL error and a Return to queue action; do not silently select another ticket.
 
-Ticket selection adds a history entry so Back/Forward restores it. List filters affect the list only: a selected detail can remain visible after a successful status change moves it outside the current filter. Preserve selection when changing view. No note, customer text, committed status, pending flag, or derived priority belongs in search parameters.
+Ticket selection, view, and sort have history entries so Back/Forward restores them. Changing view or sort affects only the list and preserves the selected ticket and its draft. A selected detail can remain visible after a successful status change moves it outside the current filter. No note, customer text, committed status, pending flag, or per-ticket priority belongs in search parameters. An alternate sort does not change a ticket's reviewed priority.
 
 A filter with no matches shows an honest empty-view message and an All tickets link; it is not a load failure. Preserve any selected detail. A CSV parse/schema failure is a load error and must not become an apparently valid empty queue.
 
@@ -39,7 +39,7 @@ Render the detail inline. Both queue-row and related-case links target `#ticket-
 
 Use an uncontrolled form with shadcn NativeSelect, Textarea, labels, and a submit button. Its default values are the committed status and an empty new-note field. Capture ticket ID, expected committed revision, selected status, and note together when submitting. Validate the command with Zod at the storage boundary.
 
-Key the editor by ticket ID and its inner form by that ticket’s committed revision. A successful save resets only the intended form. A failed save changes neither key, preserving the draft. On user input, call the mutation’s reset action from the input event handler: an old Saved message must disappear as soon as another edit begins.
+Key the editor by ticket ID and its inner form by that ticket’s committed revision. A successful save resets only the intended form. A failed save changes neither key, preserving the draft. Typing clears old success and draft-validation feedback, not storage or revision errors: changing a draft cannot repair storage or refresh a stale revision.
 
 Trim the note. If status is unchanged and the trimmed note is empty, perform no write, append no note, and report no new successful save. A status change alone is valid except when transitioning into Resolved, which requires a new brief resolution note. An already-resolved ticket does not need another note merely to remain resolved. Reopen by selecting Open; preserve note history.
 
