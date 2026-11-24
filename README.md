@@ -1,4 +1,4 @@
-# VCycene Monday queue
+# LILA Support Queue
 
 A browser support queue for the twelve supplied LILA tickets. The exercise takes place on Monday, October 5, 2026. The app explains which cases need attention, saves status changes and internal notes, and links related customer and firmware cases.
 
@@ -32,15 +32,16 @@ The preview normally uses http://localhost:4173. Its saved edits are separate fr
 ## Try the required workflow
 
 1. Open T-104. Tom's unfiled damage claim comes first because its window is nearly closed.
+   Switch between Priority, Customer reply deadline and Newest opened to compare those views of the same cases.
 2. Open T-101 and its related T-109. Both records remain visible. The firmware group distinguishes three customers from unrelated symptoms.
 3. Change a status, add an internal note, and select **Save update**.
-4. Refresh. The saved status and note remain; the original CSV fields do not change.
+4. Refresh. The saved status and note are still in the update panel; the original CSV fields do not change.
 
 **Resolved** requires a new note. Reopening a case preserves its history. Status changes record an operator's judgment; the app does not send customer messages, file claims, ship units, or pay refunds.
 
 ## Saved data and supported scope
 
-Edits stay in one browser profile and origin under the `vcycene.queue.edits` localStorage key. The supported workflow has one active editing tab. A copied URL shares the selected ticket and filter, not another browser's notes.
+Edits stay in one browser profile and origin under the `vcycene.queue.edits` localStorage key. The supported workflow has one active editing tab. A copied URL shares the selected ticket, filter and sort, not another browser's notes.
 
 Saving validates the current data and checks the ticket revision before one storage write. A failed save retains the draft and shows an error. Unsaved navigation asks for confirmation; drafts are not autosaved.
 

@@ -133,9 +133,12 @@ export function submitTicketUpdate(input: SaveInput): SaveResult {
   const currentRevision = current?.revision ?? 0;
 
   if (command.expectedRevision !== currentRevision) {
-    throw new QueueProblem("conflict", "This ticket was saved again after you opened the editor.", {
-      committedRevision: currentRevision,
-    });
+    const message = currentRevision === 0
+      ? "No saved updates for this ticket are available in this browser."
+      : currentRevision < command.expectedRevision
+        ? "This browser now has an older saved version of this ticket."
+        : "This browser has a newer saved version of this ticket.";
+    throw new QueueProblem("conflict", message, { committedRevision: currentRevision });
   }
 
   if (command.status === currentStatus && command.note.length === 0) {

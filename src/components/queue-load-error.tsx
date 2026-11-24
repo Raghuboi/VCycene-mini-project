@@ -51,7 +51,7 @@ export function QueueLoadError({ error, onRetry }: { error: unknown; onRetry: ()
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col justify-center gap-4 px-4 py-16">
-      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Monday queue</p>
+      <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">LILA Support Queue</p>
       <h1 className="text-xl font-semibold">{title}</h1>
 
       {problem.kind === "corrupt" || problem.kind === "unsupported" ? (

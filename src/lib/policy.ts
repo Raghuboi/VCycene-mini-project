@@ -210,7 +210,7 @@ export function assessTicket(ticket: SourceTicket, scenarioDay: number = SCENARI
       timing.push(
         left >= 0
           ? `Standard refund window closes ${formatDay(refundWindowClosesDay)} (${dayCount(left)} left).`
-          : `Standard refund window closed ${formatDay(refundWindowClosesDay)}, but the return was already underway, so the request itself stays valid.`,
+          : `Standard refund window closed ${formatDay(refundWindowClosesDay)}. The return was already underway; confirm receipt before paying.`,
       );
     } else {
       timing.push(
@@ -247,7 +247,7 @@ export function replyTimingLabel(ticket: SourceTicket, scenarioDay: number = SCE
   tone: "danger" | "warning" | "neutral";
 } {
   if (ticket.LAST_REPLY_FROM === "us") {
-    return { label: `We replied ${formatDay(parseCalendarDate(ticket.LAST_REPLY_DATE))}`, tone: "neutral" };
+    return { label: `Last from us ${formatDay(parseCalendarDate(ticket.LAST_REPLY_DATE))}`, tone: "neutral" };
   }
   const due = nextBusinessDay(parseCalendarDate(ticket.LAST_REPLY_DATE));
   const overdue = daysBetween(due, scenarioDay);
@@ -293,8 +293,10 @@ export function relatedCasesFor(
     const delivered = formatDay(parseCalendarDate(ticket.DELIVERED));
     related.push({
       kind: "same-customer",
-      title: "Same customer, matching delivery date",
-      explanation: `${ticket.CUSTOMER} also has the separate ${sameCustomer.map((entry) => entry.TICKET_ID).join(" and ")} record with the same delivery date, ${delivered}. Both records stay visible; linking does not close, merge, or resolve either one, and a newer message does not answer the older one.`,
+      title: "Same customer",
+      explanation: sameCustomer.every((entry) => entry.DELIVERED === ticket.DELIVERED)
+        ? `Matching delivery date: ${delivered}. Keep the requests separate and check both histories.`
+        : "Check each request and delivery separately.",
       tickets: [ticket, ...sameCustomer],
     });
   }
@@ -310,8 +312,8 @@ export function relatedCasesFor(
     const people = new Set([ticket, ...cohort].map((entry) => entry.CUSTOMER));
     related.push({
       kind: "candidate-firmware",
-      title: "Candidate firmware issue — needs investigation",
-      explanation: `${people.size} different customers on firmware 2.4.1 report interrupted cycles. Only T-101 and T-103 say the problem started after the update. This is a candidate issue from the snapshot, not a confirmed regression, and it is not a diagnosis.`,
+      title: "Possible firmware issue",
+      explanation: `${people.size} different customers on firmware 2.4.1 report interrupted cycles. Only T-101 and T-103 report that it started after the update. This is a signal to investigate, not a diagnosis.`,
       tickets: cohort,
     });
   }
