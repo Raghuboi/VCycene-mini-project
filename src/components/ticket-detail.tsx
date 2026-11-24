@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { BandBadge, StatusBadge } from "./status-badge";
 import { StatusEditor } from "./status-editor";
 import { RelatedCases } from "./related-cases";
+import { DamageClaimEmailActions } from "./damage-claim-email-actions";
 import { formatDayWithYear, formatStamp, parseCalendarDate } from "../lib/dates";
 import { assessTicket } from "../lib/policy";
 import type { CommittedTicket } from "../lib/queue";
@@ -63,6 +64,7 @@ export function TicketDetail({
           <div className="border-t border-border pt-3">
             <h3 className="text-sm font-semibold">{ticket.status === "resolved" ? "Original next step" : "Next step"}</h3>
             <p className="mt-1 text-pretty text-sm text-foreground">{assessment.nextAction}</p>
+            {source.TICKET_ID === "T-104" && <DamageClaimEmailActions />}
           </div>
         </CardContent>
       </Card>
