@@ -1,19 +1,19 @@
 # LILA Support Queue
 
-A browser support queue for the twelve supplied LILA tickets. The exercise takes place on Monday, October 5, 2026. The app explains which cases need attention, saves status changes and internal notes, and links related customer and firmware cases.
+A browser support queue for twelve fictional LILA tickets at a fixed October 5, 2026 snapshot. The app explains which cases need attention, saves status changes and internal notes, and links related customer and firmware cases.
 
 ## Run the queue
 
-Use Node 24 and npm. Clone the default branch and start Vite:
+Use Node.js 24 with npm. To run this polished branch from Windows PowerShell:
 
-```bash
-git clone https://github.com/Raghuboi/VCycene-mini-project.git
+```powershell
+git clone --branch demo/lila-support-queue https://github.com/Raghuboi/VCycene-mini-project.git
 cd VCycene-mini-project
-npm ci
-npm run dev
+npm.cmd ci
+npm.cmd run dev
 ```
 
-Open the local URL printed by Vite, normally http://localhost:5173. Use that same origin for later visits. Opening `index.html` directly is not supported.
+In other shells, use `npm ci` and `npm run dev` instead. If you already have the repository, fetch `origin` and check out `demo/lila-support-queue` before starting. Open the local URL Vite prints. Return to the same scheme, host, and port to see saved edits. Opening `index.html` directly is not supported.
 
 To check types and create the production build:
 
@@ -32,8 +32,8 @@ The preview normally uses http://localhost:4173. Its saved edits are separate fr
 ## Try the required workflow
 
 1. Open T-104. Tom's unfiled damage claim comes first because its window is nearly closed.
-   Switch between Priority, Customer reply deadline and Newest opened to compare those views of the same cases.
-2. Open T-101 and its related T-109. Both records remain visible. The firmware group distinguishes three customers from unrelated symptoms.
+   Use All tickets, Active, or Resolved to filter and Priority, Customer reply deadline, or Newest opened to sort. Priority combines reviewed judgments for this sample with calculated deadlines; it is not a general-purpose classifier.
+2. Open T-101 and follow its Related cases link to T-109. Both records remain visible. Related cases also flags a possible firmware pattern without treating it as a diagnosis.
 3. Change a status, add an internal note, and select **Save update**.
 4. Refresh. The saved status and note are still in the update panel; the original CSV fields do not change.
 
@@ -41,7 +41,7 @@ The preview normally uses http://localhost:4173. Its saved edits are separate fr
 
 ## Saved data and supported scope
 
-Edits stay in one browser profile and origin under the `vcycene.queue.edits` localStorage key. The supported workflow has one active editing tab. A copied URL shares the selected ticket, filter and sort, not another browser's notes.
+Edits stay in one browser profile and origin under the `vcycene.queue.edits` localStorage key. This is not a shared team database. The supported workflow has one active editing tab. A copied URL shares the selected ticket, filter and sort, not another browser's notes.
 
 Saving validates the current data and checks the ticket revision before one storage write. A failed save retains the draft and shows an error. Unsaved navigation asks for confirmation; drafts are not autosaved.
 
@@ -49,21 +49,21 @@ Unreadable data is retained. Recovery offers a raw backup download and a separat
 
 ## Verification
 
+On November 24, 2026, the [polished app revision `bdf9357`](https://github.com/Raghuboi/VCycene-mini-project/commit/bdf93570bfb408c797393bd32548d613e372e77b) passed a production build and Windows Chrome checks for the exact ticket order, reply-deadline sorting, related navigation without storage writes, resolution-note validation, and exact status/note persistence after reload. No uncaught page errors were observed. The README-only closeout does not change that runtime.
+
 The [browser acceptance record](docs/evidence/browser-acceptance.md) covers all twelve cases, save and refresh, URL history, related cases, dirty drafts, resolution notes, quota failure, stale edits, recovery, offline saves, and 1440/1024/390px layouts. It identifies the Windows Chrome source revisions. [Issue #1](https://github.com/Raghuboi/VCycene-mini-project/issues/1) records the historical `c56a9c9` merged-main run and the later PR #11 main readback; [the closeout record](docs/evidence/closeout-2026-11-13.md#focused-live-browser-readback) covers the invalid-history fix.
 
 The [November 13 audit](docs/evidence/closeout-2026-11-13.md) records the focused Windows Chrome history check, source, documentation, shell, and PDF checks. None is a macOS or Safari execution result. There is no unit/mock suite or remote CI workflow.
 
 ## Submission and project reference
 
-[SUBMISSION.md](SUBMISSION.md) is the single source for the build notes and customer/team writing. The applicant's own recording and final PDF access checks remain open. The committed PDF is explicitly a review draft.
+The final PDF and voice recording were delivered and acknowledged. The [final submission source](https://github.com/Raghuboi/VCycene-mini-project/blob/9c6d3246656b9e9518393645113da1bac9eb78b2/SUBMISSION.md) contains the build notes and customer/team writing. The [final PDF with the recording link](https://github.com/Raghuboi/VCycene-mini-project/blob/9c6d3246656b9e9518393645113da1bac9eb78b2/output/pdf/VCycene-submission.pdf) is preserved in [separate draft PR #13](https://github.com/Raghuboi/VCycene-mini-project/pull/13), not merged to `main`. The older review PDF on `main` is historical.
 
 | Read this | For |
 |---|---|
 | [Original rubric](rubric.md) and [tickets](tickets.csv) | Assignment requirements and source facts |
 | [Rubric audit](docs/rubric-audit.md) | Requirement-by-requirement evidence |
-| [Current completion](docs/completion.md) | Remaining actions and GitHub status |
-| [Owner guide](docs/owner-runbook.md) | Windows/iPhone audio recording and tool walkthrough |
-| [Agent handoff](docs/codex-handoff.md) | Finish the recording-dependent attachment |
+| [Original completion record](docs/completion.md) and [owner guide](docs/owner-runbook.md) | Historical submission preparation and tool walkthrough |
 | [Product specification](docs/plan.md) and [state contract](docs/state-and-verification.md) | Policy, architecture, and saved-state behavior |
 
 The app uses React, Vite, TypeScript, TanStack Router and Query, Zod, Papa Parse, and shadcn-style controls. No backend or runtime model is required.
